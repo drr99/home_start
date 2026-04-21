@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>홈스타트 집꾸미기</title>
+    <link rel="stylesheet" href="../assets/css/setting/font.css" />
+    <link rel="stylesheet" href="../assets/css/setting/reset.css" />
+    <link rel="stylesheet" href="../assets/css/setting/header.css" />
+    <link rel="stylesheet" href="../assets/css/shop.css" />
+  </head>
+  <body>
+    <div id="header"></div>
+    <!-- header -->
+    <main id="shop">
+      <div class="shop_objects">
+        <a href="../page/shop_goods_kit.html" class="shop_item kitchen">
+          <img class="hover-frame kitchen" src="../assets/img/shop/shop_ani/kit0.svg" alt="주방" data-text="주방" />
+          <img class="cloud_kit cloud_1920" src="../assets/img/shop/cloud_kit_1920.svg" alt="말풍선" />
+          <img class="cloud_kit cloud_1024" src="../assets/img/shop/cloud_kit_1024.svg" alt="말풍선" />
+          <img class="cloud_kit cloud_480" src="../assets/img/shop/cloud_kit_480.svg" alt="말풍선"
+        /></a>
+
+        <a href="../page/shop_goods_bed.html" class="shop_item bedroom">
+          <img class="hover-frame bedroom" src="../assets/img/shop/shop_ani/bed0.svg" alt="침실" data-text="침실" />
+          <img class="cloud_bed cloud_1920" src="../assets/img/shop/cloud_bed_1920.svg" alt="말풍선" />
+          <img class="cloud_bed cloud_1024" src="../assets/img/shop/cloud_bed_1024.svg" alt="말풍선" />
+          <img class="cloud_bed cloud_480" src="../assets/img/shop/cloud_bed_480.svg" alt="말풍선" />
+        </a>
+
+        <a href="../page/shop_goods_bath.html" class="shop_item bathroom">
+          <img class="hover-frame bathroom" src="../assets/img/shop/shop_ani/bath0.svg" alt="욕실" data-text="욕실" />
+          <img class="cloud_bath cloud_1920" src="../assets/img/shop/cloud_bath_1920.svg" alt="말풍선" />
+          <img class="cloud_bath cloud_1024" src="../assets/img/shop/cloud_bath_1024.svg" alt="말풍선" />
+          <img class="cloud_bath cloud_480" src="../assets/img/shop/cloud_bath_480.svg" alt="말풍선" />
+        </a>
+      </div>
+    </main>
+
+    <div id="footer"></div>
+    <!-- footer -->
+    <script>
+      const kit = document.querySelector(".kitchen img");
+      let kitInterval;
+
+      kit.addEventListener("mouseenter", () => {
+        let frame = 1;
+
+        clearInterval(kitInterval);
+        kitInterval = setInterval(() => {
+          kit.src = `../assets/img/shop/shop_ani/kit${frame}.svg`;
+
+          frame++;
+          if (frame > 5) {
+            clearInterval(kitInterval);
+          }
+        }, 120);
+      });
+
+      kit.addEventListener("mouseleave", () => {
+        clearInterval(kitInterval);
+        kit.src = "../assets/img/shop/shop_ani/kit0.svg";
+      });
+      // 주방 모션
+
+      const bed = document.querySelector(".bedroom img");
+      let bedInterval;
+
+      bed.addEventListener("mouseenter", () => {
+        let frame = 1;
+
+        clearInterval(bedInterval);
+        bedInterval = setInterval(() => {
+          bed.src = `../assets/img/shop/shop_ani/bed${frame}.svg`;
+
+          frame++;
+          if (frame > 5) {
+            clearInterval(bedInterval);
+          }
+        }, 120);
+      });
+      bed.addEventListener("mouseleave", () => {
+        clearInterval(bedInterval);
+        bed.src = "../assets/img/shop/shop_ani/bed0.svg";
+      });
+      // 침실 모션
+
+      const bath = document.querySelector(".bathroom img");
+      let bathInterval;
+
+      bath.addEventListener("mouseenter", () => {
+        let frame = 1;
+
+        clearInterval(bathInterval);
+        bathInterval = setInterval(() => {
+          bath.src = `../assets/img/shop/shop_ani/bath${frame}.svg`;
+
+          frame++;
+          if (frame > 5) {
+            clearInterval(bathInterval);
+          }
+        }, 120);
+      });
+      bath.addEventListener("mouseleave", () => {
+        clearInterval(bathInterval);
+        bath.src = "../assets/img/shop/shop_ani/bath0.svg";
+      });
+      // 욕실 모션
+    </script>
+    <script src="../assets/js/include.js"></script>
+  </body>
+</html>

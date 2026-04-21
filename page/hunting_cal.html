@@ -1,0 +1,398 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>홈스타트 집구하기 중개요율</title>
+    <link rel="stylesheet" href="../assets/css/setting/reset.css" />
+    <link rel="stylesheet" href="../assets/css/setting/font.css" />
+    <link rel="stylesheet" href="../assets/css/setting/header.css" />
+    <link rel="stylesheet" href="../assets/css/hunting_cal.css" />
+  </head>
+  <body>
+    <div id="header"></div>
+    <!-- header -->
+    <div id="hunting_cal">
+      <div class="hunting_cal">
+        <img class="hunting_cal_icon" src="../assets/img/hunting_cal/cal_icon.svg" alt="계산기아이콘" />
+
+        <!-- 계산창 -->
+        <div class="cal" id="cal_wrap">
+          <div class="cal_x_box">
+            <div class="cal_x">
+              <a href="../page/house_hunting.html">
+                <img src="../assets/img/hunting_cal/cal_x.svg" alt="x버튼" />
+              </a>
+            </div>
+          </div>
+
+          <div class="cal_whiteboard">
+            <h1 class="cal_title">중개수수료</h1>
+
+            <div class="cal_boxes">
+              <div>
+                <h2>물건유형</h2>
+                <ul class="cal_box1 btn_group">
+                  <li class="btn property_btn active" data-property="apartment">아파트</li>
+                  <li class="btn property_btn" data-property="officetel">오피스텔</li>
+                  <li class="btn property_btn" data-property="store">사무실</li>
+                </ul>
+              </div>
+              <div>
+                <h2>거래유형</h2>
+
+                <ul class="cal_box2 btn_group">
+                  <li class="btn deal_btn active" data-deal="sale">매매</li>
+                  <li class="btn deal_btn" data-deal="jeonse">전세</li>
+                  <li class="btn deal_btn" data-deal="monthly">월세(반전세)</li>
+                </ul>
+              </div>
+            </div>
+            <h2 class="deal_money">거래금액</h2>
+            <!--  -->
+            <div class="money_box">
+              <div class="input_box" id="price_box">
+                <input type="text" id="price" class="money_box_input" placeholder="금액 입력 ( 단위 : 원 ) " />
+              </div>
+            </div>
+            <!--  -->
+
+            <div id="monthly_box" class="hidden">
+              <div class="input_box">
+                <input type="text" id="deposit" class="money_box_input_monthly first_monthly" placeholder="보증금 입력 ( 단위 : 원 )" />
+              </div>
+              <div class="input_box">
+                <input type="text" id="monthly_rent" class="money_box_input_monthly" placeholder="월세 입력 ( 단위 : 원 )" />
+              </div>
+            </div>
+
+            <br />
+            <button class="cal_btn" id="cal_btn">계산하기</button>
+          </div>
+        </div>
+
+        <!-- 결과창 -->
+        <div class="result_popup hidden" id="result_popup">
+          <div class="result_page">
+            <div class="result_blue">
+              <div class="result_cal_x">
+                <img src="../assets/img/hunting_cal/cal_x.svg" alt="x버튼" />
+              </div>
+            </div>
+
+            <div class="result_whiteboard">
+              <h2 class="result_title">- 계산 결과 -</h2>
+              <div class="result" id="result"></div>
+              <button type="button" class="result_close_btn" id="result_close_btn">다시 계산하기</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- <p class="nonenone">부가세 : ${formatNumber(vat)}원</p> -->
+
+    <div id="footer"></div>
+    <!-- footer -->
+
+    <script src="../assets/js/header.js" defer></script>
+
+    <!-- 계산 스크립트 -->
+    <script>
+      const propertyBtns = document.querySelectorAll(".property_btn");
+      const dealBtns = document.querySelectorAll(".deal_btn");
+
+      const priceBox = document.getElementById("price_box");
+      const monthlyBox = document.getElementById("monthly_box");
+
+      const priceInput = document.getElementById("price");
+      const depositInput = document.getElementById("deposit");
+      const monthlyRentInput = document.getElementById("monthly_rent");
+
+      const calcBtn = document.getElementById("cal_btn");
+
+      const calWrap = document.getElementById("cal_wrap");
+      const resultPopup = document.getElementById("result_popup");
+      const result = document.getElementById("result");
+      const resultCloseBtn = document.getElementById("result_close_btn");
+      const resultCalX = document.querySelector(".result_cal_x");
+
+      let selectedProperty = "apartment";
+      let selectedDeal = "sale";
+
+      propertyBtns.forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          propertyBtns.forEach(function (item) {
+            item.classList.remove("active");
+          });
+
+          btn.classList.add("active");
+          selectedProperty = btn.dataset.property;
+        });
+      });
+
+      dealBtns.forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          dealBtns.forEach(function (item) {
+            item.classList.remove("active");
+          });
+
+          btn.classList.add("active");
+          selectedDeal = btn.dataset.deal;
+
+          if (selectedDeal === "monthly") {
+            priceBox.classList.add("hidden");
+            monthlyBox.classList.remove("hidden");
+          } else {
+            priceBox.classList.remove("hidden");
+            monthlyBox.classList.add("hidden");
+          }
+        });
+      });
+
+      function formatNumber(num) {
+        return Math.floor(num).toLocaleString("ko-KR");
+      }
+
+      function onlyNumber(value) {
+        return Number(String(value).replace(/[^0-9]/g, ""));
+      }
+
+      function formatMoneyWithWon(value) {
+        const numbers = String(value).replace(/[^0-9]/g, "");
+
+        if (numbers === "") return "";
+
+        return Number(numbers).toLocaleString("ko-KR") + " 원";
+      }
+
+      function setCaretByNumberIndex(input, numberIndex) {
+        const value = input.value;
+        let digitCount = 0;
+        let targetIndex = value.length;
+
+        for (let i = 0; i < value.length; i++) {
+          if (/[0-9]/.test(value[i])) {
+            digitCount++;
+          }
+
+          if (digitCount >= numberIndex) {
+            targetIndex = i + 1;
+            break;
+          }
+        }
+
+        input.setSelectionRange(targetIndex, targetIndex);
+      }
+
+      function handleMoneyInput(event) {
+        const input = event.target;
+        const oldValue = input.value;
+        const oldCursor = input.selectionStart;
+
+        const numbersBeforeCursor = oldValue.slice(0, oldCursor).replace(/[^0-9]/g, "").length;
+
+        const formattedValue = formatMoneyWithWon(oldValue);
+        input.value = formattedValue;
+
+        if (formattedValue === "") return;
+
+        if (numbersBeforeCursor === 0) {
+          input.setSelectionRange(0, 0);
+          return;
+        }
+
+        setCaretByNumberIndex(input, numbersBeforeCursor);
+      }
+
+      function moveCaretToEnd(input) {
+        const length = input.value.length;
+        input.setSelectionRange(length, length);
+      }
+
+      priceInput.addEventListener("input", handleMoneyInput);
+      depositInput.addEventListener("input", handleMoneyInput);
+      monthlyRentInput.addEventListener("input", handleMoneyInput);
+
+      [priceInput, depositInput, monthlyRentInput].forEach(function (input) {
+        input.addEventListener("focus", function () {
+          requestAnimationFrame(function () {
+            moveCaretToEnd(input);
+          });
+        });
+      });
+
+      function getMonthlyAmount(deposit, monthlyRent) {
+        const amount = deposit + monthlyRent * 100;
+
+        if (amount < 50000000) {
+          return deposit + monthlyRent * 70;
+        }
+
+        return amount;
+      }
+
+      function getApartmentSaleRate(price) {
+        if (price < 50000000) return { rate: 0.006, limit: 250000 };
+        if (price < 200000000) return { rate: 0.005, limit: 800000 };
+        if (price < 900000000) return { rate: 0.004, limit: 0 };
+        if (price < 1200000000) return { rate: 0.005, limit: 0 };
+        if (price < 1500000000) return { rate: 0.006, limit: 0 };
+        return { rate: 0.007, limit: 0 };
+      }
+
+      function getApartmentRentRate(price) {
+        if (price < 50000000) return { rate: 0.005, limit: 200000 };
+        if (price < 100000000) return { rate: 0.004, limit: 300000 };
+        if (price < 600000000) return { rate: 0.003, limit: 0 };
+        if (price < 1200000000) return { rate: 0.004, limit: 0 };
+        if (price < 1500000000) return { rate: 0.005, limit: 0 };
+        return { rate: 0.006, limit: 0 };
+      }
+
+      function getFeeInfo(property, deal, amount) {
+        let info;
+
+        if (property === "apartment") {
+          if (deal === "sale") {
+            info = getApartmentSaleRate(amount);
+          } else {
+            info = getApartmentRentRate(amount);
+          }
+        } else if (property === "officetel") {
+          if (deal === "sale") {
+            info = { rate: 0.005, limit: 0 };
+          } else {
+            info = { rate: 0.004, limit: 0 };
+          }
+        } else if (property === "store") {
+          info = { rate: 0.009, limit: 0 };
+        }
+
+        let fee = amount * info.rate;
+
+        if (info.limit !== 0 && fee > info.limit) {
+          fee = info.limit;
+        }
+
+        return {
+          rate: info.rate,
+          fee: fee,
+          limit: info.limit,
+        };
+      }
+
+      function calculateBrokerFee() {
+        let amount = 0;
+
+        if (selectedDeal === "monthly") {
+          const deposit = onlyNumber(depositInput.value);
+          const monthlyRent = onlyNumber(monthlyRentInput.value);
+
+          if (!deposit) {
+            alert("보증금을 입력해주세요.");
+            return;
+          }
+
+          if (!monthlyRent) {
+            alert("월세를 입력해주세요.");
+            return;
+          }
+
+          amount = getMonthlyAmount(deposit, monthlyRent);
+        } else {
+          const price = onlyNumber(priceInput.value);
+
+          if (!price) {
+            alert("금액을 입력해주세요.");
+            return;
+          }
+
+          amount = price;
+        }
+
+        const feeInfo = getFeeInfo(selectedProperty, selectedDeal, amount);
+        const vat = feeInfo.fee * 0.1;
+        const vatIncludedFee = feeInfo.fee + vat;
+        const limitText = feeInfo.limit === 0 ? "없음" : `${formatNumber(feeInfo.limit)}원`;
+
+        result.innerHTML = `
+      <div class="result_all">
+        <p class="result_price">거래금액 : ${formatNumber(amount)}원</p>
+        <p>중개수수료 : ${formatNumber(feeInfo.fee)}원</p>
+        <p>부가세 포함 : ${formatNumber(vatIncludedFee)}원</p>
+        <div class="result_notes">
+          <p>적용요율 : ${(feeInfo.rate * 100).toFixed(1)}%</p>
+          <p>한도액 : ${limitText}</p>
+        </div>
+      </div>
+    `;
+
+        calWrap.classList.add("hidden");
+        resultPopup.classList.remove("hidden");
+      }
+
+      function resetInputs() {
+        priceInput.value = "";
+        depositInput.value = "";
+        monthlyRentInput.value = "";
+      }
+
+      function closeResultPopup() {
+        resultPopup.classList.add("hidden");
+        calWrap.classList.remove("hidden");
+        resetInputs();
+
+        if (selectedDeal === "monthly") {
+          depositInput.focus();
+        } else {
+          priceInput.focus();
+        }
+      }
+
+      calcBtn.addEventListener("click", calculateBrokerFee);
+
+      resultCloseBtn.addEventListener("click", closeResultPopup);
+
+      if (resultCalX) {
+        resultCalX.addEventListener("click", closeResultPopup);
+      }
+
+      depositInput.addEventListener("keydown", function (event) {
+        if (event.key === "Tab" && selectedDeal === "monthly" && !event.shiftKey) {
+          event.preventDefault();
+          monthlyRentInput.focus();
+        }
+      });
+
+      monthlyRentInput.addEventListener("keydown", function (event) {
+        if (event.key === "Tab" && selectedDeal === "monthly" && event.shiftKey) {
+          event.preventDefault();
+          depositInput.focus();
+        }
+      });
+
+      document.addEventListener("keydown", function (event) {
+        if (event.key !== "Enter") return;
+
+        const isResultOpen = !resultPopup.classList.contains("hidden");
+        const activeEl = document.activeElement;
+
+        if (isResultOpen) {
+          event.preventDefault();
+          closeResultPopup();
+          return;
+        }
+
+        const isMoneyInput = activeEl === priceInput || activeEl === depositInput || activeEl === monthlyRentInput;
+
+        if (isMoneyInput) {
+          event.preventDefault();
+          calculateBrokerFee();
+        }
+      });
+    </script>
+
+    <script src="../assets/js/include.js"></script>
+  </body>
+</html>

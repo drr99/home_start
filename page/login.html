@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>홈스타트 로그인</title>
+    <link rel="stylesheet" href="../assets/css/setting/font.css" />
+    <link rel="stylesheet" href="../assets/css/setting/reset.css" />
+    <link rel="stylesheet" href="../assets/css/setting/header.css" />
+    <link rel="stylesheet" href="../assets/css/login.css" />
+  </head>
+  <body>
+    <div id="header"></div>
+    <!-- header -->
+    <main id="login">
+      <div class="login_box">
+        <div class="login_title">
+          <h1>LOGIN</h1>
+        </div>
+        <form
+          onsubmit="
+            login();
+            return false;
+          "
+        >
+          <div class="search_box">
+            <h1>ID</h1>
+            <input type="text" id="id" placeholder="아이디" oninput="clearError('id_error')" />
+            <p class="error_msg" id="id_error"></p>
+
+            <h1>P/W</h1>
+            <input type="password" id="pw" placeholder="비밀번호" oninput="clearError('pw_error')" />
+            <p class="error_msg" id="pw_error"></p>
+          </div>
+
+          <div class="login_btns">
+            <button type="submit" class="login_btn">로그인</button>
+            <button type="button" class="naver_btn sns_btn">네이버로 시작하기</button>
+            <button type="button" class="kakao_btn sns_btn">카카오로 시작하기</button>
+            <button type="button" class="join_btn">회원가입</button>
+          </div>
+        </form>
+      </div>
+      <div id="login_success" class="popup">로그인 성공!</div>
+    </main>
+    <div id="footer"></div>
+    <!-- footer -->
+
+    <script src="../assets/js/include.js"></script>
+
+    <script>
+      function login() {
+        const id = document.getElementById("id").value.trim();
+        const pw = document.getElementById("pw").value.trim();
+
+        const idError = document.getElementById("id_error");
+        const pwError = document.getElementById("pw_error");
+        const popup = document.getElementById("login_success");
+
+        idError.textContent = "";
+        pwError.textContent = "";
+
+        if (!id) {
+          idError.textContent = "아이디를 입력하세요.";
+          return;
+        }
+
+        if (!pw) {
+          pwError.textContent = "비밀번호를 입력하세요.";
+          return;
+        }
+
+        popup.style.display = "block";
+
+        setTimeout(() => {
+          popup.style.display = "none";
+        }, 1500);
+      }
+
+      function clearError(errorId) {
+        document.getElementById(errorId).textContent = "";
+      }
+    </script>
+    <script>
+      const naverBtn = document.querySelector(".naver_btn");
+      const kakaoBtn = document.querySelector(".kakao_btn");
+
+      function updateText() {
+        if (window.innerWidth <= 768) {
+          naverBtn.textContent = "네이버";
+          kakaoBtn.textContent = "카카오";
+        } else {
+          naverBtn.textContent = "네이버로 시작하기";
+          kakaoBtn.textContent = "카카오로 시작하기";
+        }
+      }
+
+      // 처음 실행
+      updateText();
+
+      // 창 크기 변경 시 실행
+      window.addEventListener("resize", updateText);
+    </script>
+  </body>
+</html>

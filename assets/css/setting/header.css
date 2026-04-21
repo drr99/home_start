@@ -1,0 +1,259 @@
+html,
+body {
+  height: auto;
+  min-height: 100%;
+}
+body {
+  position: relative;
+}
+/* 헤더 */
+#header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.header_inner {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 80px;
+  box-sizing: border-box;
+  height: 80px;
+  position: absolute;
+  inset: 0;
+  transition: transform 0.3s ease;
+}
+
+.header_inner.hide {
+  transform: translateY(-100%);
+}
+
+.menu_icon {
+  width: 100px;
+  height: 45px;
+}
+.menu_icon img {
+  width: 45px;
+}
+
+.logo_main {
+  width: 130px;
+  height: 45px;
+}
+
+.login_icon {
+  width: 100px;
+  height: 75px;
+  position: relative;
+  top: -15px;
+}
+/* ------------------------------------------------------ */
+/* ------------------------------------------------------ */
+/* ------------------------------------------------------ */
+/* 사이드 메뉴 시작 */
+.side_menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: min(100%, 300px);
+  height: 100vh;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+  z-index: 1100;
+  overflow: hidden;
+
+  background-image: url("../../img/menu_bar/menu_bar.svg");
+  background-repeat: no-repeat;
+  background-position: top left;
+  background-size: 100%;
+}
+
+.side_menu.active {
+  transform: translateX(0);
+}
+
+.side_menu_bg {
+  display: block;
+  object-fit: fill;
+}
+.side_nav {
+  position: absolute;
+  top: 100px;
+  left: 40px;
+}
+
+/* X 버튼 */
+.side_menu_close {
+  position: absolute;
+  display: block;
+  top: 20px;
+  right: 30px;
+  width: 28px;
+  background: none;
+  cursor: pointer;
+}
+.side_menu_close_icon {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.side_menu_close:hover {
+  opacity: 0.8;
+}
+.menu_title {
+  padding-bottom: 10px;
+}
+.about_title {
+  /* margin-bottom: 10%; */
+}
+.about_title span {
+  display: block;
+}
+.menu_link,
+.about_link {
+  color: #4b1e12;
+  font-family: "OngleipEoyeonce";
+  font-size: 40px;
+  position: relative;
+  display: inline-block;
+}
+.duldul {
+  color: #4b1e12;
+  font-family: "OngleipEoyeonce";
+  font-size: 30px;
+  margin-top: -20px;
+}
+.menu_link:hover {
+  color: #ffffff;
+}
+.menu_link:hover .duldul {
+  color: #ffffff;
+}
+.menu_link::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 130px;
+  transform: translateY(-50%);
+  width: 28px;
+  height: 28px;
+  display: block;
+  background: url("../../img/menu_bar/home_icon.png") no-repeat center / contain;
+  opacity: 0;
+  transition: opacity 0.15s ease-in;
+}
+.menu_link:hover::after {
+  opacity: 1;
+}
+.about_link::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 130px;
+  transform: translateY(-50%);
+  width: 50px;
+  height: 50px;
+  display: block;
+  background: url("../../img/menu_bar/menu_bb.svg") no-repeat center / contain;
+  opacity: 0;
+  transition: opacity 0.15s ease-in;
+}
+.about_link:hover::after {
+  opacity: 1;
+}
+
+/* 미디어 쿼리 */
+/* 1. 태블릿 */
+@media (max-width: 1200px) {
+  .header_inner {
+    height: 70px;
+  }
+  .menu_icon {
+    width: 65px;
+  }
+  .logo_main {
+    width: 115px;
+  }
+  .login_icon {
+    width: 65px;
+    top: -22px;
+  }
+}
+@media (max-width: 850px) {
+  .menu_link,
+  .about_link {
+    font-size: 30px;
+  }
+  .about_title {
+    padding-top: 300px;
+  }
+  .side_menu_close {
+    top: 25px;
+    right: 35px;
+    width: 25px;
+  }
+  .menu_link::after {
+    width: 25px;
+    height: 25px;
+  }
+  .about_link::after {
+    width: 40px;
+    height: 40px;
+  }
+  .header_inner {
+    height: 60px;
+  }
+  .header_inner {
+    padding: 0 50px;
+  }
+  .menu_icon {
+    width: 60px;
+  }
+  .logo_main {
+    width: 105px;
+  }
+  .login_icon {
+    width: 60px;
+    top: -15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .menu_link,
+  .about_link {
+    font-size: 27px;
+  }
+  .about_title {
+    padding-top: 250px;
+  }
+  .side_menu_close {
+    top: 30px;
+    right: 40px;
+    width: 20px;
+  }
+  .menu_link::after {
+    width: 25px;
+    height: 25px;
+  }
+  .about_link::after {
+    width: 40px;
+    height: 40px;
+  }
+  .header_inner {
+    padding: 0 30px;
+  }
+  .menu_icon {
+    width: 45px;
+  }
+  .logo_main {
+    width: 83px;
+  }
+  .login_icon {
+    width: 45px;
+    top: -13px;
+  }
+}

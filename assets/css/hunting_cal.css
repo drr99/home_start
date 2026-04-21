@@ -1,0 +1,371 @@
+#hunting_cal {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background-image: url(../img/hunting_cal/OBJECT.svg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  font-family: "OngleipEoyeonce";
+}
+
+/* VV배경계산기 아이콘VV */
+.hunting_cal_icon {
+  width: 74px;
+  height: 118px;
+  opacity: 70%;
+  position: absolute;
+  top: 150px;
+  left: 50px;
+  z-index: -1;
+}
+
+/* VV 계산기 창 전체 VV */
+
+.cal,
+.result_page {
+  width: 976px;
+  height: 588px;
+  background-color: #fff;
+  border: 3px solid #000;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin-top: 16px;
+  overflow: hidden;
+}
+
+/* vv입력 창/결과 창 상단 파란박스vv */
+.cal_x_box,
+.result_blue {
+  width: 100%;
+  flex: 50;
+  background-color: #316aa9;
+  border-bottom: 3px solid #000;
+}
+
+/* vv창 닫는 빨간 X버튼vv */
+.cal_x,
+.result_cal_x {
+  height: 100%;
+  display: flex;
+  justify-content: flex-end; /* 가로 오른쪽 */
+  align-items: center; /* 세로 중앙 */
+}
+.cal_x a {
+  display: block;
+  display: flex;
+  justify-content: flex-end; /* 가로 오른쪽 */
+  align-items: center; /* 세로 중앙 */
+}
+
+/* vv빨간 x 버튼 이미지 크기 조정vv */
+.cal_x a img,
+.result_cal_x img {
+  width: 44px;
+  height: 44px;
+  margin-right: 8px;
+}
+
+/* vv입력 창 / 결과 창 하얀부분vv */
+.cal_whiteboard,
+.result_whiteboard {
+  width: 100%;
+  flex: 536;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* vv중개수수료/ */
+.cal_title {
+  font-size: 44px;
+  margin-bottom: 14px;
+}
+/* vv거래유형 물건유형 글자vv */
+
+.cal_boxes h2 {
+  font-size: 26px;
+  color: #666666;
+  margin-left: 25px;
+  line-height: 28px;
+}
+
+/* 거래금액 글자 폰트vv */
+.money_box {
+  font-size: 26px;
+  color: #666666;
+}
+
+/* vv아파트/오피스텔/매매/전세 버튼들의 부모vv */
+.cal_box1,
+.cal_box2 {
+  display: flex;
+  list-style: none;
+  /* align-items: center; */
+  justify-content: center;
+  position: relative;
+  margin-bottom: 15px;
+}
+
+/* vv아파트/오피스텔/매매/전세 버튼들vv */
+.cal_box1 li,
+.cal_box2 li {
+  width: 118px;
+  height: 45px;
+  font-size: 28px;
+  margin: 4px 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-image: url(../img/hunting_cal/cal_box_btn.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/* vv아파트/오피스텔/매매/전세 버튼들 클릭vv */
+
+.btn.active {
+  background-image: url(../img/hunting_cal/cal_box_btn_hover.svg);
+  background-repeat: no-repeat;
+}
+/* vv아파트/오피스텔/매매/전세 버튼들 호버vv */
+.btn:hover {
+  cursor: pointer;
+}
+/* 계산하려는 돈 단위 입력 인풋창 */
+input.money_box_input,
+input.money_box_input_monthly {
+  width: 450px;
+  height: 52px;
+  border: 1.5px solid #666666;
+  border-radius: 14px !important;
+  padding: 0 15px;
+  box-sizing: border-box;
+
+  font-family: "OngleipEoyeonce";
+  font-size: 28px;
+  color: #666666;
+  text-align: right;
+
+  background: #fff;
+  outline: none;
+
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+.first_monthly {
+  margin-bottom: 10px;
+}
+/* vv계산하기 파란버튼vv */
+.cal_btn,
+.result_close_btn {
+  width: 142px;
+  height: 45px;
+  background-image: url(../img/hunting_cal/cal_btn.svg);
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  margin: 13px 0 20px 0;
+  color: #fff;
+  font-family: "OngleipEoyeonce";
+  font-size: 28px;
+  position: relative;
+  bottom: 4px;
+}
+
+/* 계산 결과 페이지vv */
+
+p .nonenone {
+  display: none;
+}
+.result_close_btn {
+  margin-top: 30px;
+}
+
+.hidden {
+  display: none;
+}
+
+.result_popup {
+  font-size: 32px;
+}
+/* 계산결과 글자vv */
+.result_title {
+  font-size: 44px;
+}
+/* 거래금액 글자 */
+.deal_money {
+  font-size: 26px;
+  color: #666666;
+  position: relative;
+  right: 200px;
+  line-height: 30px;
+  margin-left: 20px;
+}
+
+.result_all {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 36px;
+}
+/* 거래금액 결과창 글자색vv */
+.result_price {
+  color: #666666;
+  font-size: 36px;
+}
+
+/* vv주황 참고사항 창vv */
+.result_notes {
+  display: block;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  width: 280px;
+  height: 100px;
+  background-color: #fbe2a7;
+  border-radius: 14px;
+  border: solid 1px #000;
+  margin-top: 12px;
+}
+
+.result_notes > p {
+  line-height: 1.2;
+}
+/* 미디어쿼리 */
+@media (max-width: 1024px) {
+  .cal,
+  .result_page {
+    width: 748px;
+    height: 486px;
+  }
+  .result_notes {
+    width: 240px;
+    height: 100px;
+  }
+  /* vv아파트/오피스텔/매매/전세 버튼들vv */
+  .cal_box1 li,
+  .cal_box2 li {
+    width: 118px;
+    height: 45px;
+    margin: 0px 24px;
+  }
+
+  /* vv중개수수료 글자vv */
+  .cal_title {
+    font-size: 44px;
+    margin-bottom: 0px;
+  }
+
+  .money_box_input_monthly {
+    height: 30px;
+    padding: 0 0px;
+  }
+
+  /* 파란버튼-계산하기 */
+  .cal_btn {
+    margin: 4px 0 0 0px;
+    position: relative;
+    bottom: 12px;
+  }
+  /* 계산결과 글자vv */
+
+  .result_price {
+    font-size: 30px;
+  }
+  .result_all {
+    font-size: 30px;
+  }
+  .cal_x a img,
+  .result_cal_x img {
+    width: 34px;
+    height: 34px;
+    margin-right: 4px;
+  }
+}
+@media (max-width: 768px) {
+  .cal,
+  .result_page {
+    width: 98%;
+    height: 486px;
+  }
+  .cal_x a img,
+  .result_cal_x img {
+    margin-right: 15%;
+  }
+}
+
+@media (max-width: 480px) {
+  .cal_title {
+    margin-bottom: 8px;
+  }
+  .result_title {
+    margin-bottom: 14px;
+  }
+
+  .cal,
+  .result_page {
+    width: 95%;
+    height: 80%;
+  }
+  .cal_boxes {
+    display: flex;
+  }
+
+  .cal_box1,
+  .cal_box2 {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .cal_box1 li,
+  .cal_box2 li {
+    width: 110px;
+    height: 45px;
+    font-size: 28px;
+    margin: 4px 24px;
+    background-size: contain;
+  }
+
+  input.money_box_input,
+  input.money_box_input_monthly {
+    width: 270px;
+    height: 40px;
+    border-radius: 10px;
+  }
+
+  .deal_money {
+    position: relative;
+    right: 108px;
+    padding-top: 15px;
+  }
+
+  .cal_boxes h2 {
+    margin-left: 24px;
+    padding-top: 20px;
+  }
+
+  .cal_btn {
+    margin: 15px 0 30px 0;
+  }
+
+  .result_close_btn {
+    margin: 40px 0 30px 0;
+  }
+  .cal_x a img,
+  .result_cal_x img {
+    width: 40px;
+    height: 40px;
+    margin-right: 4px;
+  }
+}

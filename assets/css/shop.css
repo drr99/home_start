@@ -1,0 +1,147 @@
+#shop {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background: url(../img/shop/shop_bg_1920.svg) no-repeat center / cover;
+}
+
+.shop_objects {
+  width: 100%;
+  position: absolute;
+  inset: 0;
+}
+
+.shop_item {
+  position: absolute;
+  width: 30%;
+}
+.shop_item .cloud_1920 {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 250px;
+
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+.shop_item .cloud_1024 {
+  display: none;
+}
+.shop_item .cloud_480 {
+  display: none;
+}
+/* hover 시 보이기 */
+.shop_item:hover .cloud_1920 {
+  opacity: 1;
+}
+.shop_item img {
+  width: 100%;
+  display: block;
+}
+
+.kitchen {
+  left: 3%;
+  bottom: 12%;
+}
+
+.bedroom {
+  left: 35%;
+  bottom: 12%;
+}
+
+.bathroom {
+  left: 67%;
+  bottom: 12%;
+}
+
+/* 미디어 쿼리 */
+/* 1. 태블릿 */
+@media (max-width: 1024px) {
+  #shop {
+    background: url(../img/shop/shop_bg_1024.svg) no-repeat center left / cover;
+  }
+  .shop_item .cloud_1920 {
+    display: none;
+  }
+  .shop_item .cloud_1024 {
+    display: block;
+    position: absolute;
+    bottom: 60%;
+    left: 100%;
+    width: 150px;
+
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+  }
+  .shop_item:hover .cloud_1024 {
+    opacity: 1;
+  }
+  .kitchen {
+    width: 300px;
+    left: 8%;
+    bottom: 60%;
+  }
+  .bedroom {
+    width: 300px;
+    left: 23%;
+    bottom: 30%;
+  }
+  .bathroom {
+    width: 300px;
+    left: 38%;
+    bottom: -2%;
+  }
+}
+@media (max-width: 768px) {
+  .shop_item .cloud_1024 {
+    display: none;
+  }
+  .shop_item .cloud_480 {
+    display: block;
+    position: absolute;
+    bottom: 70%;
+    left: 90%;
+    width: 120px;
+
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+  }
+  .shop_item:hover .cloud_480 {
+    opacity: 1;
+  }
+  .shop_item.bathroom .cloud_480 {
+    bottom: 70%;
+    left: -20%;
+  }
+}
+
+@media (max-width: 480px) {
+  #shop {
+    background: url(../img/shop/shop_bg_480.svg) no-repeat center / cover;
+  }
+  .shop_item .cloud_480 {
+    bottom: 90%;
+    left: 60%;
+    width: 100px;
+  }
+  .kitchen {
+    width: 240px;
+    left: 3%;
+    bottom: 60%;
+  }
+  .bedroom {
+    width: 240px;
+    left: 12%;
+    bottom: 30%;
+  }
+  .bathroom {
+    width: 240px;
+    left: 24%;
+    bottom: 0%;
+  }
+}

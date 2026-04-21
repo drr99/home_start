@@ -1,0 +1,191 @@
+#footer {
+  width: 100%;
+  background: #742209;
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+}
+
+.footer_inner {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px clamp(12px, 2vw, 20px);
+}
+
+.logo_footer {
+  width: clamp(90px, 8vw, 104px);
+  height: auto;
+  padding: 10px 5px;
+}
+
+#footer ul li {
+  font-family: "OngleipStudyWell";
+}
+
+.footer_inner .section2 ul {
+  display: flex;
+  font-size: clamp(13px, 1.5vw, 18px);
+  gap: clamp(20px, 4vw, 80px);
+  color: #edded9;
+  padding-top: 10px;
+}
+
+.footer_inner .section2 .section2-4 a {
+  display: block;
+  color: #edded9;
+}
+
+.footer_desc span {
+  display: block;
+}
+
+.section2 .footer_title {
+  padding-bottom: 10px;
+}
+
+.footer_inner .section3 img {
+  width: clamp(25px, 2.3vw, 40px);
+  height: auto;
+  padding: 10px 0;
+}
+
+/* 미디어 쿼리 */
+@media (min-width: 1400px) {
+  .footer_inner .section2 ul {
+    font-size: 22px;
+    gap: 110px;
+  }
+}
+/* 1. 태블릿 */
+@media (max-width: 1024px) {
+  #footer {
+    height: 180px;
+  }
+  .section1 {
+    display: none;
+  }
+
+  .footer_inner {
+    justify-content: center;
+    align-items: center;
+    padding-top: 20px;
+  }
+
+  .section3 {
+    position: absolute;
+    top: 130px;
+    right: 30px;
+  }
+}
+
+/* 2. 작은 태블릿 ~ 큰 모바일 */
+@media (max-width: 850px) {
+  #footer {
+    height: 150px;
+  }
+
+  .footer_inner {
+    padding: 10px 10px 0 10px;
+  }
+
+  .footer_inner .section2 ul {
+    gap: clamp(12px, 2vw, 30px);
+    font-size: clamp(13px, 1.8vw, 15px);
+  }
+
+  .section3 {
+    top: 0;
+    right: 10px;
+    padding: 110px 10px 0 0;
+  }
+
+  .footer_inner .section3 img {
+    width: 23px;
+    padding: 0;
+    width: clamp(20px, 2.3vw, 30px);
+  }
+}
+
+/* 3. 모바일 */
+@media (max-width: 480px) {
+  #footer {
+    height: auto;
+    margin-top: 0;
+    padding: 20px 0 16px;
+  }
+
+  .footer_inner {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: fit-content;
+    margin: 0 auto;
+    padding: 0 20px;
+    position: relative;
+  }
+  .section1 {
+    display: block;
+    position: absolute;
+    top: -10px;
+    left: 12px;
+  }
+  .logo_footer {
+    width: 55px;
+  }
+  .section2-1 .footer_title {
+    visibility: hidden;
+  }
+  .section2 {
+    width: 100%;
+  }
+
+  .footer_inner .section2 ul {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    font-size: 13px;
+    padding-top: 0;
+  }
+
+  .footer_inner .section2 ul li {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+  }
+
+  .section2 .footer_title {
+    width: 62px;
+    flex-shrink: 0;
+    text-align: left;
+  }
+
+  .footer_desc {
+    flex: 1;
+    text-align: left;
+  }
+
+  .footer_desc span {
+    display: block;
+    line-height: 1.45;
+  }
+  .section2-4 a,
+  .section2-4 p {
+    display: block;
+    line-height: 1.45;
+  }
+
+  .section2-4 .use {
+    padding-bottom: 0;
+  }
+
+  .section3 {
+    position: static;
+    display: flex;
+    gap: 10px;
+    padding: 5px 0 0 76px;
+  }
+  .footer_inner .section3 img {
+    width: 18px;
+    height: 18px;
+  }
+}

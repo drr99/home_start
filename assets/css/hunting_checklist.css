@@ -1,0 +1,217 @@
+/* ----------header---------- */
+header {
+  /* background: rgba(255, 255, 255, 0.26); */
+}
+
+body {
+  background: #fcdfeb;
+  position: relative;
+}
+
+footer {
+  width: 100%;
+  height: 200px;
+  background: #742209;
+}
+
+/* ----------checklist---------- */
+#checklist {
+  font-family: "Ownglyph_2022_UWY_Si_Woo";
+  background: url(../img/hunting_checklist/checklist_bg.svg) no-repeat center;
+  background-size: cover;
+  position: relative;
+}
+.img_checklist {
+  background: url(../img/hunting_checklist/checklist.svg) no-repeat center 10px;
+  background-size: 1030px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+}
+.checklist_title {
+  font-size: 50px;
+  padding-top: 125px;
+}
+.checklist_desc {
+  font-size: 23px;
+  line-height: 30px;
+  padding: 0 25px;
+}
+.checklist_desc h1 {
+  font-size: 25px;
+  padding-top: 10px;
+  margin-left: 30px;
+  margin-bottom: 5px;
+  border-bottom: 1px solid #000;
+  text-align: center;
+  /* background: yellow; */
+}
+.check {
+  font-style: normal;
+  /* display: inline-block; */
+  cursor: pointer;
+  position: relative;
+}
+.check::after {
+  content: "\2714";
+  font-size: 25px;
+  color: #fe3b43;
+
+  position: absolute;
+  top: -6px;
+  left: 0;
+
+  opacity: 0;
+  transition: all 0.2s;
+}
+.chk:checked + .check::after {
+  opacity: 1;
+}
+.chk {
+  position: absolute;
+  left: -999em;
+}
+/* ㄴ기존 체크박스 날림 */
+
+.checklist_count {
+  border-top: 1px solid #000;
+  margin-top: 10px;
+}
+.checklist_count::before {
+  content: "\2714";
+  font-size: 25px;
+  color: #fe3b43;
+  padding-right: 100px;
+}
+/* ----------btn---------- */
+.checklist_btn {
+  display: flex;
+  gap: 22px;
+}
+.reset_btn button,
+.save_btn button {
+  font-family: "Ownglyph_2022_UWY_Si_Woo";
+  margin-top: 35px;
+
+  width: 100px;
+  height: 45px;
+  border: 2px solid #4c241e;
+  border-radius: 13px;
+  background: #f5c005;
+
+  font-size: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  cursor: pointer;
+}
+.close_btn {
+  font-family: "OngleipEoyeonce";
+  width: 110px;
+  height: 50px;
+  margin: 90px 0 100px 0;
+
+  background: #ea6161;
+  border: 2px solid #4c241e;
+  border-radius: 11px;
+
+  font-size: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.close_btn a {
+  color: #ffffff;
+  padding: 0 20px;
+  /* background: rgba(0, 4, 255, 0.205); */
+}
+/* ----------save_message---------- */
+.save_modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  background: #f5c005;
+  border: 2px solid #4c241e;
+  color: white;
+
+  padding: 20px 20px;
+  border-radius: 14px;
+  font-size: 28px;
+
+  opacity: 0;
+  transition: 0.3s;
+}
+
+.save_modal.show {
+  opacity: 1;
+}
+/* ----------900---------- */
+@media (max-width: 900px) {
+  .img_checklist {
+    background: url(../img/hunting_checklist/checklist_mini.svg) no-repeat
+      center 10px;
+    background-size: 700px auto;
+  }
+}
+@media (max-width: 510px) {
+  .img_checklist {
+    background: url(../img/hunting_checklist/checklist_phon.svg) no-repeat
+      center 10px;
+    background-size: auto 1600px;
+  }
+  .checklist_title {
+    font-size: 30px;
+  }
+  .checklist_desc {
+    font-size: 19px;
+  }
+  .reset_btn button,
+  .save_btn button {
+    margin-top: 15px;
+
+    width: 67px;
+    height: 35px;
+    border: 1px solid #4c241e;
+    border-radius: 11px;
+
+    font-size: 20px;
+  }
+  .close_btn {
+    width: 67px;
+    height: 35px;
+    border: 1px solid #4c241e;
+    font-size: 35px;
+
+    margin-top: 80px;
+  }
+  .checklist_desc h1 {
+    margin-left: 0px;
+  }
+  .checklist_count::before {
+    font-size: 20px;
+    padding-right: 70px;
+  }
+  .check::after {
+    top: -9px;
+  }
+  .save_modal {
+    padding: 7px 12px;
+    border-radius: 11px;
+    font-size: 23px;
+  }
+  @media (max-width: 440px) {
+    .img_checklist {
+      background-size: cover;
+    }
+    .close_btn {
+      margin: 50px 0 30px 0;
+    }
+  }
+  .close_btn a {
+    padding: 0px 10px;
+  }
+}

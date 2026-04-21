@@ -1,0 +1,151 @@
+#main {
+  overflow: hidden;
+}
+/* 벽 부분 */
+.wall {
+  background: #feecec;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 10%;
+  padding: 6% 10% 0;
+}
+.pot {
+  flex: 3;
+  /* background: red; */
+  margin-bottom: -4%;
+}
+.window {
+  flex: 3.7;
+  padding-bottom: 6%;
+  /* background: rgb(255, 174, 0); */
+}
+.box {
+  flex: 3.3;
+  padding-bottom: 20%;
+  /* background: rgb(179, 255, 0); */
+}
+
+/* 바닥 부분 */
+.floor {
+  background: #d1997d;
+  display: flex;
+  justify-content: center;
+  gap: 10%;
+  padding: 0% 0% 10%;
+  border-top: 2px solid #4c241e;
+}
+.chair {
+  flex: 2.5;
+  margin-top: -3%;
+  /* background: #0000001f; */
+}
+.bb_laptop {
+  flex: 5;
+  margin-top: -9%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.bb_laptop .bb {
+  width: 40%;
+  margin-left: 15%;
+}
+.bb_laptop .laptop {
+  width: 43%;
+  position: absolute;
+  top: 15%;
+  left: 45%;
+  /* background: rgba(255, 234, 234, 0.288); */
+}
+.bb_laptop .desk {
+  width: 65%;
+  margin-top: -14%;
+  margin-left: 30%;
+}
+
+.sofa {
+  flex: 2.5;
+  margin-top: -7%;
+}
+@media (max-width: 1200px) {
+  .wall {
+    gap: 5%;
+    padding: 12% 3% 0;
+  }
+  .window {
+    padding-bottom: 17%;
+  }
+  .box {
+    padding-bottom: 27%;
+  }
+  /* 바닥 부분 */
+  .floor {
+    padding: 0% 2% 15%;
+  }
+  .chair {
+    display: none;
+  }
+  .bb_laptop {
+    flex: 7;
+    margin-top: -15%;
+    margin-left: 10%;
+  }
+  .sofa {
+    flex: 3;
+    margin-top: -8%;
+    margin-right: -13%;
+  }
+}
+@media (max-width: 850px) {
+  .wall {
+    padding: 23% 0% 0 0;
+  }
+  .window {
+    padding-bottom: 27%;
+  }
+  .box {
+    padding-bottom: 35%;
+  }
+  .pot {
+    margin-left: 2%;
+    margin-bottom: -6%;
+  }
+  /* 바닥 부분 */
+  .floor {
+    padding: 0% 2% 30%;
+    border-top: 1px solid #4c241e;
+  }
+  .bb_laptop {
+    margin-top: -5%;
+    margin-left: 17%;
+  }
+  .sofa {
+    flex: 4;
+    margin-top: -12%;
+  }
+}
+@media (max-width: 480px) {
+  .wall {
+    gap: 1%;
+    padding: 30% 0% 0 0;
+  }
+  .window {
+    padding-bottom: 40%;
+  }
+  .box {
+    padding-bottom: 50%;
+    margin-right: -10%;
+  }
+  /* 바닥 부분 */
+  .floor {
+    padding: 0% 0% 50%;
+  }
+  .bb_laptop {
+    flex: 9;
+  }
+  .sofa {
+    flex: 1;
+    margin-top: 0%;
+  }
+}

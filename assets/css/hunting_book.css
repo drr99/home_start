@@ -1,0 +1,277 @@
+/* ----------Swiper---------- */
+.book_section {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: visible;
+}
+.book_swiper {
+  width: min(1080px, 90vw);
+  height: 1000px;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+}
+.swiper-wrapper {
+  align-items: center;
+}
+.swiper-slide {
+  height: 1000px;
+  display: flex;
+  justify-content: center;
+  transition:
+    transform 0.4s ease,
+    opacity 0.4s ease;
+  opacity: 0.7;
+  transform: scale(0.96);
+}
+.swiper-slide-active,
+.swiper-slide-next {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* ---------- 페이지 한 장 ---------- */
+.page_content {
+  width: 100%;
+  padding: 160px 60px;
+  background: transparent;
+  color: #3a3530;
+  position: relative;
+}
+.page_content h1 {
+  font-size: 45px;
+  text-align: center;
+}
+.page_content h2 {
+  background: #d3eef9;
+  border-radius: 8px;
+  font-size: 24px;
+  margin-top: 40px;
+  margin-bottom: 10px;
+  padding-left: 10px;
+}
+.main_text {
+  font-size: 22px;
+  margin-bottom: 10px;
+  padding-left: 10px;
+  line-height: 1.2;
+  word-break: keep-all;
+}
+.sub_text {
+  width: 340px;
+  font-size: 19px;
+  line-height: 1.1;
+  word-break: keep-all;
+  color: #777;
+  padding-left: 10px;
+}
+.sub_text2 {
+  font-size: 19px;
+  line-height: 1.1;
+  word-break: keep-all;
+  color: #777;
+  padding-left: 10px;
+}
+.sub_text::before,
+.sub_text2::before {
+  content: "";
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  background: url(../img/hunting_book/leaf_icon.svg) no-repeat center;
+  background-size: contain;
+}
+
+/* ---------- QR ---------- */
+.qr img {
+  width: 50px;
+  height: 50px;
+}
+.qr p {
+  width: 50px;
+  word-break: keep-all;
+  text-align: center;
+  line-height: 1;
+}
+.sub_box {
+  display: flex;
+  justify-content: space-between;
+}
+.qr_1-1 {
+  margin-left: 4px;
+}
+.qr_1-2 {
+  display: flex;
+  justify-content: end;
+  gap: 15px;
+  margin-top: 10px;
+}
+.qr_1-3 {
+  display: flex;
+  justify-content: end;
+  gap: 15px;
+  margin-top: 5px;
+}
+/* ---------- 바깥 화살표 ---------- */
+.book_nav {
+  width: 6%;
+  height: 6%;
+  position: absolute;
+  top: 50%;
+  z-index: 999;
+  transform: translateY(-50%);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  cursor: pointer;
+}
+.book_prev {
+  left: 3%;
+  background-image: url(../img/hunting_book/book_arrow_l.svg);
+}
+.book_next {
+  right: 3%;
+  background-image: url(../img/hunting_book/book_arrow_r.svg);
+}
+
+/* ----------전체적인---------- */
+#book {
+  font-family: "Ownglyph_2022_UWY_Si_Woo";
+  background: url(../img/hunting_book/book_bg.svg) no-repeat center;
+  background-size: cover;
+  width: 100%;
+  height: 1100px;
+  overflow: visible;
+}
+.img_book {
+  background: url(../img/hunting_book/book.svg) no-repeat center;
+  height: 1000px;
+  position: relative;
+  overflow: visible;
+}
+.book_but {
+  display: flex;
+  justify-content: center;
+}
+.close_btn {
+  width: 110px;
+  height: 50px;
+  background: #96afd7;
+  border: 2px solid #4c241e;
+  border-radius: 11px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.close_btn a {
+  font-family: "OngleipEoyeonce";
+  color: #ffffff;
+  font-size: 50px;
+  padding: 0 20px;
+  /* background: rgba(255, 255, 0, 0.171); */
+}
+
+/* ---------- 미디어 쿼리 ---------- */
+/* ---------- 1300 ---------- */
+@media (max-width: 1300px) {
+  /* 1300 화살표 */
+  .book_prev {
+    left: 3%;
+  }
+  .book_next {
+    right: 3%;
+  }
+  .book_nav {
+    width: 5.5%;
+    height: 5.5%;
+  }
+  /* 1300 페이지글씨 */
+  .page_content {
+    padding: 160px 60px;
+  }
+  .page_content h1 {
+    font-size: 37px;
+  }
+  .page_content h2 {
+    font-size: 22px;
+    margin-top: 30px;
+    margin-bottom: 8px;
+  }
+  .main_text {
+    font-size: 20px;
+    margin-bottom: 8px;
+    line-height: 1.1;
+  }
+  .sub_text,
+  .sub_text2 {
+    font-size: 18px;
+    line-height: 1;
+  }
+  .sub_text::before,
+  .sub_text2::before {
+    width: 13px;
+    height: 13px;
+  }
+}
+
+/* ---------- 1200 ---------- */
+@media (max-width: 1200px) {
+  /* 1200 화살표 */
+  .book_prev {
+    left: 5%;
+  }
+  .book_next {
+    right: 5%;
+  }
+  .book_nav {
+    width: 60px;
+    height: 60px;
+    position: absolute;
+    top: 75%;
+    transform: translateY(0%);
+  }
+}
+
+/* ---------- 930 ---------- */
+@media (max-width: 930px) {
+  .page_content {
+    width: 90%;
+  }
+
+  /* 760 페이지글씨 */
+  .page_content h1 {
+    font-size: 30px;
+    text-align: start;
+  }
+  .page_content h2 {
+    margin-top: 10px;
+  }
+  .qr_1-2 {
+    justify-content: center;
+  }
+  .qr_1-3 {
+    justify-content: center;
+  }
+}
+/* ---------- 600 ---------- */
+@media (max-width: 600px) {
+  .img_book {
+    background: url(../img/hunting_book/book_page.svg) no-repeat center;
+  }
+  .page_content {
+    width: 85%;
+    padding: 160px 10px;
+  }
+  .swiper-slide {
+    justify-content: flex-start;
+  }
+  .qr_1-2 {
+    justify-content: right;
+  }
+  .qr_1-3 {
+    justify-content: right;
+    margin-top: 0px;
+  }
+}

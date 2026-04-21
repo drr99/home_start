@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 334.93 269.37">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #73b8d6;
+        font-family: 'Ownglyph_smartiam-Rg', 'Ownglyph smartiam';
+        font-size: 88.28px;
+      }
+
+      .cls-1, .cls-2 {
+        isolation: isolate;
+      }
+
+      .cls-3 {
+        stroke: url(#linear-gradient);
+      }
+
+      .cls-3, .cls-4, .cls-5 {
+        fill: #fff;
+        stroke-miterlimit: 10;
+        stroke-width: 3px;
+      }
+
+      .cls-4 {
+        stroke: url(#linear-gradient-3);
+      }
+
+      .cls-5 {
+        stroke: url(#linear-gradient-2);
+      }
+    </style>
+    <linearGradient id="linear-gradient" x1="0" y1="160.64" x2="334.93" y2="160.64" gradientTransform="translate(0 271.23) scale(1 -1)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#8fd7f2"/>
+      <stop offset=".04" stop-color="#69cdef"/>
+      <stop offset=".67" stop-color="#89d6f1"/>
+      <stop offset="1" stop-color="#98daf3"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-2" x1="236.01" y1="33.58" x2="270.62" y2="33.58" xlink:href="#linear-gradient"/>
+    <linearGradient id="linear-gradient-3" x1="-3.18" y1="594.13" x2="9.75" y2="594.13" gradientTransform="translate(-245.96 -69.59) rotate(123.7) scale(1 -1)" xlink:href="#linear-gradient"/>
+  </defs>
+  <g>
+    <path class="cls-3" d="M183.32,24.16C173.48,5.58,147.77-2.84,127.46,3.69c-16.6,5.34-27.47,20-25.78,35.93-14.11,2.9-38.71,9.74-60.16,26.95-23.18,18.59-54.44,58.73-32.66,87.07,16.47,21.43,53.82,23.81,61.88,24.18.07,1.15,1.96,23.96,26.64,34.55,18.23,7.82,41.18,5.67,57.58-5.53,6.28,3.33,32.99,16.69,67.9,11.75,23.29-3.3,38.83-13.12,45.55-17.97,15.6,7.09,26.17,6.15,31.8,4.84,27.57-6.43,39.4-45.76,30.08-74.63-8.95-27.75-36.48-42.88-46.16-47.68,12.19-18.54,12.63-40.06-.26-54.59-18.74-21.13-64.24-25.35-99.78-2.99l-.77-1.41Z"/>
+    <path class="cls-5" d="M238.11,234.93c-1.64,6.98.11,10.03,4.99,14.11,4.88,4.08,13.9,3.68,17.69,1.16,1.69-1.13,7.11-5.37,7.97-11.21.26-1.76.57-3.65.12-5.4-.96-3.73-3.61-6.97-5.19-7.95-4.54-2.81-7.19-2.76-11.36-1.99-3.94.73-12.6,4.37-14.23,11.29h0Z"/>
+    <path class="cls-4" d="M249.84,259.33c-1.54-1.65-2.64-1.72-4.56-1.15s-3.38,2.99-3.38,4.42c0,.64.16,2.79,1.54,4.04.41.38.85.78,1.39.97,1.14.4,2.45.27,2.98.03,1.53-.7,1.97-1.4,2.5-2.62.5-1.16,1.05-4.05-.47-5.68h0Z"/>
+  </g>
+  <g class="cls-2">
+    <text class="cls-1" transform="translate(125.16 148.88)"><tspan x="0" y="0">주방</tspan></text>
+  </g>
+</svg>

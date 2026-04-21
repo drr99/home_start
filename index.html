@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>홈스타트</title>
+    <link rel="stylesheet" href="assets/css/setting/font.css" />
+    <link rel="stylesheet" href="assets/css/setting/reset.css" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="stylesheet" href="assets/css/setting/header.css" />
+  </head>
+  <body>
+    <div id="header"></div>
+    <!-- header -->
+    <div class="side_menu">
+      <!-- <img src="assets/img/menu_bar/menu_bar.svg" alt="메뉴바 배경" class="side_menu_bg" /> -->
+
+      <button class="side_menu_close" type="button" aria-label="메뉴 닫기">
+        <img
+          src="assets/img/menu_bar/x_icon.svg"
+          alt="X 아이콘"
+          class="side_menu_close_icon"
+        />
+      </button>
+
+      <nav class="side_nav">
+        <ul class="menu_list">
+          <li class="menu_title">
+            <a href="index.html" class="menu_link">홈</a>
+          </li>
+
+          <li class="menu_title">
+            <a href="page/house_hunting.html" class="menu_link">집구하기</a>
+          </li>
+
+          <li class="menu_title">
+            <a href="page/moving.html" class="menu_link">이사/청소</a>
+          </li>
+
+          <li class="menu_title">
+            <a href="page/shop.html" class="menu_link">집꾸미기</a>
+          </li>
+
+          <li class="menu_title">
+            <a href="page/community.html" class="menu_link">커뮤니티</a>
+          </li>
+
+          <li class="about_title">
+            <a href="page/community.html" class="about_link">
+              <span>ABOUT US</span> <span class="duldul">둘둘짝짝</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <!-- menu_bar -->
+
+    <div id="main">
+      <div class="house_hunting_inner">
+        <div class="wall">
+          <div class="pot">
+            <a href="page/shop.html">
+              <img src="assets/img/main/1920/pot0.svg" alt="" />
+            </a>
+          </div>
+          <div class="window">
+            <a href="page/community.html">
+              <img src="assets/img/main/1920/window0.svg" alt="" />
+            </a>
+          </div>
+
+          <div class="box">
+            <a href="page/moving.html">
+              <img src="assets/img/main/1920/box0.svg" alt=""
+            /></a>
+          </div>
+        </div>
+        <div class="floor">
+          <div class="chair">
+            <img src="assets/img/main/chair.svg" alt="" />
+          </div>
+          <div class="bb_laptop">
+            <img class="bb" src="assets/img/main/bb.svg" alt="" />
+            <img class="desk" src="assets/img/main/desk.svg" alt="" />
+            <a href="page/house_hunting.html">
+              <img
+                class="laptop"
+                src="assets/img/main/1920/laptop0.svg"
+                alt=""
+              />
+            </a>
+          </div>
+          <div class="sofa">
+            <img src="assets/img/main/sofa.svg" alt="" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="footer"></div>
+    <!-- footer -->
+
+    <script>
+      const laptop = document.querySelector(".laptop");
+      let laptopInterval;
+
+      laptop.addEventListener("mouseenter", () => {
+        let frame = 1;
+
+        clearInterval(laptopInterval);
+        laptopInterval = setInterval(() => {
+          laptop.src = `assets/img/main/1920/laptop${frame}.svg`;
+
+          frame++;
+          if (frame > 4) {
+            clearInterval(laptopInterval);
+          }
+        }, 80);
+      });
+
+      laptop.addEventListener("mouseleave", () => {
+        clearInterval(laptopInterval);
+        laptop.src = "assets/img/main/1920/laptop0.svg";
+      });
+      // laptop 모션
+
+      const windowWrap = document.querySelector(".window");
+      const windowImg = document.querySelector(".window img");
+      let windowInterval;
+
+      windowWrap.addEventListener("mouseenter", () => {
+        let frame = 1;
+
+        clearInterval(windowInterval);
+        windowInterval = setInterval(() => {
+          windowImg.src = `assets/img/main/1920/window${frame}.svg`;
+
+          frame++;
+          if (frame > 4) {
+            clearInterval(windowInterval);
+          }
+        }, 80);
+      });
+
+      windowWrap.addEventListener("mouseleave", () => {
+        clearInterval(windowInterval);
+        windowImg.src = "assets/img/main/1920/window0.svg";
+      });
+      // window 모션
+
+      const potWrap = document.querySelector(".pot");
+      const pot = document.querySelector(".pot img");
+      let potInterval;
+
+      potWrap.addEventListener("mouseenter", () => {
+        let frame = 1;
+
+        clearInterval(potInterval);
+        potInterval = setInterval(() => {
+          pot.src = `assets/img/main/1920/pot${frame}.svg`;
+
+          frame++;
+          if (frame > 4) {
+            clearInterval(potInterval);
+          }
+        }, 80);
+      });
+
+      potWrap.addEventListener("mouseleave", () => {
+        clearInterval(potInterval);
+        pot.src = "assets/img/main/1920/pot0.svg";
+      });
+      // pot 모션
+
+      const boxWrap = document.querySelector(".box");
+      const box = document.querySelector(".box img");
+      let boxInterval;
+
+      boxWrap.addEventListener("mouseenter", () => {
+        let frame = 1;
+
+        clearInterval(boxInterval);
+        boxInterval = setInterval(() => {
+          box.src = `assets/img/main/1920/box${frame}.svg`;
+
+          frame++;
+          if (frame > 4) {
+            clearInterval(boxInterval);
+          }
+        }, 80);
+      });
+
+      boxWrap.addEventListener("mouseleave", () => {
+        clearInterval(boxInterval);
+        box.src = "assets/img/main/1920/box0.svg";
+      });
+      // box 모션
+    </script>
+    <script src="assets/js/include.js"></script>
+    <script src="assets/js/big_cursor.js"></script>
+  </body>
+</html>

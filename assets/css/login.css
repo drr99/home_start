@@ -1,0 +1,127 @@
+#login {
+  background: #feecec;
+  font-family: "OngleipEoyeonce";
+}
+#login button {
+  font-family: "Ownglyph_2022_UWY_Si_Woo";
+  font-size: 20px;
+}
+.login_box {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 150px 0 210px 0;
+}
+.login_title {
+  padding-bottom: 30px;
+}
+.login_title h1 {
+  font-size: 50px;
+}
+.search_box h1 {
+  font-size: 30px;
+}
+.search_box input {
+  width: 500px;
+  height: 50px;
+  background: #fff;
+  padding: 0 15px;
+  box-sizing: border-box;
+}
+.login_btns {
+  width: 500px;
+  margin: 20px 0 100px 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.login_btns .sns_btn {
+  width: calc(50% - 5px);
+  background: #fff;
+  margin-bottom: 5px;
+}
+.login_btns > button {
+  width: 100%;
+  height: 50px;
+  background: #ffdfdf;
+}
+.login_btn {
+  margin-bottom: 5px;
+}
+.naver_btn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.naver_btn::before {
+  content: "";
+  display: block;
+
+  width: 18px;
+  height: 18px;
+
+  background: url(../img/login/icon_naver.svg) no-repeat center / contain;
+}
+.kakao_btn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.kakao_btn::before {
+  content: "";
+  display: block;
+
+  width: 18px;
+  height: 18px;
+
+  background: url(../img/login/icon_kakao.svg) no-repeat center / contain;
+}
+.error_msg {
+  color: red;
+  font-size: 13px;
+  font-family: "Pretendard";
+  padding-top: 3px;
+}
+.popup {
+  position: fixed;
+  color: #feecec;
+  font-size: 30px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #ff6868;
+  padding: 20px 35px;
+  border-radius: 10px;
+  display: none;
+}
+@media (max-width: 768px) {
+  .search_box input {
+    width: 330px;
+    padding: 0 20px;
+  }
+  .login_btns {
+    width: 330px;
+    margin: 20px 0 80px 0;
+  }
+  .error_msg {
+    font-size: 11px;
+    padding-top: 5px;
+  }
+  .popup {
+    font-size: 27px;
+    padding: 15px 25px;
+  }
+}
+@media (max-width: 480px) {
+  .login_box {
+    padding: 80px 0 170px 0;
+  }
+  .login_title {
+    padding-bottom: 15px;
+  }
+}

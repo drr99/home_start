@@ -1,0 +1,617 @@
+/* vv흔들조명vv */
+.body {
+  font-family: "OngleipEoyeonce";
+}
+.moving {
+  position: relative;
+  width: 100%;
+  min-height: 2300px; /* photo들이 아래로 이어질 만큼 크게 */
+  overflow: hidden;
+  background-color: #feecec;
+}
+
+.onoff {
+  position: absolute;
+  top: 0;
+
+  width: 100%;
+  height: 100%;
+  background-color: #997f7f;
+  opacity: 1;
+  pointer-events: none;
+  z-index: 0;
+  transition: opacity 0.12s linear;
+}
+.patch {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  background-image: url("../img/moving/lighting_patch.svg");
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: 100% auto;
+  z-index: 1;
+}
+
+.lighting,
+.lighting_follow,
+.lighting_bg {
+  position: absolute;
+  top: -30px;
+
+  left: -10%;
+  width: 120%;
+
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: 100% auto;
+  transform-origin: top center;
+  transform: rotate(-8deg) scale(1.4);
+  transition: transform 0.9s ease-in-out;
+}
+.lighting {
+  z-index: 10;
+  background-image: url("../img/moving/lighting.svg");
+}
+.lighting_bg {
+  opacity: 1;
+
+  z-index: 2;
+  background-image: url("../img/moving/lighting_follow.svg");
+}
+.lighting_follow {
+  opacity: 0.4;
+  z-index: 9;
+  background-image: url("../img/moving/lighting_follow.svg");
+}
+.frames {
+  z-index: 3;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  background-image: url("../img/moving/frames.svg");
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: 100% auto;
+}
+
+.bibi {
+  z-index: 6;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 100vh;
+  background-image: url("../img/moving/bibi.svg");
+  background-repeat: no-repeat;
+  background-position: bottom center;
+  background-size: 100% auto;
+}
+
+/* vv photos 8장vv----------------------------------------------- */
+
+/* 이사 체크리스트 */
+.img_checklist {
+  position: absolute;
+  top: 495px;
+  left: 400px;
+  width: 206px;
+  height: 288px;
+  background: url("../img/moving/moving_checklist.svg") no-repeat center
+    center / contain;
+  z-index: 13;
+  overflow: hidden;
+  /* transition :
+    transform 0.35s ease, filter 0.35s ease; */
+  cursor: pointer;
+}
+
+/* 이사체크리스트 글자 */
+.checklist_overlay_text {
+  font-family: "Ownglyph_2022_UWY_Si_Woo";
+
+  position: absolute;
+  top: 100px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 11;
+  opacity: 0;
+  font-size: 24px;
+  font-weight: 700;
+  color: #000;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+/* 체크리스트 호버 */
+.img_checklist:hover {
+  /* transform: scale(1.08); */
+  filter: drop-shadow(0 12px 20px rgba(0, 0, 0, 0.25));
+}
+
+.img_checklist:hover .checklist_overlay_text {
+  opacity: 1;
+}
+/*  */
+.photo_wrap {
+  display: flex;
+  justify-content: center;
+}
+.photos {
+  position: relative;
+  width: 1000px;
+  height: 100vh;
+  margin: auto 0;
+  z-index: 10;
+}
+
+.photo {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 11;
+  transform-origin: center center;
+  display: inline-block;
+  /* transition: filter 0.35s ease; */
+}
+/* 포토들 위치조정 */
+.pho1 {
+  position: absolute;
+  top: 370px;
+  left: 220px;
+}
+.pho2 {
+  position: absolute;
+
+  top: 450px;
+  left: 800px;
+}
+.pho3 {
+  position: absolute;
+  top: 710px;
+  left: 200px;
+}
+.pho4 {
+  position: absolute;
+  top: 760px;
+  left: 750px;
+}
+.pho5 {
+  position: absolute;
+  top: 960px;
+  left: 485px;
+}
+.pho6 {
+  position: absolute;
+  top: 1080px;
+  left: 210px;
+}
+.pho7 {
+  position: absolute;
+  top: 1100px;
+  left: 790px;
+}
+.pho8 {
+  position: absolute;
+  top: 1320px;
+  left: 510px;
+}
+/*  */
+.photo:hover {
+  filter: drop-shadow(0 12px 20px rgba(0, 0, 0, 0.25));
+}
+
+.clip {
+  width: 69px;
+  height: 43px;
+  background-image: url("../img/moving/clip.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: -4%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 20;
+}
+
+.photo_bg_wh {
+  width: 220px;
+  height: 218px;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #000;
+  position: relative;
+  overflow: hidden;
+}
+
+.photo_bg_wh::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.5);
+  opacity: 0;
+  /* transition: opacity 0.35s ease; */
+  z-index: 10;
+  pointer-events: none;
+}
+
+.photo_bg_gr {
+  width: 178px;
+  height: 176px;
+  background-color: #dddddd;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  /* transition:
+    background-size 0.35s ease,
+    background-position 0.35s ease; */
+}
+
+.photo_overlay_text {
+  font-family: "Ownglyph_2022_UWY_Si_Woo";
+
+  font-size: 30px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 11;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  font-weight: 700;
+  color: #000;
+  white-space: nowrap;
+  pointer-events: none;
+  text-align: center;
+}
+
+/* 여기서는 transform scale 안 씀 */
+.photo:hover .photo_bg_wh::after {
+  opacity: 1;
+}
+
+.photo:hover .photo_overlay_text {
+  opacity: 1;
+}
+
+/* 1920포토팝업 //////////////////////////////////////*/
+
+.photo,
+.img_checklist {
+  cursor: pointer;
+}
+
+.popup_overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 999;
+  display: none;
+}
+
+.popup_overlay.show {
+  display: block;
+}
+
+.popups_all {
+  /* position: relative; */
+}
+
+.photo_popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  display: none;
+
+  width: 900px;
+  height: 90%;
+  max-width: 90%;
+  margin-top: 2%;
+  background: #fff;
+}
+
+.photo_popup.show {
+  display: block;
+}
+
+.modal_bg_wh {
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  display: flex;
+  overflow: hidden;
+}
+
+.modal_bg_gr {
+  width: 92%;
+  height: 92%;
+  background-color: #f0f0f0;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* 팝업 안 아이프레임 공통내용 */
+
+.popup_iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* 오른쪽 상단 X 작은 버튼 */
+.popup_close_top {
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  background: none;
+  font-size: 24px;
+  line-height: 1;
+}
+
+/* 스크롤 */
+
+/* 윈도우 자체 스크롤 막기 */
+body.modal-open {
+  position: fixed;
+  overflow: hidden;
+  width: 100%;
+}
+
+/* 오버레이 */
+.popup_overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 999;
+  display: none;
+}
+
+.popup_overlay.show {
+  display: block;
+}
+
+/* 팝업 */
+
+.photo_popup.show {
+  display: block;
+}
+
+/*
+/*  */
+
+/* //////////////////////////////////////////////////////////////// */
+
+/* //////////////////////////////////////////////////////////////// */
+
+/* 미디어쿼리 */
+
+@media (max-width: 1000px) {
+  .photo_popup {
+    width: 90vw;
+    height: 80vh;
+    max-width: 90%;
+    min-height: 300px;
+  }
+
+  .light_all {
+    transform: scale(1.5);
+    transform-origin: top center;
+  }
+  .photos .photo {
+    scale: 1;
+  }
+
+  .photos {
+    position: relative;
+    width: 1000px;
+    height: 100vh;
+    margin: auto 0;
+    z-index: 10;
+  }
+  /* // */
+
+  .moving {
+    min-height: 2000px; /* photo들이 아래로 이어질 만큼 크게 */
+  }
+
+  .img_checklist {
+    position: absolute;
+    top: 280px;
+    left: 67%;
+    transform: translateX(-50%);
+    scale: 1;
+    rotate: 2deg;
+  }
+  .img_checklist:hover {
+    position: absolute;
+    top: 280px;
+    left: 67%;
+    transform: translateX(-50%);
+    rotate: 2deg;
+  }
+
+  .photos {
+    width: 94vw;
+  }
+
+  /* 포토들 위치조정 */
+
+  /* 1원룸이사 */
+  .pho1 {
+    position: absolute;
+    top: 250px;
+    left: 34%;
+  }
+  /* 2사다리차 비교 */
+  .pho2 {
+    position: absolute;
+    top: 480px;
+    left: 30%;
+
+    rotate: -20deg;
+  }
+  /* 3보관이사 */
+  .pho3 {
+    position: absolute;
+    top: 610px;
+    left: 66%;
+    rotate: 10deg;
+  }
+  /* 4손없는날 */
+  .pho4 {
+    position: absolute;
+    top: 790px;
+    left: 32%;
+
+    rotate: 0deg;
+  }
+  /* 5입주청소 체크리스트 */
+  .pho5 {
+    position: absolute;
+    top: 854px;
+    left: 68%;
+    rotate: 0deg;
+  }
+  /* 6포장반포장 */
+  .pho6 {
+    position: absolute;
+    top: 1050px;
+    left: 30%;
+
+    rotate: -10deg;
+  }
+  /* 7입주청소 총정리 */
+  .pho7 {
+    position: absolute;
+    top: 1150px;
+    left: 66%;
+    rotate: 12deg;
+  }
+  /* 8 셀프 입주청소 */
+  .pho8 {
+    position: absolute;
+    top: 1350px;
+    left: 44%;
+  }
+
+  .bibi {
+    transform: scale(1.4);
+    transform-origin: bottom center;
+  }
+}
+
+@media (max-width: 480px) {
+  .moving {
+    min-height: 1550px; /* photo들이 아래로 이어질 만큼 크게 */
+  }
+  .bibi {
+    height: 200px;
+  }
+  .light_all {
+    transform: translateY(40px) scale(2.5);
+    transform-origin: top center;
+  }
+
+  .patch {
+    display: none;
+  }
+  .photos .photo {
+    scale: 0.7;
+  }
+  .photos {
+  }
+
+  /* // */
+
+  .img_checklist {
+    position: absolute;
+    top: 200px;
+    left: 68%;
+    transform: translateX(-50%);
+    scale: 0.7;
+    rotate: 10deg;
+  }
+  .img_checklist:hover {
+    position: absolute;
+    top: 200px;
+    left: 68%;
+    transform: translateX(-50%);
+    rotate: 10deg;
+  }
+
+  /* 포토들 위치조정 */
+
+  /* 1원룸이사 */
+  .pho1 {
+    position: absolute;
+    top: 180px;
+    left: 20%;
+  }
+  /* 2사다리차 비교 */
+  .pho2 {
+    position: absolute;
+    top: 370px;
+    left: 16%;
+    rotate: -16deg;
+  }
+  /* 3보관이사 */
+  .pho3 {
+    position: absolute;
+    top: 480px;
+    left: 66%;
+    rotate: 10deg;
+  }
+  /* 4손없는날 */
+  .pho4 {
+    position: absolute;
+    top: 610px;
+    left: 18%;
+    rotate: 0deg;
+  }
+  /* 5입주청소 체크리스트 */
+  .pho5 {
+    position: absolute;
+    top: 700px;
+    left: 64%;
+    rotate: 0deg;
+  }
+  /* 6포장반포장 */
+  .pho6 {
+    position: absolute;
+    top: 830px;
+    left: 17%;
+    rotate: -10deg;
+  }
+  /* 7입주청소 총정리 */
+  .pho7 {
+    position: absolute;
+    top: 960px;
+    left: 64%;
+    rotate: 20deg;
+  }
+  /* 8 셀프 입주청소 */
+  .pho8 {
+    position: absolute;
+    top: 1100px;
+    left: 38%;
+  }
+
+  .bibi {
+    transform: scale(1.4);
+    transform-origin: bottom center;
+  }
+  .popups_all {
+    height: inherit;
+  }
+}
