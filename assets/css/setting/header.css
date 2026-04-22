@@ -25,7 +25,7 @@ body {
   height: 80px;
   position: absolute;
   inset: 0;
-  transition: transform 0.3s ease-in;
+  transition: transform 0.3s ease;
 }
 
 .header_inner.hide {
@@ -67,7 +67,7 @@ body {
   overflow: hidden;
 
   background-image: url("../../img/menu_bar/menu_bar.svg");
-  background-repeat: no-repeat;
+  /* background-repeat: no-repeat; */
   background-position: top left;
   background-size: 100%;
 }
@@ -106,11 +106,14 @@ body {
 }
 .menu_title {
   padding-bottom: 10px;
+  width: 200px;
 }
 .about_title {
   position: fixed;
   bottom: 3%;
+  width: 200px;
 }
+
 .about_title span {
   display: block;
 }
@@ -120,7 +123,10 @@ body {
   font-family: "OngleipEoyeonce";
   font-size: 40px;
   position: relative;
-  display: inline-block;
+  display: block;
+  width: 100%;
+  padding-right: 50px;
+  box-sizing: border-box;
 }
 .duldul {
   color: #4b1e12;
@@ -128,8 +134,17 @@ body {
   font-size: 30px;
   margin-top: -20px;
 }
-.menu_link:hover {
+/* .menu_link:hover {
   color: #ffffff;
+}
+.menu_link:hover::after {
+  opacity: 1;
+} */
+.menu_title:hover .menu_link {
+  color: #ffffff;
+}
+.menu_title:hover .menu_link::after {
+  opacity: 1;
 }
 .menu_link:hover .duldul {
   color: #ffffff;
@@ -147,9 +162,7 @@ body {
   opacity: 0;
   transition: opacity 0.15s ease-in;
 }
-.menu_link:hover::after {
-  opacity: 1;
-}
+
 .about_link::after {
   content: "";
   position: absolute;
