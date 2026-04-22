@@ -13,12 +13,39 @@ function saveStore(store) {
 }
 
 function ensurePost(store, postId) {
+  const defaultLikes = {
+    post1: 132,
+    post2: 108,
+    post3: 100,
+    post4: 57,
+  };
+
+  const defaultComments = {
+    post1: 12,
+    post2: 8,
+    post3: 5,
+    post4: 0,
+  };
+
   if (!store[postId]) {
     store[postId] = {
-      like: 0,
-      comment: 0,
+      like: defaultLikes[postId] || 0,
+      comment: defaultComments[postId] || 0,
       comments: [],
     };
+  } else {
+    // 예전 데이터 보정
+    if (typeof store[postId].like !== "number") {
+      store[postId].like = defaultLikes[postId] || 0;
+    }
+
+    if (typeof store[postId].comment !== "number") {
+      store[postId].comment = defaultComments[postId] || 0;
+    }
+
+    if (!Array.isArray(store[postId].comments)) {
+      store[postId].comments = [];
+    }
   }
 }
 
@@ -34,8 +61,6 @@ const cards = document.querySelectorAll(".commu_contents");
 
 /* =========================
    게시글 목록 초기화
-   - postId 없으면 자동 생성
-   - 좋아요 / 댓글 수 출력
 ========================= */
 cards.forEach((card, index) => {
   let postId = card.dataset.postId;
@@ -68,15 +93,11 @@ const popup = document.getElementById("deletedPopup");
 const popupClose = document.querySelector(".popup_close");
 
 function openPopup() {
-  if (popup) {
-    popup.classList.add("show");
-  }
+  if (popup) popup.classList.add("show");
 }
 
 function closePopup() {
-  if (popup) {
-    popup.classList.remove("show");
-  }
+  if (popup) popup.classList.remove("show");
 }
 
 if (popupClose) {
@@ -101,7 +122,7 @@ if (popup) {
 }
 
 /* =========================
- 메뉴 active + 카테고리 필터
+   메뉴 active + 카테고리 필터
 ========================= */
 const menuLinks = document.querySelectorAll(".commu_menu_l a");
 const allCards = document.querySelectorAll(".commu_box_main .commu_contents");

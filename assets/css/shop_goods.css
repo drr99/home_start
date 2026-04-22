@@ -318,7 +318,7 @@
   cursor: pointer;
 }
 .top.show {
-  opacity: 0.8;
+  opacity: 1;
 }
 
 /* 미디어 쿼리 */
@@ -377,6 +377,10 @@
     background-size: 840px auto;
     background-position: bottom -2px center;
   }
+  .top {
+    height: 45px;
+    width: 45px;
+  }
 }
 @media (max-width: 780px) {
   .footer_bg {
@@ -385,6 +389,10 @@
     margin-top: 34px;
     background-size: 700px auto;
     background-position: bottom -2px;
+  }
+  .top {
+    height: 40px;
+    width: 40px;
   }
 }
 @media (max-width: 680px) {

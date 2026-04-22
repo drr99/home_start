@@ -90,7 +90,7 @@
   justify-content: center;
   align-items: center;
   width: 120px;
-  height: 45px;
+  height: 42px;
   border-radius: 0 25px 0 0;
   font-size: 1.15rem;
   font-weight: 600;
@@ -121,7 +121,7 @@
 .commu_menu_r li a {
   color: #fff;
   width: 120px;
-  height: 45px;
+  height: 42px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -149,7 +149,17 @@
   max-width: 980px;
   margin: 30px auto 0;
 }
-
+.posting .post_category {
+  display: inline-block;
+  padding: 4px 7px;
+  margin-bottom: 12px;
+  border-radius: 4px;
+  background: #eaedef;
+  color: #828c94;
+  font-size: 0.72rem;
+  font-weight: 600;
+  line-height: 1;
+}
 .posting .title {
   font-size: 1.25rem;
   font-weight: 700;
@@ -391,7 +401,6 @@
   flex-wrap: wrap;
   gap: 14px;
   font-size: 0.8125rem;
-  font-family: "GMarketSans", sans-serif;
   color: #8b8b8b;
 }
 
@@ -1091,7 +1100,11 @@
   .posting {
     margin: 18px auto 0;
   }
-
+  .posting .post_category {
+    font-size: 0.65rem;
+    padding: 3px 6px;
+    margin-bottom: 8px;
+  }
   .posting_profile {
     gap: 8px;
     margin-bottom: 12px;

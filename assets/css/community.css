@@ -4,7 +4,6 @@
   background: #fdfdfd;
   width: 100%;
   max-width: 1060px;
-  /* width: calc(100% - 32px); */
   margin: 0 auto;
 }
 
@@ -51,6 +50,7 @@
   position: relative;
   z-index: 2;
   font-size: 16px;
+  color: #7f4040;
 }
 #search_input::placeholder {
   color: #7f4040b4;
@@ -259,17 +259,36 @@
   width: calc(100% - 32px);
   margin: 50px auto 0;
 }
+.post_category {
+  display: inline-block;
 
+  width: 50px; /* ← 고정 너비 */
+  height: 22px;
+  line-height: 22px; /* ← 세로 가운데 */
+
+  text-align: center; /* ← 글자 가운데 */
+
+  margin-bottom: 8px;
+  border-radius: 4px;
+  background: #eaedef;
+  color: #828c94;
+
+  font-size: 0.72rem;
+  font-weight: 600;
+}
 .commu_box_main .title {
   font-size: 1.25rem;
   margin-bottom: 5px;
   font-weight: bold;
 }
+
 .commu_contents {
-  font-size: 1.25rem;
-  font-weight: 700;
-  height: 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 16px 0;
 }
+
 /* 페이지 버튼 */
 .page_btn {
   display: flex;
@@ -287,13 +306,21 @@
   background: #fff;
   color: #8b8b8b;
 
-  font-size: 0.95rem;
-  text-align: center;
-  line-height: 1;
+  font-size: 14px;
+  font-family: "Pretendard", sans-serif;
   cursor: pointer;
   transition: all 0.2s ease;
-}
 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  line-height: 1;
+}
+.page_arrow svg {
+  width: 15px;
+  height: 15px;
+}
 .page_btn button:hover {
   background: #ffecec;
   color: #ff7f7f;
@@ -348,15 +375,18 @@
   width: 100%;
   padding: 10px;
   border-radius: 10px;
-  background: #222;
+  background: #ff7f7f;
   color: #fff;
+  font-size: 16px;
   border: none;
   cursor: pointer;
   transition: 0.2s;
 }
 
 .popup_close:hover {
-  background: #555;
+  background: #fff;
+  color: #ff7f7f;
+  border: 1px solid #ff7f7f;
 }
 /* 미디어쿼리 */
 @media (max-width: 1200px) {
