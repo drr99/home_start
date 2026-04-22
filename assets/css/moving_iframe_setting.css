@@ -96,7 +96,7 @@ body {
   -webkit-overflow-scrolling: touch;
 }
 .chaejeong_wrap {
-  width: 702px;
+  /* width: 900px; */
 }
 .moving_table {
   font-family: "Ownglyph_2022_UWY_Si_Woo";

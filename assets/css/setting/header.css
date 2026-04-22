@@ -25,7 +25,7 @@ body {
   height: 80px;
   position: absolute;
   inset: 0;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease-in;
 }
 
 .header_inner.hide {
@@ -67,7 +67,7 @@ body {
   overflow: hidden;
 
   background-image: url("../../img/menu_bar/menu_bar.svg");
-  /* background-repeat: no-repeat; */
+  background-repeat: no-repeat;
   background-position: top left;
   background-size: 100%;
 }
