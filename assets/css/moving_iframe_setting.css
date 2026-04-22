@@ -74,15 +74,17 @@ body {
 
 .content_box_title::before {
   content: "";
-  width: 21px;
+  width: 30px;
   height: 21px;
-  background: url(../img/moving/pencil.svg) no-repeat center/cover;
+  background: url(../img/moving/pencil.svg) no-repeat left;
+  background-size: contain;
   display: inline-block;
 }
 
 .content_box_desc {
   font-size: 20px;
   color: #424242;
+  word-break: keep-all;
 }
 
 /* 표 */
@@ -211,6 +213,15 @@ body {
   padding: 5px;
   line-height: 1.2;
 }
+.basic_desc {
+  width: 80%;
+  font-size: 20px;
+  color: #666;
+  padding-bottom: 15px;
+  line-height: 1.2;
+  word-break: keep-all;
+}
+
 #iframe_scroll_wrap {
   position: relative;
   width: 100%;
@@ -232,23 +243,6 @@ body {
 .iframe_scroll_content::-webkit-scrollbar {
   display: none;
 }
-
-.custom_scroll_track {
-  position: absolute;
-  top: 0;
-  right: 8px;
-  width: 6px;
-  height: 100%;
-}
-
-.custom_scroll_icon {
-  position: absolute;
-  top: 0;
-  right: 0;
-  z-index: 10;
-  pointer-events: none;
-}
-/*  */
 
 /* Top button */
 .top {
@@ -317,8 +311,12 @@ body {
     font-size: 18px;
   }
   .content_box_title::before {
-    width: 18px;
-    height: 18px;
+    width: 25px;
+    height: 19px;
+  }
+  .basic_desc {
+    font-size: 18px;
+    padding-bottom: 10px;
   }
 }
 
@@ -348,5 +346,13 @@ body {
   }
   .moving_table {
     font-size: 16px;
+  }
+  .content_box_title::before {
+    width: 22px;
+    height: 18px;
+  }
+  .basic_desc {
+    font-size: 17px;
+    padding-bottom: 5px;
   }
 }
