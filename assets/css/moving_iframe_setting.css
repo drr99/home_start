@@ -96,7 +96,7 @@ body {
   -webkit-overflow-scrolling: touch;
 }
 .chaejeong_wrap {
-  /* width: 900px; */
+  width: 704px;
 }
 .moving_table {
   font-family: "Ownglyph_2022_UWY_Si_Woo";
@@ -251,4 +251,19 @@ body {
 html,
 body {
   overflow-x: hidden;
+}
+/* 미디어쿼리 */
+
+@media (max-width: 1000px) {}
+@media (max-width: 768px) {}
+}
+@media (max-width: 480px) {
+  .content_title {
+    font-size: 24px;
+    padding: 15px 0;
+  }
+  .content_box_title {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
 }

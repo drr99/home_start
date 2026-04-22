@@ -396,7 +396,7 @@ body.modal-open {
 
 /* 미디어쿼리 */
 
-@media (max-width: 1000px) {
+@media (max-width: 1024px) {
   .photo_popup {
     width: 90vw;
     height: 80vh;
