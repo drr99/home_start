@@ -108,7 +108,8 @@ body {
   padding-bottom: 10px;
 }
 .about_title {
-  /* margin-bottom: 10%; */
+  position: fixed;
+  bottom: 3%;
 }
 .about_title span {
   display: block;
