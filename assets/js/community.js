@@ -101,13 +101,31 @@ if (popup) {
 }
 
 /* =========================
-   메뉴 active 처리
+ 메뉴 active + 카테고리 필터
 ========================= */
 const menuLinks = document.querySelectorAll(".commu_menu_l a");
+const allCards = document.querySelectorAll(".commu_box_main .commu_contents");
+
+function filterPosts(category) {
+  allCards.forEach((card) => {
+    const cardCategory = card.dataset.category;
+
+    if (category === "all" || cardCategory === category) {
+      card.style.display = "";
+    } else {
+      card.style.display = "none";
+    }
+  });
+}
 
 menuLinks.forEach((link) => {
-  link.addEventListener("click", function () {
+  link.addEventListener("click", function (e) {
+    e.preventDefault();
+
     menuLinks.forEach((el) => el.classList.remove("active"));
     this.classList.add("active");
+
+    const filter = this.dataset.filter || "all";
+    filterPosts(filter);
   });
 });

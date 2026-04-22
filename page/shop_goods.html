@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="../assets/css/setting/header.css" />
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
-    <title>홈스타트 집꾸미기 상품페이지</title>
+    <title>홈스타트 집꾸미기 상품페이지ㅇㅇ</title>
   </head>
   <body>
     <div id="header"></div>
@@ -229,7 +229,7 @@
       <!-- shop box title -->
 
       <div class="shop_box_iframe" id="shop_box">
-        <iframe src="shop_goods_all.html" name="sub" frameborder="0" width="100%" height="1200" scrolling="no">
+        <iframe src="" name="sub" frameborder="0" width="100%" height="1200" scrolling="no">
         </iframe>
       </div>
     </div>
@@ -259,174 +259,252 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
     <script src="https://kit.fontawesome.com/fb27592f06.js" crossorigin="anonymous"></script>
     <script>
-      // 1) 추천템 슬라이더
-      // =========================
-      const swiper = new Swiper(".shop_slider", {
+ // =========================
+  // 1) 추천템 슬라이더
+  // =========================
+  const swiper = new Swiper(".shop_slider", {
+    slidesPerView: 4.5,
+    spaceBetween: 10,
+    loop: true,
+    autoplay: {
+      delay: 1500,
+      disableOnInteraction: false,
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+    breakpoints: {
+      480: {
+        slidesPerView: 3.5,
+        spaceBetween: 10,
+      },
+      780: {
+        slidesPerView: 4,
+        spaceBetween: 10,
+      },
+      1024: {
         slidesPerView: 4.5,
         spaceBetween: 10,
-        loop: true,
-        autoplay: {
-          delay: 1500,
-          disableOnInteraction: false,
-        },
-        navigation: {
-          nextEl: ".swiper-button-next",
-          prevEl: ".swiper-button-prev",
-        },
-        breakpoints: {
-          480: {
-            slidesPerView: 3.5,
-            spaceBetween: 10,
-          },
-          780: {
-            slidesPerView: 4,
-            spaceBetween: 10,
-          },
-          1024: {
-            slidesPerView: 4.5,
-            spaceBetween: 10,
-          },
-        },
+      },
+    },
+  });
+
+  // =========================
+  // 2) 공통 요소
+  // =========================
+  const iframe = document.querySelector(".shop_box_iframe iframe");
+  const moreBtn = document.querySelector(".more");
+  const moreText = document.querySelector(".more_txt");
+  const moreWrap = document.querySelector(".more_wrap");
+  const categoryLinks = document.querySelectorAll(".shop_box_title a");
+  const topBtn = document.querySelector(".top");
+
+  // =========================
+  // 3) 카테고리 정보
+  // =========================
+  const categoryMap = {
+    all: "shop_goods_all.html",
+    kit: "shop_goods_kit.html",
+    bed: "shop_goods_bed.html",
+    bath: "shop_goods_bath.html",
+  };
+
+  function getCategoryFromUrl() {
+    const params = new URLSearchParams(window.location.search);
+    return params.get("cat") || "all";
+  }
+
+  function getPageByCategory(cat) {
+    return categoryMap[cat] || categoryMap.all;
+  }
+
+  function setActiveMenu(cat) {
+    categoryLinks.forEach((link) => {
+      const href = link.getAttribute("href");
+
+      link.classList.remove("active");
+
+      if (
+        (cat === "all" && href === "shop_goods_all.html") ||
+        (cat === "kit" && href === "shop_goods_kit.html") ||
+        (cat === "bed" && href === "shop_goods_bed.html") ||
+        (cat === "bath" && href === "shop_goods_bath.html")
+      ) {
+        link.classList.add("active");
+      }
+    });
+  }
+
+  function toggleMoreButtonByCategory(cat) {
+    if (!moreWrap) return;
+    moreWrap.style.display = cat === "all" ? "block" : "none";
+  }
+
+  function resetMoreButton() {
+    if (!moreBtn || !moreText) return;
+    moreBtn.classList.remove("open");
+    moreText.textContent = "MORE";
+  }
+
+  // =========================
+  // 4) iframe 높이 자동 조절
+  // =========================
+  function resizeIframe() {
+    if (!iframe) return;
+
+    try {
+      const doc = iframe.contentWindow.document;
+      const shopBox = doc.querySelector(".shop_box");
+
+      iframe.style.height = "0px";
+
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          const newHeight = Math.max(
+            doc.body.scrollHeight,
+            doc.documentElement.scrollHeight,
+            shopBox ? shopBox.offsetHeight : 0
+          );
+
+          iframe.style.height = `${newHeight}px`;
+        });
       });
+    } catch (error) {
+      console.log("iframe 높이 조절 실패:", error);
+    }
+  }
 
-      // 2) 공통 요소
-      // =========================
-      const iframe = document.querySelector(".shop_box_iframe iframe");
-      const moreBtn = document.querySelector(".more");
-      const moreText = document.querySelector(".more_txt");
-      const moreWrap = document.querySelector(".more_wrap");
-      const categoryLinks = document.querySelectorAll(".shop_box_title a");
+  // =========================
+  // 5) 초기 진입 처리
+  // =========================
+  function initCategoryPage() {
+    const currentCat = getCategoryFromUrl();
+    const currentPage = getPageByCategory(currentCat);
 
-      // 3) iframe 높이 자동 조절
-      // =========================
-      function resizeIframe() {
-        if (!iframe) return;
+    if (iframe) {
+      iframe.src = currentPage;
+    }
 
-        try {
-          const doc = iframe.contentWindow.document;
-          const shopBox = doc.querySelector(".shop_box");
+    setActiveMenu(currentCat);
+    toggleMoreButtonByCategory(currentCat);
+    resetMoreButton();
+  }
 
-          iframe.style.height = "0px";
+  initCategoryPage();
 
-          requestAnimationFrame(() => {
-            requestAnimationFrame(() => {
-              const newHeight = Math.max(
-                doc.body.scrollHeight,
-                doc.documentElement.scrollHeight,
-                shopBox ? shopBox.offsetHeight : 0,
-              );
+  // =========================
+  // 6) iframe 로드 시
+  // =========================
+  if (iframe) {
+    iframe.addEventListener("load", () => {
+      resizeIframe();
+      resetMoreButton();
 
-              iframe.style.height = newHeight + "px";
-            });
-          });
-        } catch (error) {
-          console.log("iframe 높이 조절 실패:", error);
-        }
-      }
+      const currentCat = getCategoryFromUrl();
+      toggleMoreButtonByCategory(currentCat);
 
-      // 4) MORE 버튼 초기화
-      // =========================
-      function resetMoreButton() {
-        if (!moreBtn || !moreText) return;
+      setTimeout(() => {
+        resizeIframe();
+      }, 80);
+    });
+  }
 
-        moreBtn.classList.remove("open");
-        moreText.textContent = "MORE";
-      }
+  // =========================
+  // 7) MORE / CLOSE 버튼
+  // =========================
+  if (moreBtn && iframe) {
+    moreBtn.addEventListener("click", () => {
+      try {
+        const doc = iframe.contentWindow.document;
+        const shopBox = doc.querySelector(".shop_box");
 
-      // 5) 전체 카테고리일 때만 MORE 보이기
-      // =========================
-      function toggleMoreButtonByCategory(link) {
-        if (!moreWrap || !link) return;
+        if (!shopBox) return;
 
-        const href = link.getAttribute("href");
+        const isOpen = shopBox.classList.contains("open");
 
-        if (href === "shop_goods_all.html") {
-          moreWrap.style.display = "block";
+        if (isOpen) {
+          shopBox.classList.remove("open");
+          moreBtn.classList.remove("open");
+          moreText.textContent = "MORE";
         } else {
-          moreWrap.style.display = "none";
+          shopBox.classList.add("open");
+          moreBtn.classList.add("open");
+          moreText.textContent = "CLOSE";
         }
-      }
 
-      // 6) iframe 로드 시
-      // =========================
-      if (iframe) {
-        iframe.addEventListener("load", () => {
+        requestAnimationFrame(() => {
           resizeIframe();
-          resetMoreButton();
-
-          const activeLink = document.querySelector(".shop_box_title a.active");
-          toggleMoreButtonByCategory(activeLink);
 
           setTimeout(() => {
             resizeIframe();
-          }, 80);
-        });
-      }
-
-      // 7) MORE / CLOSE 클릭
-      // =========================
-      if (moreBtn && iframe) {
-        moreBtn.addEventListener("click", () => {
-          try {
-            const doc = iframe.contentWindow.document;
-            const shopBox = doc.querySelector(".shop_box");
-
-            if (!shopBox) return;
-
-            const isOpen = shopBox.classList.contains("open");
-
-            if (isOpen) {
-              shopBox.classList.remove("open");
-              moreBtn.classList.remove("open");
-              moreText.textContent = "MORE";
-            } else {
-              shopBox.classList.add("open");
-              moreBtn.classList.add("open");
-              moreText.textContent = "CLOSE";
-            }
 
             requestAnimationFrame(() => {
               resizeIframe();
-
-              setTimeout(() => {
-                resizeIframe();
-
-                requestAnimationFrame(() => {
-                  resizeIframe();
-                });
-              }, 50);
             });
-          } catch (error) {
-            console.log("MORE 동작 실패:", error);
-          }
+          }, 50);
         });
+      } catch (error) {
+        console.log("MORE 동작 실패:", error);
       }
+    });
+  }
 
-      // 8) 카테고리 클릭 시
-      // =========================
-      if (categoryLinks.length) {
-        categoryLinks.forEach((link) => {
-          link.addEventListener("click", () => {
-            categoryLinks.forEach((item) => item.classList.remove("active"));
-            link.classList.add("active");
+  // =========================
+  // 8) 카테고리 클릭
+  // =========================
+  if (categoryLinks.length) {
+    categoryLinks.forEach((link) => {
+      link.addEventListener("click", (e) => {
+        e.preventDefault();
 
-            resetMoreButton();
-            toggleMoreButtonByCategory(link);
+        const href = link.getAttribute("href");
+        let cat = "all";
 
-            setTimeout(() => {
-              resizeIframe();
+        if (href === "shop_goods_kit.html") cat = "kit";
+        if (href === "shop_goods_bed.html") cat = "bed";
+        if (href === "shop_goods_bath.html") cat = "bath";
 
-              setTimeout(() => {
-                resizeIframe();
-              }, 120);
-            }, 150);
-          });
-        });
-      }
+        if (iframe) {
+          iframe.src = href;
+        }
 
-// 탑버튼 
- const topBtn = document.querySelector(".top");
+        history.pushState(null, "", `?cat=${cat}`);
 
+        setActiveMenu(cat);
+        toggleMoreButtonByCategory(cat);
+        resetMoreButton();
+
+        setTimeout(() => {
+          resizeIframe();
+
+          setTimeout(() => {
+            resizeIframe();
+          }, 120);
+        }, 150);
+      });
+    });
+  }
+
+  // =========================
+  // 9) 브라우저 뒤로가기 / 앞으로가기 대응
+  // =========================
+  window.addEventListener("popstate", () => {
+    const currentCat = getCategoryFromUrl();
+    const currentPage = getPageByCategory(currentCat);
+
+    if (iframe) {
+      iframe.src = currentPage;
+    }
+
+    setActiveMenu(currentCat);
+    toggleMoreButtonByCategory(currentCat);
+    resetMoreButton();
+  });
+
+  // =========================
+  // 10) 탑버튼
+  // =========================
   if (topBtn) {
     window.addEventListener("scroll", () => {
       if (window.scrollY > 350) {
@@ -443,7 +521,6 @@
       });
     });
   }
-
     </script>
     <script src="../assets/js/include.js"></script>
   </body>
