@@ -1,38 +1,282 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="../assets/css/setting/reset.css" />
-    <link rel="stylesheet" href="../assets/css/setting/font.css" />
-    <link rel="stylesheet" href="../assets/css/moving_iframe_setting.css" />
-    <link rel="stylesheet" href="../assets/css/moving_iframe2.css" />
-</head>
-<body>
-    <div class="iframe_scroll_wrap">
-      <div class="custom_scroll_track"></div>
-      <div class="custom_scroll_icon">
-        <img
-          src="../assets/img/moving/menu_icon.svg"
-          alt="스크롤 아이콘"
-          style="width: 30px"
-        />
+<div id="iframe_scroll_wrap">
+  <div class="iframe_scroll_content">
+    <div class="moving_iframe">
+      <div class="step_box">STEP 1</div>
+      <div class="content_title">
+        <h2>사다리차 엘리베이터 비교</h2>
+      </div>
+      <!-- 표만들기table -->
+      <!-- 표1 -->
+      <div class="table_title">
+        <h2>짐량, 층수에 따른 사다리차 비용</h2>
+      </div>
+      <div class="moving_table_box">
+        <div class="moving_table_wrap">
+          <table class="moving_table">
+            <thead>
+              <tr>
+                <th>구분</th>
+                <th>5T</th>
+                <th>6T</th>
+                <th>7.5T</th>
+                <th>8.5~10T</th>
+                <th>
+                  시간 <br />
+                  (5T기준)
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td rowspan="3" class="table_gray moving13">포장</td>
+                <td class="table_gray">큰짐</td>
+                <td rowspan="6">x</td>
+                <td rowspan="6">x</td>
+                <td>o</td>
+                <td>o</td>
+                <td rowspan="8">o</td>
+              </tr>
+              <tr>
+                <td class="table_gray">잔짐</td>
+                <td>x</td>
+                <td>x</td>
+              </tr>
+              <tr>
+                <td class="table_gray">주방짐</td>
+                <td>x</td>
+                <td>x</td>
+              </tr>
+              <tr>
+                <td rowspan="3" class="table_gray">배치/정리 범위</td>
+                <td class="table_gray">큰짐</td>
+                <td>o</td>
+                <td>o</td>
+              </tr>
+              <tr>
+                <td class="table_gray">잔짐</td>
+                <td>x</td>
+                <td>x</td>
+              </tr>
+              <tr>
+                <td class="table_gray">주방짐</td>
+                <td>x</td>
+                <td>x</td>
+              </tr>
+              <tr>
+                <td rowspan="2" class="table_gray">운송/운반</td>
+                <td class="table_gray">운송<br />(차량운전)</td>
+                <td>o</td>
+                <td rowspan="2">o</td>
+                <td colspan="2" rowspan="2">o</td>
+              </tr>
+              <tr>
+                <td class="table_gray">운반<br />(짐 상하차)</td>
+                <td>x</td>
+              </tr>
+              <tr>
+                <td rowspan="5" class="table_yellow">원룸이사 비용<br />차이</td>
+                <td class="table_yellow">1톤<br />(평균 10평 내외)</td>
+                <td>4만 원</td>
+                <td>12만 원</td>
+                <td>30만 원</td>
+                <td rowspan="3">반포장A<br />기준<br />약 2~9만 원<br />추가</td>
+                <td>50만 원</td>
+              </tr>
+              <tr>
+                <td class="table_yellow">2.5톤<br />(평균 20평 내외)</td>
+                <td>8만 원</td>
+                <td>20만 원</td>
+                <td>80만 원</td>
+                <td>100만 원</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <!--  -->
+      <div class="table_desc_box">
+        <p class="table_desc">
+          큰짐: tv, 세탁기, 침대 등 / 잔짐: 컴퓨터, 옷 등 / 주방짐: 그릇, 냄비 등<br />
+          이사 비용은 조건(일정, 인력, 차랑 종류, 거리 등)에 따라 상이할 수 있습니다.
+        </p>
       </div>
 
-      <div class="iframe_scroll_content">
-        <div class="moving_iframe">
-
-
-
-
-
-            여기에 내용작성
-
-
-
+      <!--표2 원룸 이사 작업 인원비교 -->
+      <div class="table_title">
+        <h2>원룸 이사 작업 인원 비교</h2>
+      </div>
+      <div class="moving_table_box">
+        <div class="moving_table_wrap">
+          <table class="moving_table">
+            <thead>
+              <tr>
+                <th rowspan="2">비교</th>
+                <th colspan="2">반포장이사</th>
+                <th colspan="2">포장이사</th>
+              </tr>
+              <tr>
+                <th>인력</th>
+                <th>이사비용</th>
+                <th>인력</th>
+                <th>이사비용</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1톤</td>
+                <td>작업자 1명</td>
+                <td>30~40만 원</td>
+                <td>작업자 1명</td>
+                <td>50~60만 원</td>
+              </tr>
+              <tr>
+                <td>2.5톤</td>
+                <td>작업자 2명</td>
+                <td>80~90만 원</td>
+                <td>작업자 2명 + 주방여사님 1명</td>
+                <td>100~110만 원</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
-    <script src="../assets/js/moving_iframe.js"></script>
-    <script src="../assets/js/include.js"></script>
-</body>
-</html>
+      </div>
+
+      <!-- 여기부터 스텝 투step 2 -->
+      <div class="step_box">STEP 2</div>
+      <div class="content_title">
+        <h2>원룸 이사 비용에 영향을 미치는 3요소</h2>
+      </div>
+
+      <!-- 표3 거리별 이사 비용 -->
+      <div class="table_title2">
+        <h2>거리 별 이사 비용</h2>
+      </div>
+      <div class="moving_table_box">
+        <div class="moving_table_wrap">
+          <table class="moving_table">
+            <thead>
+              <tr>
+                <th>운송거리</th>
+                <th>1톤</th>
+                <th>2.5톤</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>50km</td>
+                <td>15만원~</td>
+                <td>20만원~</td>
+              </tr>
+              <tr>
+                <td>100km</td>
+                <td>30만원~</td>
+                <td>40만원~</td>
+              </tr>
+              <tr>
+                <td>150km</td>
+                <td>45만원</td>
+                <td>60만원~</td>
+              </tr>
+              <tr>
+                <td>200km</td>
+                <td>60만원~</td>
+                <td>80만원~</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="table_desc_box">
+        <p class="table_desc">
+          이사 거리가 멀어질수록 비용이 비싸지며, 1톤 기준 50km당 15만 원씩 추가 비용이 발생합니다.
+        </p>
+      </div>
+
+      <!--4 엘베 or 사다리차 사용여부  -->
+      <div class="table_title">
+        <h2>엘레베이터 or 사다리차 사용 여부</h2>
+      </div>
+
+      <div class="moving_table_box">
+        <div class="moving_table_wrap">
+          <table class="moving_table">
+            <thead>
+              <tr>
+                <th>비교</th>
+                <th>엘레베이터</th>
+                <th>사다리차</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>장점</td>
+                <td>사다리차보다 이용료 저렴</td>
+                <td>
+                  파손 걱정이 덜함 <br />
+                  이사 시간 단축
+                </td>
+              </tr>
+              <tr>
+                <td>단점</td>
+                <td>인부 추가로 인건비 발생 가능 <br />비교적 느린 이사 속도</td>
+                <td>
+                  층수가 높고 짐이 많을수록 비싼 이용료 <br />
+                  특수가구 이동 불가
+                </td>
+              </tr>
+              <tr>
+                <td>가격</td>
+                <td>50,000~100,000원</td>
+                <td>120,000~390,000원 이상</td>
+              </tr>
+              <tr>
+                <td>추천</td>
+                <td>짐이 적거나 <br />10층 이상 가구</td>
+                <td>
+                  비싼 가전, 가구가 많거나 <br />
+                  6층 이하 가구
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- 표5 날짜에 따른 비용차이-->
+      <div class="table_title">
+        <h2>날짜에 따른 비용 차이 (주말,손 없는 날)</h2>
+      </div>
+      <div class="moving_table_box">
+        <div class="moving_table_wrap">
+          <table class="moving_table">
+            <thead>
+              <tr>
+                <th>날짜</th>
+                <th>비용</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>주말 (금~일)</td>
+                <td>동일하거나 2만원 차이</td>
+              </tr>
+              <tr>
+                <td>성수기 <br />(2월~4월/9월~11월)</td>
+                <td rowspan="2">약 20~30% 비쌈</td>
+              </tr>
+              <tr>
+                <td>손 없는날, 월말</td>
+              </tr>
+              <tr>
+                <td colspan="2">평일 < 주말, 월말 < 손 없는 날(평일) < 손 없는날(주말)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="top">
+          <img src="../assets/img/moving/moving-to-top.png" alt="탑버튼" />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

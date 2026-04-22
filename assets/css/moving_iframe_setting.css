@@ -96,6 +96,7 @@ body {
 .content_box_desc {
   font-size: 20px;
   color: #424242;
+  word-break: keep-all;
 }
 
 /* 표 */
@@ -106,6 +107,13 @@ body {
   padding: 70px 0 10px 0;
   color: #000;
 }
+
+.table_title2 > h2 {
+  font-size: 28px;
+  padding: 30px 0 10px 0;
+  color: #000;
+}
+
 .table_title {
   width: 85%;
   text-align: center;
@@ -235,6 +243,10 @@ body {
   color: #666;
   padding-bottom: 15px;
   line-height: 1.2;
+<<<<<<< HEAD
+=======
+  word-break: keep-all;
+>>>>>>> e78ac0f9af3640784023e978a160fa88f16679ed
 }
 
 #iframe_scroll_wrap {

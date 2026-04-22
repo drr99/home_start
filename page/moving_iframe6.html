@@ -1,38 +1,221 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="../assets/css/setting/reset.css" />
-    <link rel="stylesheet" href="../assets/css/setting/font.css" />
-    <link rel="stylesheet" href="../assets/css/moving_iframe_setting.css" />
-    <link rel="stylesheet" href="../assets/css/moving_iframe6.css" />
-</head>
-<body>
-    <div class="iframe_scroll_wrap">
-      <div class="custom_scroll_track"></div>
-      <div class="custom_scroll_icon">
-        <img
-          src="../assets/img/moving/menu_icon.svg"
-          alt="스크롤 아이콘"
-          style="width: 30px"
-        />
+<div id="iframe_scroll_wrap">
+  <div class="custom_scroll_track"></div>
+
+  <div class="iframe_scroll_content">
+    <div class="moving_iframe">
+      <div class="step_box">STEP 1</div>
+
+      <div class="content_title">
+        <h2>이사 비용은 범위, 원인에 따라 달라져요</h2>
+      </div>
+      <div class="content_box">
+        <h2 class="content_box_title"><img src="../" alt="" class="pencil_icon" />포장이사, 반포장이사 차이는?</h2>
+        <p class="content_box_desc">
+          포장이사 비용은 1톤 50만 원, 2.5톤 100만 원, 5톤 130만 원, 7.5톤 190 만 원, 10톤 250만 원으로 이사 전반을
+          업체가 담당합니다. 반포장이사는 약 20만 원 저렴하고 큰짐 정리는 업체가, 작은 짐은 고객이 담당합니다.
+        </p>
+      </div>
+      <!--  -->
+      <!-- 표만들기table -->
+      <!-- 표1 -->
+      <div class="table_title">
+        <h2>작업 범위에 따른 이사 비용 비교</h2>
+      </div>
+      <div class="moving_table_box">
+        <div class="moving_table_wrap">
+          <table class="moving_table">
+            <thead>
+              <tr>
+                <th colspan="2">비교</th>
+                <th>운송</th>
+                <th>일반이사</th>
+                <th>반포장이사A</th>
+                <th>반포장이사B</th>
+                <th>포장이사</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td rowspan="3" class="table_gray moving13">포장</td>
+                <td class="table_gray">큰짐</td>
+                <td rowspan="6">x</td>
+                <td rowspan="6">x</td>
+                <td>o</td>
+                <td>o</td>
+                <td rowspan="8">o</td>
+              </tr>
+              <tr>
+                <td class="table_gray">잔짐</td>
+                <td>x</td>
+                <td>o</td>
+              </tr>
+              <tr>
+                <td class="table_gray">주방짐</td>
+                <td>x</td>
+                <td>x</td>
+              </tr>
+              <tr>
+                <td rowspan="3" class="table_gray">배치/정리</td>
+                <td class="table_gray">큰짐</td>
+                <td>o</td>
+                <td>o</td>
+              </tr>
+              <tr>
+                <td class="table_gray">잔짐</td>
+                <td>x</td>
+                <td>x</td>
+              </tr>
+              <tr>
+                <td class="table_gray">주방짐</td>
+                <td>x</td>
+                <td>x</td>
+              </tr>
+              <tr>
+                <td rowspan="2" class="table_gray">운송/운반</td>
+                <td class="table_gray">운송<br />(차량운전)</td>
+                <td>o</td>
+                <td rowspan="2">o</td>
+                <td colspan="2" rowspan="2">o</td>
+              </tr>
+              <tr>
+                <td class="table_gray">운반<br />(짐 상하차)</td>
+                <td>x</td>
+              </tr>
+              <tr>
+                <td rowspan="5" class="table_yellow">평균<br />이사비용</td>
+                <td class="table_yellow">1톤<br />(원룸)</td>
+                <td>4만 원</td>
+                <td>12만 원</td>
+                <td>30만 원</td>
+                <td rowspan="3">반포장A<br />기준에 <br />약 2~9만 원<br />추가</td>
+                <td>50만 원</td>
+              </tr>
+              <tr>
+                <td class="table_yellow">2.5톤<br />(투룸)</td>
+                <td>8만 원</td>
+                <td>20만 원</td>
+                <td>80만 원</td>
+                <td>100만 원</td>
+              </tr>
+              <tr>
+                <td class="table_yellow">5톤<br />(쓰리룸)</td>
+                <td>10만 원</td>
+                <td>35만 원</td>
+                <td>110만 원</td>
+                <td>130만 원</td>
+              </tr>
+              <tr>
+                <td class="table_yellow">7.5톤<br />(쓰리룸이상)</td>
+                <td colspan="2" rowspan="2">상담 필요</td>
+                <td>170만 원</td>
+                <td rowspan="2">반포장A<br />기준에 <br />약 8~15만 원<br />추가</td>
+                <td>190만 원</td>
+              </tr>
+              <tr>
+                <td class="table_yellow">10톤<br />(포룸이상)</td>
+                <td>210만 원</td>
+                <td>250만 원</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
 
-      <div class="iframe_scroll_content">
-        <div class="moving_iframe">
-
-
-
-
-
-            여기에 내용작성
-
-
-
+      <!--  -->
+      <div class="table_desc_box">
+        <p class="table_desc">
+          큰짐: tv, 세탁기, 침대 등 / 잔짐: 컴퓨터, 옷 등 / 주방짐: 그릇, 냄비 등<br />이사 비용은 조건(일정, 인력, 차랑
+          종류, 거리 등)에 따라 상이할 수 있습니다.
+        </p>
+      </div>
+      <!-- 두번째 표:인력에 따른 이사비용 비교 -->
+      <div class="table_title">
+        <h2>인력에 따른 이사 비용 비교</h2>
+      </div>
+      <div class="moving_table_box">
+        <div class="moving_table_wrap">
+          <table class="moving_table">
+            <thead>
+              <tr>
+                <th rowspan="2">비교</th>
+                <th colspan="2">반포장이사</th>
+                <th colspan="2">포장이사</th>
+              </tr>
+              <tr>
+                <th>인력</th>
+                <th>이사비용</th>
+                <th>인력</th>
+                <th>이사비용</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1톤<br />(원룸)</td>
+                <td>작업자 1명</td>
+                <td>30~40만 원</td>
+                <td>작업자 1명</td>
+                <td>50~60만 원</td>
+              </tr>
+              <tr>
+                <td>2.5톤<br />(투룸)</td>
+                <td>작업자 2명</td>
+                <td>80~90만 원</td>
+                <td>작업자 2명 + 주방여사님 1명</td>
+                <td>100~110만 원</td>
+              </tr>
+              <tr>
+                <td>5톤<br />(쓰리룸)</td>
+                <td>작업자 3명</td>
+                <td>110~130만 원</td>
+                <td>작업자 3명 + 주방여사님 1명</td>
+                <td>130~150만 원</td>
+              </tr>
+              <tr>
+                <td>7.5톤<br />(쓰리룸 이상)</td>
+                <td>작업자 4명</td>
+                <td>170~190만 원</td>
+                <td>작업자 4명 + 주방여사님 1명</td>
+                <td>190~210만 원</td>
+              </tr>
+              <tr>
+                <td>10톤<br />(포룸 이상)</td>
+                <td>작업자 5명</td>
+                <td>210~230만 원</td>
+                <td>작업자 5명 + 주방여사님 2명</td>
+                <td>250~270만 원</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
-            <script src="../assets/js/moving_iframe.js"></script>
-    <script src="../assets/js/include.js"></script>
-</body>
-</html>
+      </div>
+
+      <!-- 여기부터 스텝 투step 2 -->
+      <div class="step_box">STEP 2</div>
+      <div class="content_title">
+        <h2>포장이사, 반포장이사 어떤게 유리할까?</h2>
+      </div>
+      <div class="content_box">
+        <h2 class="content_box_title">
+          <img src="../" alt="" class="pencil_icon" />이삿짐 많은 3인이상 가구면 포장이사
+        </h2>
+        <p class="content_box_desc">
+          포장이사란 작업자와 주방 여사님이 이사 전반을 진행하기 때문에 이사 비용이 비싼 편입니다. <br />
+          하지만 주방 여사님이 잔짐(그릇,음식 등) 포장과 욕실, 이사 자재, 포장재 정리부터 마무리 청소까지 하기 때문에
+          이사 속도를 2배 이상 높일 수 있습니다. <br />
+          포장이사 완료 후 청소 서비스는 이삿짐센터마다 조금씩 다를 수 있어, 여러 업체에 문의하며 비교하는 게 좋습니다.
+        </p>
+        <h2 class="content_box_title">
+          <img src="../" alt="" class="pencil_icon" />원룸, 오피스텔 등 소량이사는 반포장이사
+        </h2>
+        <p class="content_box_desc">
+          반포장이사란 이삿짐 센터가 큰짐(냉장고, 세탁기, TV 등)을 포장하고, 작은짐(주방짐, 잡화, 컴퓨터, 옷 등)은 직접
+          포장해야 합니다. 하지만 업체 별 반포장이사 서비스가 다를 수 있고, 큰짐부터 잔짐까지 포장하는 이삿짐센터는 적기
+          때문에 빨리 예약하는 게 좋습니다.
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="top">
+    <img src="../assets/img/moving/moving-to-top.png" alt="탑버튼" />
+  </div>
+</div>

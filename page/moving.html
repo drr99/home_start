@@ -42,9 +42,7 @@
           <div class="photo pho2" data-popup="2">
             <div class="photo_bg_wh">
               <div class="photo_bg_gr"></div>
-              <div class="photo_overlay_text">
-                사다리차 <br />엘레베이터 차이
-              </div>
+              <div class="photo_overlay_text">사다리차 <br />엘레베이터 차이</div>
             </div>
           </div>
 
@@ -197,9 +195,7 @@
       // 조명들 움직임 흔들흔들
 
       window.addEventListener("load", function () {
-        const targets = document.querySelectorAll(
-          ".lighting_bg, .lighting, .lighting_follow",
-        );
+        const targets = document.querySelectorAll(".lighting_bg, .lighting, .lighting_follow");
 
         setTimeout(() => {
           targets.forEach((target) => {
@@ -416,9 +412,7 @@
         if (!contentBox) return;
 
         try {
-          const response = await fetch(
-            `../page/moving_iframe${popupNumber}.html`,
-          );
+          const response = await fetch(`../page/moving_iframe${popupNumber}.html`);
           const html = await response.text();
 
           contentBox.innerHTML = html;
@@ -437,9 +431,7 @@
           const popupNumber = item.dataset.popup;
           closeAllPopups();
 
-          const targetPopup = document.querySelector(
-            `.photo_popup[data-content="${popupNumber}"]`,
-          );
+          const targetPopup = document.querySelector(`.photo_popup[data-content="${popupNumber}"]`);
 
           if (!targetPopup) return;
 
