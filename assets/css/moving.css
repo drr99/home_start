@@ -615,3 +615,24 @@ body.modal-open {
     height: inherit;
   }
 }
+.popup_content {
+  width: 100%;
+  height: 100%;
+}
+
+.popup_content .iframe_scroll_wrap {
+  width: 100%;
+  height: 100%;
+}
+
+.popup_content .iframe_scroll_content {
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.popup_error {
+  padding: 40px;
+  text-align: center;
+}
