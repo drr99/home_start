@@ -7,21 +7,21 @@
   display: flex;
   align-items: flex-end;
   justify-content: end;
-  gap: 50px;
+  gap: 60px;
   padding: 100px 150px 0;
 }
 .checklist {
-  flex: 2.5;
+  flex: 2.2;
   z-index: 2;
   padding-bottom: 15%;
 }
 .monitor {
-  flex: 5;
+  flex: 5.3;
   z-index: 2;
   margin-bottom: -70px;
 }
 .book {
-  flex: 2;
+  flex: 2.5;
   z-index: 2;
   margin-bottom: -90px;
 }
@@ -32,7 +32,7 @@
   justify-content: end;
   gap: 50px;
   padding: 130px 150px 100px;
-  border-top: 1.7px solid #4c241e;
+  border-top: 2px solid #4c241e;
 }
 .cup {
   flex: 2;
@@ -63,56 +63,45 @@
   }
   .desk {
     gap: 50px;
-    padding: 130px 50px 100px;
+    padding: 130px 50px 150px;
   }
 }
-@media (max-width: 850px) {
+@media (max-width: 800px) {
   .wall {
-    gap: 20px;
-    padding: 120px 20px 0;
-  }
-  .desk {
-    gap: 50px;
-    padding: 120px 30px 50px;
-    border-top: 1px solid #4c241e;
+    gap: 10px;
+    padding: 90px 10px 0;
   }
   .checklist {
-    flex: 2.5;
-    z-index: 2;
-    padding-bottom: 15%;
+    flex: 3;
+    padding-bottom: 55%;
   }
   .monitor {
-    flex: 5;
-    z-index: 2;
-    margin-bottom: -50px;
+    flex: 5.5;
+    margin-bottom: -40px;
+    margin-left: -30%;
   }
   .book {
-    flex: 2;
-    z-index: 2;
-    margin-bottom: -70px;
+    width: 50%;
+    flex: 3.5;
+    margin-bottom: -60px;
+  }
+  .desk {
+    gap: 5%;
+    padding: 15% 5% 23%;
+    border-top: 1px solid #4c241e;
   }
 }
 @media (max-width: 480px) {
   .wall {
-    gap: 10px;
-    padding: 100px 10px 0;
+    gap: 0px;
+    padding: 90px 10px 0;
   }
   .checklist {
-    flex: 3;
-    padding-bottom: 60%;
-  }
-  .monitor {
-    flex: 6;
-    margin-bottom: -40px;
-    margin-left: -130px;
-  }
-  .book {
-    width: 50%;
-    flex: 2.5;
-    margin-bottom: -60px;
+    padding-bottom: 50%;
   }
   .desk {
-    gap: 10px;
-    padding: 90px 10px 80px;
+    gap: 5%;
+    padding: 17% 5% 23%;
+    border-top: 1px solid #4c241e;
   }
 }

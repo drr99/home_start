@@ -111,14 +111,9 @@
 .checklist_overlay_text {
   font-family: "Ownglyph_2022_UWY_Si_Woo";
   position: absolute;
-<<<<<<< HEAD
   top: 110px;
   left: 50%;
   margin-left: 5px;
-=======
-  top: 95px;
-  left: 54%;
->>>>>>> 394a92f27f5f9e819e237d898af12ba500f65ad6
   transform: translate(-50%, -50%);
   z-index: 11;
   opacity: 1;
