@@ -63,18 +63,6 @@ body {
   box-sizing: border-box;
   padding: 13px 20px 17px 20px;
 }
-/* 컨텐츠 박스에 이미지 넣을 경우 클래스2 */
-.content_box2 {
-  width: 85%;
-  height: auto;
-  background-color: #fff;
-  border-radius: 20px;
-  border: 1px solid #424242;
-  box-sizing: border-box;
-  padding: 25px 10px 15px 10px;
-
-  margin-top: 20px;
-}
 
 .content_box_title {
   font-size: 28px;
@@ -96,7 +84,6 @@ body {
 .content_box_desc {
   font-size: 20px;
   color: #424242;
-  word-break: keep-all;
 }
 
 /* 표 */
@@ -186,16 +173,6 @@ body {
   font-weight: normal;
 }
 
-.tdImg {
-  width: 50%;
-}
-.tdImg img {
-  width: 200px;
-}
-.imgBox {
-  width: 85%;
-  padding-top: 30px;
-}
 /* 맨 윗줄 top 제거 */
 .moving_table thead tr:first-child th {
   border-top: 0;
@@ -243,10 +220,6 @@ body {
   color: #666;
   padding-bottom: 15px;
   line-height: 1.2;
-<<<<<<< HEAD
-=======
-  word-break: keep-all;
->>>>>>> e78ac0f9af3640784023e978a160fa88f16679ed
 }
 
 #iframe_scroll_wrap {
