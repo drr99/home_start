@@ -1,0 +1,445 @@
+    <script>
+      // 조명들 움직임 흔들흔들
+
+      window.addEventListener("load", function () {
+        const targets = document.querySelectorAll(
+          ".lighting_bg, .lighting, .lighting_follow",
+        );
+
+        setTimeout(() => {
+          targets.forEach((target) => {
+            target.style.transform = "rotate(8deg) scale(1.4)";
+          });
+        }, 100);
+
+        setTimeout(() => {
+          targets.forEach((target) => {
+            target.style.transform = "rotate(-5deg) scale(1.4)";
+          });
+        }, 1000);
+
+        setTimeout(() => {
+          targets.forEach((target) => {
+            target.style.transform = "rotate(2deg) scale(1.4)";
+          });
+        }, 1900);
+
+        setTimeout(() => {
+          targets.forEach((target) => {
+            target.style.transform = "rotate(0deg) scale(1.4)";
+          });
+        }, 2800);
+      });
+
+      // 조명깜빡임
+
+      window.addEventListener("load", function () {
+        const onoff = document.querySelector(".onoff");
+
+        function setBlink(time, opacity) {
+          setTimeout(() => {
+            onoff.style.opacity = opacity;
+          }, time);
+        }
+
+        setBlink(0, "1");
+        setBlink(100, "0.2");
+        setBlink(200, "0.9");
+        setBlink(300, "0.15");
+        setBlink(400, "0.6");
+        setBlink(600, "0.05");
+        setBlink(800, "0.3");
+        setBlink(950, "0");
+      });
+      // 포토
+      const photoList = document.querySelectorAll(".photo");
+
+      const imageListDesktop = [
+        // 1920일 때 포토1 : 원룸 이사
+        {
+          url: "../assets/img/moving/photo1_img.svg",
+          bgPosition: "80% 30%",
+          bgSize: "160%",
+          hoverBgSize: "180%",
+          rotate: "-8deg",
+        },
+
+        // 1920일 때 포토2 : 사다리차 비교
+        {
+          url: "../assets/img/moving/photo2_img.svg",
+          bgPosition: "center center",
+          bgSize: "110%",
+          hoverBgSize: "130%",
+          rotate: "18deg",
+        },
+
+        // 1920일 때 포토3 : 보관이사
+        {
+          url: "../assets/img/moving/photo3_img.svg",
+          bgPosition: "center center",
+          bgSize: "110%",
+          hoverBgSize: "130%",
+
+          rotate: "-5deg",
+        },
+
+        // 1920일 때 포토4 : 손 없는 날
+        {
+          url: "../assets/img/moving/photo4_img.svg",
+          bgPosition: "center center",
+          bgSize: "100%",
+          hoverBgSize: "120%",
+
+          rotate: "4deg",
+        },
+
+        // 1920일 때 포토5 : 입주청소 체크리스트
+        {
+          url: "../assets/img/moving/photo5_img.svg",
+          bgPosition: "top center",
+          bgSize: "90%",
+          hoverBgSize: "105%",
+
+          rotate: "-6deg",
+        },
+
+        // 1920일 때 포토6 : 포장 반포장
+        {
+          url: "../assets/img/moving/photo6_img.svg",
+          bgPosition: "center center",
+          bgSize: "110%",
+          hoverBgSize: "140%",
+
+          rotate: "7deg",
+        },
+
+        // 1920일 때 포토7 : 입주청소 총정리
+        {
+          url: "../assets/img/moving/photo7_img.svg",
+          bgPosition: "center center",
+          bgSize: "95%",
+          hoverBgSize: "115%",
+
+          rotate: "-9deg",
+        },
+
+        // 1920일 때 포토8 : 셀프 입주청소
+        {
+          url: "../assets/img/moving/photo8_img.svg",
+          bgPosition: "center center",
+          bgSize: "120%",
+          hoverBgSize: "145%",
+
+          rotate: "4deg",
+        },
+      ];
+
+      function getImageList() {
+        const width = window.innerWidth;
+
+        return imageListDesktop;
+      }
+      // --------------------------------------------------------------
+      function applyPhotoLayout() {
+        const imageList = getImageList();
+
+        photoList.forEach(function (photo, index) {
+          const bg = photo.querySelector(".photo_bg_gr");
+          const data = imageList[index];
+
+          if (!bg || !data) return;
+
+          bg.style.backgroundImage = `url(${data.url})`;
+          bg.style.backgroundSize = data.bgSize;
+          bg.style.backgroundRepeat = "no-repeat";
+          bg.style.backgroundPosition = data.bgPosition;
+
+          photo.style.top = data.top;
+          photo.style.left = data.left;
+          photo.style.transform = `translateX(-50%) rotate(${data.rotate})`;
+        });
+      }
+
+      photoList.forEach(function (photo, index) {
+        const bg = photo.querySelector(".photo_bg_gr");
+
+        photo.addEventListener("mouseenter", function () {
+          const imageList = getImageList();
+          bg.style.backgroundSize = imageList[index].hoverBgSize;
+        });
+
+        photo.addEventListener("mouseleave", function () {
+          const imageList = getImageList();
+          bg.style.backgroundSize = imageList[index].bgSize;
+        });
+      });
+
+      applyPhotoLayout();
+      window.addEventListener("resize", applyPhotoLayout);
+    </script>
+    <script>
+      const photoButtons = document.querySelectorAll(".photo, .img_checklist");
+      const popups = document.querySelectorAll(
+        ".photo_popup, .photo_check_popup",
+      );
+      const overlay = document.querySelector(".popup_overlay");
+      const closeBtns = document.querySelectorAll(".popup_close");
+
+      let scrollY = 0;
+
+      function lockBodyScroll() {
+        scrollY = window.scrollY;
+        document.body.classList.add("modal-open");
+        document.body.style.top = `-${scrollY}px`;
+      }
+
+      function unlockBodyScroll() {
+        document.body.classList.remove("modal-open");
+        document.body.style.top = "";
+        window.scrollTo(0, scrollY);
+      }
+
+      function closeAllPopups() {
+        popups.forEach((popup) => {
+          popup.classList.remove("show");
+          const contentBox = popup.querySelector(".popup_content");
+          if (contentBox) {
+            contentBox.innerHTML = "";
+          }
+          popup.removeAttribute("data-wheel-init");
+        });
+
+        if (overlay) overlay.classList.remove("show");
+        unlockBodyScroll();
+      }
+
+      async function loadPopupContent(popupNumber, targetPopup) {
+        const contentBox = targetPopup.querySelector(".popup_content");
+        if (!contentBox) return;
+
+        try {
+          const response = await fetch(
+            `../page/moving_iframe${popupNumber}.html`,
+          );
+          if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+          }
+
+          const html = await response.text();
+          contentBox.innerHTML = html;
+          initMovingIframe(targetPopup);
+        } catch (error) {
+          contentBox.innerHTML = `<p class="popup_error">콘텐츠를 불러오지 못했습니다.</p>`;
+          console.error(error);
+        }
+      }
+
+      photoButtons.forEach((item) => {
+        item.addEventListener("click", async () => {
+          const popupNumber = item.dataset.popup;
+          closeAllPopups();
+
+          const targetPopup = document.querySelector(
+            `.photo_popup[data-content="${popupNumber}"], .photo_check_popup[data-content="${popupNumber}"]`,
+          );
+
+          if (!targetPopup) return;
+
+          targetPopup.classList.add("show");
+          if (overlay) overlay.classList.add("show");
+          lockBodyScroll();
+
+          await loadPopupContent(popupNumber, targetPopup);
+        });
+      });
+
+      closeBtns.forEach((btn) => {
+        btn.addEventListener("click", closeAllPopups);
+      });
+
+      if (overlay) {
+        overlay.addEventListener("click", closeAllPopups);
+      }
+
+      function initMovingIframe(targetPopup) {
+        const scrollBox =
+          targetPopup.querySelector(".iframe_scroll_content") ||
+          targetPopup.querySelector(".modal_bg_check") ||
+          targetPopup.querySelector(".modal_bg_gr");
+
+        const topBtn = targetPopup.querySelector(".top");
+        const tableWraps = targetPopup.querySelectorAll(".moving_table_wrap");
+
+        const innerCloseBtn = targetPopup.querySelector(".close_btn");
+        const checkboxes = targetPopup.querySelectorAll(".chk");
+        const counter = targetPopup.querySelector(".checklist_count span");
+        const resetBtn =
+          targetPopup.querySelector(".reset_btn button") ||
+          targetPopup.querySelector(".reset_btn");
+        const saveBtn =
+          targetPopup.querySelector(".save_btn button") ||
+          targetPopup.querySelector(".save_btn");
+        const saveModal = targetPopup.querySelector(".save_modal");
+
+        if (scrollBox && targetPopup.dataset.wheelInit !== "done") {
+          targetPopup.dataset.wheelInit = "done";
+
+          const forwardWheel = (e) => {
+            if (e.target.closest(".moving_table_wrap")) return;
+
+            const canScroll = scrollBox.scrollHeight > scrollBox.clientHeight;
+            if (!canScroll) return;
+
+            e.preventDefault();
+            scrollBox.scrollTop += e.deltaY;
+          };
+
+          targetPopup.addEventListener("wheel", forwardWheel, {
+            passive: false,
+          });
+
+          if (overlay) {
+            overlay.addEventListener("wheel", forwardWheel, { passive: false });
+          }
+        }
+
+        if (topBtn && scrollBox && scrollBox.dataset.topInit !== "done") {
+          scrollBox.dataset.topInit = "done";
+
+          function toggleTopButton() {
+            if (scrollBox.scrollTop > 350) {
+              topBtn.classList.add("show");
+            } else {
+              topBtn.classList.remove("show");
+            }
+          }
+
+          scrollBox.addEventListener("scroll", toggleTopButton);
+
+          topBtn.addEventListener("click", () => {
+            scrollBox.scrollTo({
+              top: 0,
+              behavior: "smooth",
+            });
+          });
+
+          toggleTopButton();
+        }
+
+        tableWraps.forEach((wrap) => {
+          if (wrap.dataset.dragInit === "done") return;
+          wrap.dataset.dragInit = "done";
+
+          let isDown = false;
+          let startX = 0;
+          let startScrollLeft = 0;
+
+          wrap.addEventListener(
+            "touchstart",
+            (e) => {
+              if (e.touches.length !== 1) return;
+              isDown = true;
+              startX = e.touches[0].pageX;
+              startScrollLeft = wrap.scrollLeft;
+            },
+            { passive: true },
+          );
+
+          wrap.addEventListener(
+            "touchmove",
+            (e) => {
+              if (!isDown || e.touches.length !== 1) return;
+              const currentX = e.touches[0].pageX;
+              const diffX = currentX - startX;
+              if (Math.abs(diffX) > 3) {
+                wrap.scrollLeft = startScrollLeft - diffX;
+              }
+            },
+            { passive: true },
+          );
+
+          wrap.addEventListener("touchend", () => {
+            isDown = false;
+          });
+
+          wrap.addEventListener("touchcancel", () => {
+            isDown = false;
+          });
+
+          wrap.addEventListener("mousedown", (e) => {
+            isDown = true;
+            startX = e.pageX;
+            startScrollLeft = wrap.scrollLeft;
+            wrap.classList.add("dragging");
+          });
+
+          window.addEventListener("mousemove", (e) => {
+            if (!isDown) return;
+            const diffX = e.pageX - startX;
+            wrap.scrollLeft = startScrollLeft - diffX;
+          });
+
+          window.addEventListener("mouseup", () => {
+            isDown = false;
+            wrap.classList.remove("dragging");
+          });
+        });
+
+        tableWraps.forEach((wrap) => {
+          const tableBox = wrap.closest(".moving_table_box");
+          if (!tableBox) return;
+
+          function updateRightShadow() {
+            const maxScroll = wrap.scrollWidth - wrap.clientWidth;
+            if (maxScroll <= 1 || wrap.scrollLeft >= maxScroll - 2) {
+              tableBox.classList.add("scroll-end");
+            } else {
+              tableBox.classList.remove("scroll-end");
+            }
+          }
+
+          wrap.addEventListener("scroll", updateRightShadow);
+          window.addEventListener("resize", updateRightShadow);
+          updateRightShadow();
+        });
+
+        if (innerCloseBtn && innerCloseBtn.dataset.init !== "done") {
+          innerCloseBtn.dataset.init = "done";
+          innerCloseBtn.addEventListener("click", closeAllPopups);
+        }
+
+        function updateCount() {
+          if (!counter) return;
+          counter.textContent =
+            targetPopup.querySelectorAll(".chk:checked").length;
+        }
+
+        checkboxes.forEach((chk) => {
+          if (chk.dataset.init === "done") return;
+          chk.dataset.init = "done";
+          chk.addEventListener("change", updateCount);
+        });
+
+        if (resetBtn && resetBtn.dataset.init !== "done") {
+          resetBtn.dataset.init = "done";
+          resetBtn.addEventListener("click", () => {
+            checkboxes.forEach((chk) => {
+              chk.checked = false;
+            });
+            updateCount();
+          });
+        }
+
+        if (saveBtn && saveModal && saveBtn.dataset.init !== "done") {
+          saveBtn.dataset.init = "done";
+          saveBtn.addEventListener("click", () => {
+            saveModal.classList.add("show");
+            setTimeout(() => {
+              saveModal.classList.remove("show");
+            }, 1500);
+          });
+        }
+
+        updateCount();
+      }
+    </script>
