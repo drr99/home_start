@@ -1,123 +1,19 @@
-body {
-  background: #feecec;
-}
-/* 채정수정 */
-
-/* vv흔들조명vv */
-.moving {
-  position: relative;
-  width: 100%;
-  min-height: 2290px; /* photo들이 아래로 이어질 만큼 크게 */
-  overflow: hidden;
-  background-color: #feecec;
-}
-
-.lighting,
-.lighting_bg {
-  position: absolute;
-  top: -30px;
-  left: -10%;
-  width: 120%;
-  height: 100vh;
-  background-repeat: no-repeat;
-  background-position: top center;
-  background-size: 100% auto;
-  transform-origin: top center;
-  transform: scale(1.4);
-}
-.lighting {
-  z-index: 10;
-  background-image: url("../img/moving/lighting.svg");
-}
-.lighting_bg {
-  z-index: 2;
-  background-image: url("../img/moving/lighting_follow.svg");
-}
-
-.frames {
-  z-index: 3;
-  position: absolute;
-  top: 0;
-  width: 100%;
-  height: 100vh;
-  background-image: url("../img/moving/frames.svg");
-  background-repeat: no-repeat;
-  background-position: top center;
-  background-size: 100% auto;
-}
-
-.bibi {
-  z-index: 6;
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 100vh;
-  background-image: url("../img/moving/bibi.svg");
-  background-repeat: no-repeat;
-  background-position: bottom center;
-  background-size: 100% auto;
-}
-
-/* 미디어쿼리 */
-
-@media (max-width: 930px) {
-  .photo_popup {
-    width: 90vw;
-    height: 80vh;
-    max-width: 90%;
-    min-height: 300px;
-  }
-
-  .light_all {
-    transform: scale(1.5);
-    transform-origin: top center;
-  }
-
-  /* // */
-
-  .moving {
-    min-height: 2160px; /* photo들이 아래로 이어질 만큼 크게 */
-  }
-
-  .bibi {
-    transform: scale(1.4);
-    transform-origin: bottom center;
-  }
-}
-
-@media (max-width: 510px) {
-  .moving {
-    min-height: 1860px; /* photo들이 아래로 이어질 만큼 크게 */
-  }
-
-  .light_all {
-    transform: translateY(40px) scale(2.5);
-    transform-origin: top center;
-  }
-
-  .bibi {
-    transform: scale(1.4);
-    transform-origin: bottom center;
-  }
-}
-
-/*  */
-
 /* ----------checklist---------- */
 #checklist {
   position: relative;
   z-index: 100;
   font-family: "Ownglyph_2022_UWY_Si_Woo";
 }
-.img_checklist {
+.img_checklist2 {
   position: relative;
-  z-index: 1000;
-  background: url(../img/hunting_checklist/checklist.svg) no-repeat center 10px;
-  background-size: 1030px auto;
+  z-index: 10000;
+  background: url(../img/hunting_checklist/checklist_middle.svg) no-repeat
+    center 10px;
+  background-size: 898px auto;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 50px;
+  margin-top: 150px;
 }
 
 .checklist_title {
@@ -202,7 +98,7 @@ body {
   font-family: "OngleipEoyeonce";
   width: 110px;
   height: 50px;
-  margin: 90px 0 100px 0;
+  margin: 90px 0 150px 0px;
 
   background: #ea6161;
   border: 2px solid #4c241e;
@@ -212,12 +108,11 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-}
-.close_btn a {
   color: #ffffff;
   padding: 0 20px;
-  /* background: rgba(0, 4, 255, 0.205); */
+  box-sizing: border-box;
 }
+
 /* ----------save_message---------- */
 .save_modal {
   position: fixed;
@@ -243,14 +138,14 @@ body {
 }
 /* ----------900---------- */
 @media (max-width: 930px) {
-  .img_checklist {
+  .img_checklist2 {
     background: url(../img/hunting_checklist/checklist_mini.svg) no-repeat
       center 10px;
     background-size: 700px auto;
   }
 }
 @media (max-width: 510px) {
-  .img_checklist {
+  .img_checklist2 {
     background: url(../img/hunting_checklist/checklist_phon.svg) no-repeat
       center 10px;
     background-size: auto 1600px;
@@ -276,7 +171,7 @@ body {
     width: 67px;
     height: 35px;
     border: 1px solid #4c241e;
-    font-size: 35px;
+    font-size: 27px;
 
     margin-top: 80px;
   }

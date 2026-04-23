@@ -110,15 +110,14 @@
 /* 이사체크리스트 글자 */
 .checklist_overlay_text {
   font-family: "Ownglyph_2022_UWY_Si_Woo";
-
   position: absolute;
   top: 95px;
-  left: 54%;
+  left: 52%;
   transform: translate(-50%, -50%);
   z-index: 11;
   opacity: 1;
-  font-size: 24px;
-  font-weight: 700;
+  font-size: 32px;
+
   color: #000;
   white-space: nowrap;
   pointer-events: none;
@@ -127,7 +126,7 @@
 .checklist_overlay_text::before {
   content: "";
   position: absolute;
-  bottom: -45px;
+  bottom: -39px;
   left: 0;
   height: 50px;
   width: 100%;
@@ -140,7 +139,7 @@
 .checklist_overlay_text::after {
   content: "";
   position: absolute;
-  bottom: 30px;
+  bottom: 36px;
   left: 0;
   height: 30px;
   width: 100%;
@@ -316,48 +315,6 @@
   display: block;
 }
 
-.popups_all {
-  /* position: relative; */
-}
-
-.photo_popup {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 1000;
-  display: none;
-
-  width: 900px;
-  height: 90%;
-  max-width: 90%;
-  margin-top: 2%;
-  background: #fff;
-}
-
-.photo_popup.show {
-  display: block;
-}
-
-.modal_bg_wh {
-  width: 100%;
-  height: 100%;
-  background: #fff;
-  display: flex;
-  overflow: hidden;
-}
-
-.modal_bg_gr {
-  width: 92%;
-  height: 92%;
-  background-color: #f0f0f0;
-  margin: auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  overflow: hidden;
-}
-
 /* 팝업 안 아이프레임 공통내용 */
 
 .popup_iframe {
@@ -387,7 +344,6 @@ body.modal-open {
   overflow: hidden;
   width: 100%;
 }
-
 /* 오버레이 */
 .popup_overlay {
   position: fixed;
@@ -402,9 +358,85 @@ body.modal-open {
 }
 
 /* 팝업 */
+.photo_popup {
+  position: fixed;
+  top: 53%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  display: none;
+
+  width: 900px;
+  height: 90%;
+  max-width: 90%;
+  background: #fff;
+}
 
 .photo_popup.show {
   display: block;
+}
+
+.modal_bg_wh {
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  display: flex;
+  overflow: hidden;
+}
+
+.modal_bg_gr {
+  width: 92%;
+  height: 92%;
+  background-color: #f0f0f0;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+}
+
+.photo_check_popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  display: none;
+
+  width: 900px;
+  height: 120vh;
+
+  border-radius: 12px;
+}
+
+.photo_check_popup.show {
+  display: block;
+}
+
+.photo_check_popup .modal_bg_check {
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  box-sizing: border-box;
+
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  box-sizing: border-box;
+
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.photo_check_popup .modal_bg_check::-webkit-scrollbar {
+  display: none;
+}
+
+.photo_check_popup .popup_content {
+  width: 100%;
+  min-height: 100%;
 }
 
 /*
@@ -624,8 +656,6 @@ body.modal-open {
   }
   .photos .photo {
     scale: 0.7;
-  }
-  .photos {
   }
 
   /* // */

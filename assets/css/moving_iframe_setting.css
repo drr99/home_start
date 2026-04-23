@@ -165,7 +165,12 @@ body {
   width: 25px;
   height: 100%;
   pointer-events: none;
-  background: linear-gradient(to left, rgba(223, 230, 247, 1) 0%, rgba(223, 230, 247, 0.5) 35%, rgba(223, 230, 247, 0) 100%);
+  background: linear-gradient(
+    to left,
+    rgba(223, 230, 247, 1) 0%,
+    rgba(223, 230, 247, 0.5) 35%,
+    rgba(223, 230, 247, 0) 100%
+  );
   opacity: 1;
   transition: opacity 0.2s ease;
   z-index: 5;
@@ -390,17 +395,7 @@ body {
   opacity: 1;
   pointer-events: auto;
 }
-/* ----------8번 테이블---------- */
-.moving_table.star_table td {
-  text-align: left;
-  vertical-align: top;
-}
 
-.moving_table.star_table td p {
-  text-align: left;
-  margin-left: 9px;
-  line-height: 1.4;
-}
 /* -----미디어쿼리----- */
 @media (max-width: 1024px) {
   .content_title {

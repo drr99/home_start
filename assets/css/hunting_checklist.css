@@ -194,8 +194,10 @@ body {
     border-radius: 11px;
     font-size: 23px;
   }
+
   @media (max-width: 440px) {
     .img_checklist {
+      background-position: top;
       background-size: cover;
     }
     .close_btn {
