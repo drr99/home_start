@@ -368,11 +368,13 @@
 /* 오른쪽 상단 X 작은 버튼 */
 .popup_close_top {
   position: absolute;
-  top: 14px;
-  right: 16px;
+  top: 0.4%;
+  right: 0.6%;
   background: none;
   font-size: 24px;
   line-height: 1;
+  z-index: 10000;
+  scale: 0.8;
 }
 
 /* 스크롤 */
