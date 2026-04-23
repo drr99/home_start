@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="../assets/css/setting/header.css" />
     <link rel="stylesheet" href="../assets/css/moving_iframe_setting.css" />
     <link rel="stylesheet" href="../assets/css/moving_checklist.css" />
-    <link rel="stylesheet" href="../assets/js/moving.js" />
   </head>
   <body>
     <div id="header"></div>
@@ -453,7 +452,7 @@
       photoButtons.forEach((item) => {
         item.addEventListener("click", async () => {
           const popupNumber = item.dataset.popup;
-          closeAllPopups();
+          hideAllPopupsOnly();
 
           const targetPopup = document.querySelector(
             `.photo_popup[data-content="${popupNumber}"], .photo_check_popup[data-content="${popupNumber}"]`,
@@ -461,9 +460,9 @@
 
           if (!targetPopup) return;
 
+          lockBodyScroll();
           targetPopup.classList.add("show");
           if (overlay) overlay.classList.add("show");
-          lockBodyScroll();
 
           await loadPopupContent(popupNumber, targetPopup);
         });
@@ -657,6 +656,18 @@
         }
 
         updateCount();
+      }
+      function hideAllPopupsOnly() {
+        popups.forEach((popup) => {
+          popup.classList.remove("show");
+          const contentBox = popup.querySelector(".popup_content");
+          if (contentBox) {
+            contentBox.innerHTML = "";
+          }
+          popup.removeAttribute("data-wheel-init");
+        });
+
+        if (overlay) overlay.classList.remove("show");
       }
     </script>
   </body>

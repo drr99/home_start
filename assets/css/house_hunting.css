@@ -23,15 +23,15 @@
 .book {
   flex: 2.5;
   z-index: 2;
-  margin-bottom: -90px;
+  margin-bottom: -10%;
 }
 .desk {
   background: #d9a482;
   display: flex;
   align-items: flex-end;
   justify-content: end;
-  gap: 50px;
-  padding: 130px 150px 100px;
+  gap: 5%;
+  padding: 12% 15% 10%;
   border-top: 2px solid #4c241e;
 }
 .cup {
@@ -83,7 +83,7 @@
   .book {
     width: 50%;
     flex: 3.5;
-    margin-bottom: -60px;
+    margin-bottom: -13%;
   }
   .desk {
     gap: 5%;

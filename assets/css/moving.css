@@ -344,7 +344,6 @@ body.modal-open {
   overflow: hidden;
   width: 100%;
 }
-
 /* 오버레이 */
 .popup_overlay {
   position: fixed;
@@ -361,7 +360,7 @@ body.modal-open {
 /* 팝업 */
 .photo_popup {
   position: fixed;
-  top: 50%;
+  top: 53%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 1000;
