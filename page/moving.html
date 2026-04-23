@@ -579,5 +579,152 @@
         });
       }
     </script>
+    <script>
+      function initMovingIframe(targetPopup) {
+        const topBtn = targetPopup.querySelector(".top");
+        const scrollBox = targetPopup.querySelector(".iframe_scroll_content");
+
+        /* top 버튼 세팅 */
+        if (topBtn && scrollBox) {
+          if (scrollBox.dataset.topInit !== "done") {
+            scrollBox.dataset.topInit = "done";
+
+            function toggleTopButton() {
+              if (scrollBox.scrollTop > 350) {
+                topBtn.classList.add("show");
+              } else {
+                topBtn.classList.remove("show");
+              }
+            }
+
+            scrollBox.addEventListener("scroll", toggleTopButton);
+
+            topBtn.addEventListener("click", () => {
+              scrollBox.scrollTo({
+                top: 0,
+                behavior: "smooth",
+              });
+            });
+
+            toggleTopButton();
+          }
+        }
+
+        /* 표 가로스크롤 모바일 터치 보정 */
+        const tableWraps = targetPopup.querySelectorAll(".moving_table_wrap");
+
+        tableWraps.forEach((wrap) => {
+          if (wrap.dataset.dragInit === "done") return;
+          wrap.dataset.dragInit = "done";
+
+          let isDown = false;
+          let startX = 0;
+          let startScrollLeft = 0;
+
+          wrap.addEventListener(
+            "touchstart",
+            (e) => {
+              if (e.touches.length !== 1) return;
+
+              isDown = true;
+              startX = e.touches[0].pageX;
+              startScrollLeft = wrap.scrollLeft;
+            },
+            { passive: true },
+          );
+
+          wrap.addEventListener(
+            "touchmove",
+            (e) => {
+              if (!isDown || e.touches.length !== 1) return;
+
+              const currentX = e.touches[0].pageX;
+              const diffX = currentX - startX;
+
+              if (Math.abs(diffX) > 3) {
+                wrap.scrollLeft = startScrollLeft - diffX;
+              }
+            },
+            { passive: true },
+          );
+
+          wrap.addEventListener("touchend", () => {
+            isDown = false;
+          });
+
+          wrap.addEventListener("touchcancel", () => {
+            isDown = false;
+          });
+
+          wrap.addEventListener("mousedown", (e) => {
+            isDown = true;
+            startX = e.pageX;
+            startScrollLeft = wrap.scrollLeft;
+            wrap.classList.add("dragging");
+          });
+
+          window.addEventListener("mousemove", (e) => {
+            if (!isDown) return;
+
+            const diffX = e.pageX - startX;
+            wrap.scrollLeft = startScrollLeft - diffX;
+          });
+
+          window.addEventListener("mouseup", () => {
+            isDown = false;
+            wrap.classList.remove("dragging");
+          });
+        });
+
+        const tableWrap = targetPopup.querySelectorAll(".moving_table_wrap");
+
+        tableWrap.forEach((wrap) => {
+          const tableBox = wrap.closest(".moving_table_box");
+          if (!tableBox) return;
+
+          function updateRightShadow() {
+            const maxScroll = wrap.scrollWidth - wrap.clientWidth;
+
+            if (maxScroll <= 1 || wrap.scrollLeft >= maxScroll - 2) {
+              tableBox.classList.add("scroll-end");
+            } else {
+              tableBox.classList.remove("scroll-end");
+            }
+          }
+
+          wrap.addEventListener("scroll", updateRightShadow);
+          window.addEventListener("resize", updateRightShadow);
+          updateRightShadow();
+        });
+
+        /* 체크리스트 버튼 세팅 */
+        const checkboxes = targetPopup.querySelectorAll(".chk");
+        const resetBtn = targetPopup.querySelector(".reset_btn button");
+        const saveBtn = targetPopup.querySelector(".save_btn button");
+        const saveModal = targetPopup.querySelector(".save_modal");
+
+        if (resetBtn && resetBtn.dataset.init !== "done") {
+          resetBtn.dataset.init = "done";
+
+          resetBtn.addEventListener("click", () => {
+            checkboxes.forEach((chk) => {
+              chk.checked = false;
+            });
+          });
+        }
+
+        if (saveBtn && saveModal && saveBtn.dataset.init !== "done") {
+          saveBtn.dataset.init = "done";
+
+          saveBtn.addEventListener("click", () => {
+            saveModal.classList.add("show");
+
+            setTimeout(() => {
+              saveModal.classList.remove("show");
+            }, 1500);
+          });
+        }
+      }
+    </script>
   </body>
 </html>

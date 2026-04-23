@@ -4,9 +4,7 @@ body {
   max-width: 100%;
   overflow-x: hidden;
 }
-
 .moving_iframe {
-  /* width: 94vw; */
   width: 100%;
   box-sizing: border-box;
   background-color: #f0f0f0;
@@ -18,7 +16,7 @@ body {
   padding: 40px 0;
 }
 
-/* 빨간색 스탭박스 */
+/* -----빨간색 스탭박스----- */
 .step_box {
   background-color: #ff5552;
   color: #fff;
@@ -38,22 +36,15 @@ body {
 .step_box:first-child {
   margin-top: 00px;
 }
-
-/*  */
-
-/* 메인 제목 이사비용, 범위에 따라 달라져요 */
-
 .content_title {
   width: 85%;
   text-align: center;
 }
-
 .content_title > h2 {
   font-size: 34px;
   color: black;
   padding: 10px 0 20px 0;
 }
-
 .content_box {
   width: 85%;
   height: auto;
@@ -63,7 +54,21 @@ body {
   box-sizing: border-box;
   padding: 13px 20px 17px 20px;
 }
-
+/* 이미지는 여기에 넣으세요 */
+.img_box {
+  border-radius: 20px;
+  width: 85%;
+}
+.img_box_wrap {
+  display: flex;
+  gap: 20px;
+}
+.img_box_wrap img {
+  width: 100px;
+  flex: 1;
+  object-fit: cover;
+  border-radius: 20px;
+}
 .content_box_title {
   font-size: 28px;
   padding-top: 13px;
@@ -71,7 +76,6 @@ body {
 .content_box_title:first-child {
   padding-top: 0px;
 }
-
 .content_box_title::before {
   content: "";
   width: 30px;
@@ -80,32 +84,71 @@ body {
   background-size: contain;
   display: inline-block;
 }
-
+.content_box_title2 {
+  font-size: 28px;
+  padding-top: 13px;
+}
+.content_box_title2:first-child {
+  padding-top: 0px;
+}
 .content_box_desc {
   font-size: 20px;
   color: #424242;
 }
+.content_box_desc2 {
+  font-size: 20px;
+  color: #797979;
+  padding-left: 27px;
+  line-height: 1.1;
+  padding-bottom: 4px;
+}
+.content_box_desc3 {
+  font-size: 20px;
+  color: #424242;
+  padding-bottom: 20px;
+}
 
-/* 표 */
-
-/* 작업범위에 따른 이사 비용 비교 */
+/* -----표----- */
+.td_img1 {
+  background: url(../img/moving/plasticHouse.png) no-repeat center / cover;
+  width: 100%;
+}
+.td_img2 {
+  background: url(../img/moving/container.jpg) no-repeat center / cover;
+  width: 100%;
+}
+.td_img3 {
+  background: url(../img/moving/storage.png) no-repeat center / cover;
+  width: 100%;
+}
+.td_img1,
+.td_img2,
+.td_img3 {
+  width: 170px;
+  height: 100px;
+  overflow: hidden;
+  object-fit: cover;
+}
 .table_title > h2 {
   font-size: 28px;
   padding: 70px 0 10px 0;
   color: #000;
 }
-
 .table_title2 > h2 {
   font-size: 28px;
   padding: 30px 0 10px 0;
   color: #000;
 }
-
 .table_title {
   width: 85%;
   text-align: center;
 }
-
+.width10 {
+  width: 10%;
+}
+.width30 {
+  width: 30%;
+}
 .moving_table_box {
   width: 85%;
   position: relative;
@@ -114,7 +157,6 @@ body {
   border-radius: 20px;
   overflow: hidden;
 }
-
 .moving_table_box::after {
   content: "";
   position: absolute;
@@ -123,16 +165,19 @@ body {
   width: 25px;
   height: 100%;
   pointer-events: none;
-  background: linear-gradient(to left, rgba(223, 230, 247, 1) 0%, rgba(223, 230, 247, 0.5) 35%, rgba(223, 230, 247, 0) 100%);
+  background: linear-gradient(
+    to left,
+    rgba(223, 230, 247, 1) 0%,
+    rgba(223, 230, 247, 0.5) 35%,
+    rgba(223, 230, 247, 0) 100%
+  );
   opacity: 1;
   transition: opacity 0.2s ease;
   z-index: 5;
 }
-
 .moving_table_box.scroll-end::after {
   opacity: 0;
 }
-
 .moving_table_wrap {
   width: 100%;
   overflow-x: auto;
@@ -140,11 +185,9 @@ body {
   -webkit-overflow-scrolling: touch;
   cursor: grab;
 }
-
 .moving_table_wrap.dragging {
   cursor: grabbing;
 }
-
 .moving_table {
   font-family: "Ownglyph_2022_UWY_Si_Woo";
   font-size: 20px;
@@ -154,7 +197,6 @@ body {
   width: max-content;
   min-width: 100%;
 }
-
 .moving_table th,
 .moving_table td {
   padding: 5px;
@@ -167,44 +209,36 @@ body {
   white-space: nowrap;
   word-break: keep-all;
 }
-
 .moving_table thead th {
   background-color: #dfe6f7;
   font-weight: normal;
 }
-
 /* 맨 윗줄 top 제거 */
 .moving_table thead tr:first-child th {
   border-top: 0;
 }
-
 /* 맨 왼쪽 바깥선 제거 */
 .moving_table tr th:first-child,
 .moving_table tr td:first-child {
   border-left: 0;
 }
-
 /* 맨 오른쪽 바깥선 제거 */
 .moving_table tr th:last-child,
 .moving_table tr td:last-child {
   border-right: 0;
 }
-
 /* 긴 설명칸만 줄바꿈 허용 */
 .table_desc_cell {
   white-space: normal;
   min-width: 150px;
   line-height: 1.4;
 }
-
 .table_gray {
   background-color: #f2f2f2;
 }
 .table_yellow {
   background-color: #fffae6;
 }
-
-/* 표 밑 설명 글자들-- 큰짐: tv세탁기 ~상이할 수 있습니다. */
 .table_desc_box {
   width: 85%;
 }
@@ -221,14 +255,12 @@ body {
   padding-bottom: 15px;
   line-height: 1.2;
 }
-
 #iframe_scroll_wrap {
   position: relative;
   width: 100%;
   height: 100%;
   overflow: hidden;
 }
-
 .iframe_scroll_content {
   width: 100%;
   height: 100%;
@@ -239,12 +271,11 @@ body {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
-
 .iframe_scroll_content::-webkit-scrollbar {
   display: none;
 }
 
-/* Top button */
+/* -----Top button----- */
 .top {
   width: 50px;
   height: 50px;
@@ -257,19 +288,106 @@ body {
   transition: opacity 0.3s ease;
   z-index: 100;
 }
-
 .top.show {
   opacity: 1;
   pointer-events: auto;
 }
-
 /* 설명이 긴 칸은 줄바꿈 허용 */
 .moving_table td[rowspan],
 .moving_table td[colspan] {
   line-height: 1.5;
 }
 
-/* 미디어쿼리 */
+/* -----체크리스트----- */
+.checklist_desc {
+  font-size: 23px;
+  line-height: 1.3;
+}
+.check {
+  font-style: normal;
+  cursor: pointer;
+  position: relative;
+}
+.check::after {
+  content: "\2714";
+  font-size: 22px;
+  color: #ff5552;
+
+  position: absolute;
+  top: -6px;
+  left: 2px;
+
+  opacity: 0;
+  transition: all 0.2s;
+}
+.chk:checked + .check::after {
+  opacity: 1;
+}
+.chk {
+  position: absolute;
+  left: -999em;
+}
+
+/* ----------btn---------- */
+.checklist_btn {
+  display: flex;
+  gap: 22px;
+}
+.reset_btn button,
+.save_btn button {
+  font-family: "Ownglyph_2022_UWY_Si_Woo";
+
+  width: 100px;
+  height: 45px;
+  border: 2px solid #4c241e;
+  border-radius: 13px;
+  background: #f5c005;
+  color: #ffffff;
+  font-size: 30px;
+  cursor: pointer;
+
+  margin-top: 35px;
+}
+
+.close_btn a {
+  color: #ffffff;
+  padding: 0 20px;
+}
+/* ----------save_message---------- */
+.save_modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  background: #f5c005;
+  border: 2px solid #4c241e;
+  color: white;
+
+  padding: 20px 20px;
+  border-radius: 14px;
+  font-size: 28px;
+
+  opacity: 0;
+  transition: 0.3s;
+  pointer-events: none;
+}
+.save_modal.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+/* ----------8번 테이블---------- */
+.moving_table.star_table td {
+  text-align: left;
+  vertical-align: top;
+}
+
+.moving_table.star_table td p {
+  text-align: left;
+  margin-left: 9px;
+  line-height: 1.4;
+}
+/* -----미디어쿼리----- */
 @media (max-width: 1024px) {
   .content_title {
     font-size: 32px;
@@ -283,29 +401,33 @@ body {
   .content_title > h2 {
     font-size: 25px;
   }
-
   .content_box {
     padding: 14px 20px;
   }
   .content_box_title {
     font-size: 23px;
+    /* word-break: keep-all; */
   }
-
+  .content_box_title2 {
+    font-size: 23px;
+  }
   .content_box_desc {
     font-size: 18px;
+  }
+  .content_box_desc2 {
+    font-size: 18px;
+    padding-left: 27px;
   }
   .table_title > h2 {
     font-size: 21px;
     padding: 60px 0 8px 0;
   }
-
   .content_box {
     border-radius: 14px;
   }
   .moving_table_box {
     border-radius: 14px;
   }
-
   .moving_table {
     line-height: 1.2;
     font-size: 18px;
@@ -317,6 +439,19 @@ body {
   .basic_desc {
     font-size: 18px;
     padding-bottom: 10px;
+  }
+  /* Top button */
+  .top {
+    width: 40px;
+    height: 40px;
+  }
+  /* 체크리스트 */
+  .checklist_desc {
+    font-size: 20px;
+  }
+  .check::after {
+    font-size: 20px;
+    top: -5px;
   }
 }
 
@@ -341,7 +476,15 @@ body {
     margin-bottom: 2px;
     line-height: 1.2;
   }
+  .content_box_title2 {
+    font-size: 21px;
+    margin-bottom: 2px;
+    line-height: 1.2;
+  }
   .content_box_desc {
+    font-size: 17px;
+  }
+  .content_box_desc2 {
     font-size: 17px;
   }
   .moving_table {
@@ -354,5 +497,12 @@ body {
   .basic_desc {
     font-size: 17px;
     padding-bottom: 5px;
+  }
+  /* Top button */
+  .top {
+    width: 35px;
+    height: 35px;
+    right: 3%;
+    bottom: 2%;
   }
 }
