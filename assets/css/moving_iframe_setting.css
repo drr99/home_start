@@ -227,6 +227,19 @@ body {
 .moving_table tr td:last-child {
   border-right: 0;
 }
+/* 첫 번째 열 고정 */
+.fixation {
+  position: sticky;
+  left: 0;
+  z-index: 3;
+  background: #fff;
+  box-shadow: 2px 0 0 #d8d8d8;
+}
+/* 헤더 셀은 조금 더 위에 */
+.moving_table thead th:first-child {
+  z-index: 4;
+  background: #dfe6f7;
+}
 /* 긴 설명칸만 줄바꿈 허용 */
 .table_desc_cell {
   white-space: normal;
