@@ -1,7 +1,6 @@
 .community {
   /* font-family: "GMarketSans", sans-serif; */
   font-family: "Pretendard";
-  background: #fdfdfd;
   width: 100%;
   max-width: 1060px;
   margin: 0 auto;
@@ -165,15 +164,14 @@
 
 /* 게시글 박스 */
 .pop_box {
-  border-top: 1px solid #f1dada;
+  border-top: 1px solid #ff7f7f9a;
 }
 .commu_contents {
   display: block;
   text-decoration: none;
   padding: 10px 0 10px;
-  background: #fff9f9;
-  border-bottom: 1px solid #f1dada;
-  cursor: pointer;
+  background: #fff9f934;
+  border-bottom: 1px solid #ff7f7f9a;
 }
 
 .box_title {
@@ -252,8 +250,16 @@
 .comment_count {
   cursor: pointer;
 }
-
+.post_category2 {
+  padding-right: 10px;
+  color: #ff7f7f;
+  font-weight: 500;
+}
 /* 전체게시글 */
+.title_group {
+  display: flex;
+  gap: 10px; /* justify-content: space-between; */
+}
 .commu_box_main {
   max-width: 980px;
   width: calc(100% - 32px);
@@ -262,7 +268,7 @@
 .post_category {
   display: inline-block;
 
-  width: 50px; /* ← 고정 너비 */
+  width: 55px; /* ← 고정 너비 */
   height: 22px;
   line-height: 22px; /* ← 세로 가운데 */
 
@@ -270,8 +276,8 @@
 
   margin-bottom: 8px;
   border-radius: 4px;
-  background: #eaedef;
-  color: #828c94;
+  background: #ffecec;
+  color: #c96a6a;
 
   font-size: 0.72rem;
   font-weight: 600;
@@ -285,8 +291,7 @@
 .commu_contents {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  padding: 16px 0;
+  padding: 16px;
 }
 
 /* 페이지 버튼 */
@@ -379,14 +384,15 @@
   color: #fff;
   font-size: 16px;
   border: none;
+  border: 1px solid #ff7f7f;
   cursor: pointer;
   transition: 0.2s;
 }
 
 .popup_close:hover {
-  background: #fff;
-  color: #ff7f7f;
-  border: 1px solid #ff7f7f;
+  background: #ffa3a3;
+  color: #ffffff;
+  border: 1px solid #ffa3a3;
 }
 /* 미디어쿼리 */
 @media (max-width: 1200px) {
