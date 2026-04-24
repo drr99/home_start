@@ -16,6 +16,7 @@
   align-items: center;
 }
 .swiper-slide {
+  cursor: none;
   height: 1000px;
   display: flex;
   justify-content: center;
@@ -124,7 +125,6 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
-  cursor: pointer;
 }
 .book_prev {
   left: 3%;

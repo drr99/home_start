@@ -40,8 +40,10 @@ body {
 }
 .check {
   font-style: normal;
-  cursor: pointer;
   position: relative;
+}
+.text {
+  cursor: none;
 }
 .check::after {
   content: "\2714";
@@ -95,7 +97,6 @@ body {
   align-items: center;
   justify-content: center;
   color: #ffffff;
-  cursor: pointer;
 }
 .close_btn {
   font-family: "OngleipEoyeonce";

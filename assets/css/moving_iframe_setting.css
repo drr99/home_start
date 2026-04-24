@@ -170,7 +170,12 @@ body {
   width: 25px;
   height: 100%;
   pointer-events: none;
-  background: linear-gradient(to left, rgba(223, 230, 247, 1) 0%, rgba(223, 230, 247, 0.5) 35%, rgba(223, 230, 247, 0) 100%);
+  background: linear-gradient(
+    to left,
+    rgba(223, 230, 247, 1) 0%,
+    rgba(223, 230, 247, 0.5) 35%,
+    rgba(223, 230, 247, 0) 100%
+  );
   opacity: 1;
   transition: opacity 0.2s ease;
   z-index: 5;
@@ -183,10 +188,19 @@ body {
   overflow-x: auto;
   overflow-y: hidden;
   -webkit-overflow-scrolling: touch;
-  cursor: grab;
+
+  cursor: none !important;
+
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
+
+.moving_table_wrap::-webkit-scrollbar {
+  display: none;
+}
+
 .moving_table_wrap.dragging {
-  cursor: grabbing;
+  cursor: none !important;
 }
 .moving_table {
   font-family: "Ownglyph_2022_UWY_Si_Woo";
@@ -299,7 +313,6 @@ body {
   right: 3%;
   bottom: 3%;
   opacity: 0;
-  cursor: pointer;
   pointer-events: none;
   transition: opacity 0.3s ease;
   z-index: 100;
@@ -324,7 +337,6 @@ body {
 }
 .checklist_desc2 .check {
   font-style: normal;
-  cursor: pointer;
   position: relative;
 }
 .checklist_desc2 .check::after {
@@ -363,7 +375,6 @@ body {
   background: #f5c005;
   color: #ffffff;
   font-size: 30px;
-  cursor: pointer;
 
   margin-top: 35px;
 }
