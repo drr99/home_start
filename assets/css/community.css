@@ -74,20 +74,21 @@
 
 /* commu_menu*/
 .commu_menu {
-  width: 760px;
+  max-width: 760px;
+  width: 100%;
   margin: 70px auto 0;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 16px;
+
   position: relative;
 }
-
 .commu_menu::after {
   content: "";
   position: absolute;
-  left: 50%;
   bottom: 0;
+  left: 50%;
   width: 100vw;
   height: 1px;
   background: #ff7f7f;
@@ -112,7 +113,7 @@
   font-size: 1rem;
   font-weight: 600;
   text-decoration: none;
-  transition: all 0.2s ease;
+  transition: all 0.1s ease;
   box-sizing: border-box;
   padding-top: 5px;
 }
@@ -144,7 +145,7 @@
   align-items: center;
   font-size: 1rem;
   font-weight: 600;
-  transition: all 0.2s ease;
+  transition: all 0.1s ease;
   box-sizing: border-box;
   padding-top: 5px;
 }
@@ -734,14 +735,16 @@
     margin: 24px auto 0;
   }
   .commu_menu_l {
-    gap: 8px;
-    flex-wrap: nowrap;
+    gap: 6px;
   }
 
   .commu_menu_l li a {
-    min-width: 50px;
-    height: 29px;
-    font-size: 0.85rem;
+    width: auto;
+    min-width: auto;
+    height: 26px;
+    padding: 0 10px;
+    font-size: 0.75rem;
+    border-radius: 999px;
   }
 
   /* 컨텐츠박스 */
@@ -757,10 +760,9 @@
     margin-bottom: 4px;
   }
 
-  .commu_contents {
-    padding: 10px 0;
-    gap: 10px;
-    min-height: 88px;
+  .pop_posting .commu_contents {
+    height: 100px;
+    overflow: hidden;
   }
 
   .thumb {
