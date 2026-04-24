@@ -127,15 +127,23 @@ if (popup) {
 const menuLinks = document.querySelectorAll(".commu_menu_l a");
 const allCards = document.querySelectorAll(".commu_box_main .commu_contents");
 
+function getCategoryFromUrl() {
+  const params = new URLSearchParams(window.location.search);
+  return params.get("cat") || "all";
+}
+
 function filterPosts(category) {
   allCards.forEach((card) => {
     const cardCategory = card.dataset.category;
 
-    if (category === "all" || cardCategory === category) {
-      card.style.display = "";
-    } else {
-      card.style.display = "none";
-    }
+    card.style.display = category === "all" || cardCategory === category ? "" : "none";
+  });
+}
+
+function setActiveMenu(category) {
+  menuLinks.forEach((link) => {
+    const filter = link.dataset.filter || "all";
+    link.classList.toggle("active", filter === category);
   });
 }
 
@@ -143,26 +151,22 @@ menuLinks.forEach((link) => {
   link.addEventListener("click", function (e) {
     e.preventDefault();
 
-    menuLinks.forEach((el) => el.classList.remove("active"));
-    this.classList.add("active");
-
     const filter = this.dataset.filter || "all";
+
+    const url = filter === "all" ? "community.html" : `community.html?cat=${filter}`;
+    history.pushState(null, "", url);
+
     filterPosts(filter);
+    setActiveMenu(filter);
   });
 });
 
-// 썸네일
-cards.forEach((card) => {
-  const img = card.dataset.img;
-  if (!img) return;
-
-  let thumb = card.querySelector(".thumb");
-
-  if (!thumb) {
-    thumb = document.createElement("div");
-    thumb.className = "thumb";
-    card.append(thumb);
-  }
-
-  thumb.style.backgroundImage = `url(${img})`;
+window.addEventListener("popstate", () => {
+  const category = getCategoryFromUrl();
+  filterPosts(category);
+  setActiveMenu(category);
 });
+
+const currentCategory = getCategoryFromUrl();
+filterPosts(currentCategory);
+setActiveMenu(currentCategory);

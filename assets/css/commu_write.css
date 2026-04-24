@@ -5,7 +5,7 @@
   width: 100%;
   max-width: 1060px;
   margin: 100px auto 0;
-  padding: 20px 24px 40px;
+  padding: 20px 24px 80px;
   box-sizing: border-box;
 }
 /* 상단 옵션 */
@@ -28,9 +28,31 @@
   background: #fff5f5;
   color: #ff7f7f;
   font-size: 1.1rem;
-  padding: 0 10px;
+
+  padding: 0 40px 0 10px; /* ⭐ 오른쪽 공간 */
+
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+.category_select {
+  position: relative;
 }
 
+.category_select select:focus {
+  outline: none;
+  border: 1px solid #ff7f7f;
+  background: #fff0f0;
+}
+.select_arrow {
+  position: absolute;
+  right: 12px; /* ⭐ 간격 조절 */
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 14px;
+  color: #ff7f7f;
+  pointer-events: none;
+}
 .write_notice,
 .write_notice2 {
   font-size: 0.72rem;
@@ -131,8 +153,8 @@
   display: flex;
   justify-content: flex-end;
   gap: 10px;
-  margin-top: 40px;
-  padding-top: 16px;
+  margin-top: 60px;
+  padding-top: 20px;
   border-top: 1px solid #f1c2c2;
 }
 
@@ -150,10 +172,17 @@
 }
 
 .btn_submit {
+  background: #fff;
+  border: 1px solid #f4a3a3;
+  color: #ff7f7f;
+}
+.btn_submit:hover,
+.btn_cancel:hover {
   background: #ff7f7f;
-  border: none;
+  border: 1px solid #f4a3a3;
   color: #fff;
 }
+
 /* 공통 트랜지션 */
 .write_bottom button {
   transition: all 0.2s ease;
