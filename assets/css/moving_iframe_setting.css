@@ -56,18 +56,23 @@ body {
 }
 /* 이미지는 여기에 넣으세요 */
 .img_box {
-  border-radius: 20px;
   width: 85%;
+  /* border-radius: 20px; */
+  overflow: hidden;
 }
 .img_box_wrap {
+  width: 100%;
   display: flex;
   gap: 20px;
 }
 .img_box_wrap img {
-  width: 100px;
-  flex: 1;
+  flex: 1 1 0;
+  min-width: 0;
+  width: 100%;
+  height: auto;
   object-fit: cover;
   border-radius: 20px;
+  display: block;
 }
 .content_box_title {
   font-size: 28px;
@@ -154,7 +159,7 @@ body {
   position: relative;
   border: 2px solid #f0f0f0;
   background-color: #fff;
-  border-radius: 20px;
+  border-radius: 15px;
   overflow: hidden;
 }
 .moving_table_box::after {
@@ -462,6 +467,14 @@ body {
     font-size: 20px;
     top: -5px;
   }
+  .img_box_wrap {
+    display: flex;
+    gap: 15px;
+  }
+  .img_box_wrap img {
+    border-radius: 15px;
+    height: 200px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -513,5 +526,12 @@ body {
     height: 35px;
     right: 3%;
     bottom: 2%;
+  }
+  .img_box_wrap {
+    gap: 5px;
+  }
+  .img_box_wrap img {
+    height: 150px;
+    border-radius: 10px;
   }
 }
