@@ -25,6 +25,7 @@
               <option>청소/관리</option>
               <option>질문하기</option>
             </select>
+            <i class="fa-solid fa-angle-down select_arrow"></i>
           </div>
           <!-- 글쓰기 카테고리 -->
 
@@ -132,6 +133,7 @@
     </div>
     <!-- 글쓰기 팝업창 -->
 
+    <script src="https://kit.fontawesome.com/fb27592f06.js" crossorigin="anonymous"></script>
     <script src="../assets/js/include.js"></script>
     <script>
       /* =========================
@@ -259,22 +261,6 @@
           Object.assign(btnA.style, activeStyle);
         });
       }
-
-      // 하단 버튼
-      bindSwapHover(
-        cancelBtn,
-        submitBtn,
-        {
-          background: "#ff7f7f",
-          color: "#fff",
-          border: "1px solid #ff7f7f",
-        },
-        {
-          background: "#fff",
-          color: "#ff7f7f",
-          border: "1px solid #f4a3a3",
-        },
-      );
 
       // 팝업 버튼
       bindSwapHover(
