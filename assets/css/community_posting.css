@@ -54,7 +54,6 @@
   width: 36px;
   height: 22px;
   background: url(../img/community/plane_icon.svg) no-repeat center;
-  cursor: pointer;
 
   position: absolute;
   right: -5px;
@@ -116,6 +115,9 @@
 .commu_menu_r li {
   background-color: #ff7f7f;
 }
+.commu_menu_r li:hover {
+  opacity: 0.8;
+}
 .commu_menu_r li a {
   color: #fff;
   width: 100px;
@@ -128,12 +130,6 @@
   transition: all 0.1s ease;
   box-sizing: border-box;
   padding-top: 5px;
-}
-.commu_menu_r li a:hover {
-  color: #ff7f7f;
-  background: #ffecec;
-  border: 1px solid #ff7f7f;
-  border-bottom: none;
 }
 .commu_menu_r li a svg {
   display: none;
@@ -240,7 +236,6 @@
 
 /* 게시글 좋아요 */
 .like_count {
-  cursor: pointer;
   position: relative;
 }
 
@@ -276,7 +271,6 @@
   transform: translateY(-50%);
 }
 .comment_count {
-  cursor: pointer;
   position: relative;
 }
 
@@ -349,7 +343,6 @@
   background: #fff;
   color: #999;
   font-size: 0.875rem;
-  cursor: pointer;
 }
 
 /* 댓글 */

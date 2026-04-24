@@ -185,17 +185,7 @@
 
 /* 공통 트랜지션 */
 .write_bottom button {
-  transition: all 0.2s ease;
-}
-
-/* 전체 흐림 */
-.write_bottom:hover button {
-  opacity: 0.5;
-}
-
-/* hover된 버튼만 강조 */
-.write_bottom button:hover {
-  opacity: 1;
+  transition: all 0.1s ease;
 }
 
 /* 팝업 */
@@ -282,17 +272,7 @@
 }
 .popup_cancel,
 .popup_confirm {
-  transition: all 0.2s ease;
-}
-
-/* 전체 흐림 */
-.popup_btns:hover button {
-  opacity: 0.5;
-}
-
-/* hover된 버튼만 강조 */
-.popup_btns button:hover {
-  opacity: 1;
+  transition: all 0.1s ease;
 }
 
 /* 미디어쿼리 */

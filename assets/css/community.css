@@ -1,3 +1,6 @@
+body {
+  overflow-x: hidden;
+}
 .community {
   font-family: "Pretendard";
   width: 100%;
@@ -89,10 +92,10 @@
   position: absolute;
   bottom: 0;
   left: 50%;
+  transform: translateX(-50%);
   width: 100vw;
   height: 1px;
   background: #ff7f7f;
-  transform: translateX(-50%);
 }
 
 .commu_menu_l,
@@ -136,6 +139,9 @@
 .commu_menu_r li {
   background-color: #ff7f7f;
 }
+.commu_menu_r li:hover {
+  opacity: 0.8;
+}
 .commu_menu_r li a {
   color: #fff;
   width: 100px;
@@ -148,12 +154,6 @@
   transition: all 0.1s ease;
   box-sizing: border-box;
   padding-top: 5px;
-}
-.commu_menu_r li a:hover {
-  color: #ff7f7f;
-  background: #ffecec;
-  border: 1px solid #ff7f7f;
-  border-bottom: none;
 }
 .commu_menu_r li a svg {
   display: none;
@@ -185,7 +185,7 @@
   justify-content: space-between;
   align-items: center;
   gap: 16px;
-  padding: 15px 0 15px 10px;
+  padding: 15px 10px 15px 10px;
   text-decoration: none;
   background: #fff;
   border-bottom: 1px solid #ff7f7f9a;
@@ -353,7 +353,6 @@
   background: #ffecec;
   color: #ff7f7f;
   border-color: #ffb5b5;
-  transform: translateY(-2px);
 }
 
 .page_btn .page_num.active {
@@ -543,7 +542,7 @@
     font-size: 1rem;
   }
   .commu_contents {
-    width: 560px;
+    width: 100%;
   }
   .box_title {
     font-size: 0.95rem;

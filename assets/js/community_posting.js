@@ -120,6 +120,22 @@ menuLinks.forEach((link) => {
     this.classList.add("active");
   });
 });
+/* =========================
+   메뉴 클릭 시 목록페이지 카테고리 이동
+========================= */
+const menuLinks = document.querySelectorAll(".commu_menu_l a");
+
+menuLinks.forEach((link) => {
+  link.addEventListener("click", function (e) {
+    e.preventDefault();
+
+    const filter = this.dataset.filter || "all";
+
+    const url = filter === "all" ? "community.html" : `community.html?cat=${filter}`;
+
+    location.href = url;
+  });
+});
 
 /* =========================
    HTML 댓글 자동 카운트

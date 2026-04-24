@@ -103,68 +103,6 @@ const categoryLinks = document.querySelectorAll(".shop_box_title a");
 const topBtn = document.querySelector(".top");
 
 // =========================
-// 3) 카테고리 정보
-// =========================
-const categoryMap = {
-  all: "shop_goods_all.html",
-  kit: "shop_goods_kit.html",
-  bed: "shop_goods_bed.html",
-  bath: "shop_goods_bath.html",
-};
-
-function getCategoryFromUrl() {
-  const params = new URLSearchParams(window.location.search);
-  return params.get("cat") || "all";
-}
-
-function getPageByCategory(cat) {
-  return categoryMap[cat] || categoryMap.all;
-}
-
-function getCategoryByHref(href) {
-  if (href === "shop_goods_kit.html") return "kit";
-  if (href === "shop_goods_bed.html") return "bed";
-  if (href === "shop_goods_bath.html") return "bath";
-  return "all";
-}
-
-function changeBodyColor(cat) {
-  document.body.classList.remove("bg-all", "bg-kit", "bg-bed", "bg-bath");
-  document.body.classList.add(`bg-${cat}`);
-}
-
-function setActiveMenu(cat) {
-  categoryLinks.forEach((link) => {
-    const href = link.getAttribute("href");
-    const linkCat = getCategoryByHref(href);
-
-    link.classList.toggle("active", linkCat === cat);
-  });
-}
-
-// =========================
-// 4) 카테고리 클릭
-// =========================
-categoryLinks.forEach((link) => {
-  link.addEventListener("click", (e) => {
-    e.preventDefault();
-
-    const href = link.getAttribute("href");
-    const cat = getCategoryByHref(href);
-
-    updateCategory(cat, true);
-  });
-});
-
-// =========================
-// 5) 브라우저 뒤로가기 / 앞으로가기 대응
-// =========================
-window.addEventListener("popstate", () => {
-  const currentCat = getCategoryFromUrl();
-  updateCategory(currentCat, false);
-});
-
-// =========================
 // 6) 탑버튼
 // =========================
 if (topBtn) {

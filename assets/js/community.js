@@ -136,8 +136,7 @@ function filterPosts(category) {
   allCards.forEach((card) => {
     const cardCategory = card.dataset.category;
 
-    card.style.display =
-      category === "all" || cardCategory === category ? "" : "none";
+    card.style.display = category === "all" || cardCategory === category ? "" : "none";
   });
 }
 
@@ -148,18 +147,23 @@ function setActiveMenu(category) {
   });
 }
 
+// 카테고리클릭시 스크롤이벤트
 menuLinks.forEach((link) => {
   link.addEventListener("click", function (e) {
     e.preventDefault();
 
     const filter = this.dataset.filter || "all";
 
-    const url =
-      filter === "all" ? "community.html" : `community.html?cat=${filter}`;
+    const url = filter === "all" ? "community.html" : `community.html?cat=${filter}`;
     history.pushState(null, "", url);
 
     filterPosts(filter);
     setActiveMenu(filter);
+
+    document.querySelector(".commu_box_main").scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
   });
 });
 
