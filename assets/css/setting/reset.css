@@ -46,9 +46,7 @@ textarea,
 select,
 button,
 table {
-  font-family:
-    "Pretendard", "GMarketSans", AppleSDGothicNeo-Regular, "Malgun Gothic",
-    "맑은 고딕", dotum, "돋움", sans-serif;
+  font-family: "Pretendard", "GMarketSans", AppleSDGothicNeo-Regular, "Malgun Gothic", "맑은 고딕", dotum, "돋움", sans-serif;
   color: #222;
   font-size: 13px;
   line-height: 1.5;
@@ -168,55 +166,94 @@ input:checked[type="checkbox"] {
   -webkit-appearance: checkbox;
 }
 
-/* 모든 요소에서 커서 숨김 (hover 포함) */
+/* 커서 */
 body,
 a,
 button,
-img,
-.hover-frame,
-*:hover {
+img {
   cursor: none !important;
 }
 
-/* 커서 */
 .bb-cursor {
   position: fixed;
   left: 0;
   top: 0;
-  width: 32px;
-  height: 32px;
+  width: 60px;
+  height: 60px;
   pointer-events: none;
-  transform: translate(-50%, -50%) scale(1);
   z-index: 99999;
 
-  background: url("../../img/main/bb-cursor.svg") no-repeat center / contain;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  transform: translate(-50%, -50%) scale(1);
+  background: url("../../img/main/bibi_cursor_clench.svg") no-repeat center / contain;
 
   transition:
-    transform 0.18s ease,
-    opacity 0.15s ease;
-  opacity: 0;
+    transform 0.2s ease,
+    background-image 0.2s ease;
 }
 
-.bb-cursor.show {
+.bb-cursor-text {
+  position: absolute;
+  left: 51.5%;
+  top: 64%;
+  transform: translate(-50%, -50%);
+
+  display: block;
+  font-size: 12px;
+  color: #ffd2a8;
+  font-family: "OngleipEoyeonce";
+
+  white-space: nowrap;
+
+  opacity: 0;
+}
+.bb-cursor.is-hover {
+  background-image: url("../../img/main/bibi_cursor_spread.svg");
+}
+
+.bb-cursor.is-down {
+  transform: translate(-50%, -50%) scale(0.9);
+}
+.bb-cursor.hovering {
+  transform: translate(-50%, -50%) scale(2.2);
+  background-image: url("../../img/main/bibi_cursor_spread.svg");
+}
+
+.bb-cursor.hovering .bb-cursor-text {
   opacity: 1;
 }
 
-/* 링크/버튼 등 hover 시 커서 확대 */
-.bb-cursor.is-hover {
-  transform: translate(-50%, -50%) scale(1.78);
+/*커서 미디어쿼리 */
+@media (max-width: 1200px) {
+  .bb-cursor {
+    width: 60px;
+  }
+  .bb-cursor-text {
+    left: 51.5%;
+    top: 61%;
+    font-size: 12px;
+  }
+  .bb-cursor.hovering {
+    transform: translate(-50%, -50%) scale(1.6);
+  }
 }
-
-/* 클릭 느낌까지 주고 싶으면 추가 */
-.bb-cursor.is-down {
-  transform: translate(-50%, -50%) scale(1.12);
+@media (max-width: 850px) {
+  .bb-cursor {
+    width: 50px;
+  }
+  .bb-cursor-text {
+    font-size: 10px;
+  }
 }
-
-/* 텍스트 기본 숨김 */
-.bb-cursor-text {
-  display: none;
-  padding: 35px 3px 0 0;
+@media (max-width: 480px) {
+  .bb-cursor {
+    width: 50px;
+  }
+  .bb-cursor-text {
+    left: 51.5%;
+    top: 61%;
+    font-size: 10px;
+  }
+  .bb-cursor.hovering {
+    transform: translate(-50%, -50%) scale(1.4);
+  }
 }

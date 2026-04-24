@@ -158,14 +158,14 @@
       });
       // pot 모션
 
-      const boxWrap = document.querySelector(".box");
       const box = document.querySelector(".box img");
       let boxInterval;
 
-      boxWrap.addEventListener("mouseenter", () => {
+      box.addEventListener("mouseenter", () => {
         let frame = 1;
 
         clearInterval(boxInterval);
+
         boxInterval = setInterval(() => {
           box.src = `assets/img/main/1920/box${frame}.svg`;
 
@@ -176,7 +176,7 @@
         }, 80);
       });
 
-      boxWrap.addEventListener("mouseleave", () => {
+      box.addEventListener("mouseleave", () => {
         clearInterval(boxInterval);
         box.src = "assets/img/main/1920/box0.svg";
       });
@@ -184,5 +184,8 @@
     </script>
     <script src="assets/js/include.js"></script>
     <script src="assets/js/big_cursor.js"></script>
+    <div class="bb-cursor">
+      <span class="bb-cursor-text"></span>
+    </div>
   </body>
 </html>
