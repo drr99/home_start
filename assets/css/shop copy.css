@@ -1,18 +1,83 @@
-/* shop_goods */
-.shop_goods {
-  font-family: "Pretendard";
+html {
+  scroll-behavior: smooth;
+}
+.bg-all {
+  background: #fbeddc;
+}
+
+#shop_kit,
+#shop_bed,
+#shop_bath {
+  scroll-margin-top: 80px;
+}
+
+#shop {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background: url(../img/shop/shop_bg_1920.svg) no-repeat center / cover;
+}
+
+.shop_objects {
+  width: 100%;
+  position: absolute;
+  inset: 0;
+  margin-bottom: 2%;
+}
+
+.shop_item {
+  position: absolute;
+  width: 30%;
+}
+.shop_item .cloud_1920 {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 250px;
+
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+.shop_item .cloud_1024 {
+  display: none;
+}
+.shop_item .cloud_480 {
+  display: none;
+}
+/* hover 시 보이기 */
+.shop_item:hover .cloud_1920 {
+  opacity: 1;
+}
+.shop_item img {
+  width: 100%;
+  display: block;
+}
+
+.kitchen {
+  left: 3%;
+  bottom: 12%;
+}
+.bedroom {
+  left: 35%;
+  bottom: 12%;
+}
+.bathroom {
+  left: 67%;
+  bottom: 12%;
 }
 
 /* 검색창 */
 .search_box {
   width: min(400px, calc(100% - 32px));
   /* input 기준 */
-  margin: 120px auto 0; /* 가운데 정렬 */
-  position: relative; /* 기준 */
-  display: block; /* flex 제거 */
+  margin: 120px auto 0;
+  position: relative;
+  display: block;
   background: #fbeddc;
 }
-
 .search_bb {
   width: 118px;
   height: 118px;
@@ -24,7 +89,6 @@
   top: -60px; /* 위로 올리기 */
   z-index: 1;
 }
-
 .search_bb_arm {
   width: 40px;
   height: 39px;
@@ -37,7 +101,6 @@
 
   z-index: 5; /* 팔만 위로 */
 }
-
 #search_input {
   width: 100%;
   height: 48px;
@@ -57,7 +120,6 @@
   box-shadow: none;
   border-color: #888888; /* 기본 테두리 색 유지 */
 }
-
 .plane_icon {
   width: 36px;
   height: 22px;
@@ -69,6 +131,45 @@
   top: 50%;
   transform: translateY(-50%);
   z-index: 3;
+}
+
+/* shop_goods */
+#shop_goods {
+  background: #fbeddc;
+  font-family: "Pretendard";
+}
+.shop_wh {
+  margin: 0 auto;
+  width: 65%;
+  border-radius: 30px;
+  border: 2px solid #818181;
+  background: #fff;
+  margin-bottom: 100px;
+}
+
+#shop_goods > section {
+  padding: 80px 0;
+}
+.shop_category:first-child h2 {
+  margin-top: 40px;
+}
+.shop_category h2 {
+  font-size: 1.25rem;
+  font-weight: 500;
+  margin-top: 120px;
+}
+.shop_category h2.active {
+  font-weight: 800 !important;
+  border-bottom: 2px solid #000;
+  display: inline-block;
+}
+
+.shop_category {
+  max-width: 1060px;
+  width: calc(100% - 32px);
+  margin: 0 auto 20px;
+  font-size: 1.2rem;
+  font-weight: 500;
 }
 
 /* 슬라이드*/
@@ -91,9 +192,11 @@
   width: 100%;
   max-width: none;
 }
-
 .shop_slider .swiper-wrapper {
   align-items: flex-start;
+}
+.shop_recommend {
+  padding: 60px 0;
 }
 
 /*슬라이드 화살표 */
@@ -112,61 +215,12 @@
   font-weight: bold;
 }
 
-/* 카테고리 */
-.shop_box_title {
-  max-width: 1060px;
-  margin: 100px auto 40px;
-  font-size: 1.2rem;
-  font-weight: 500;
-}
-.shop_box_title ul {
-  display: flex;
-  justify-content: flex-start;
-  gap: 24px;
-}
-.shop_box_title ul li a {
-  display: block;
-  position: relative;
-}
-.shop_box_title ul li a:hover {
-  font-weight: 800;
-}
-.shop_box_title ul li a.active {
-  font-weight: 800;
-}
-.shop_box_title ul li a.active::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  height: 3px;
-  background-color: #111;
-  border-radius: 999px;
-}
-
-/* 아이프레임 -서브페이지이동 */
-.shop_box_iframe {
-  max-width: 1200px;
-  width: calc(100% - 32px);
-  margin: 0 auto;
-}
-
-.shop_box_iframe iframe {
-  display: block;
-  width: 100%;
-  border: 0;
-  overflow: hidden;
-  transition: height 0.1s ease;
-}
-
 /* 카드 */
 .shop_slider_box {
   width: 100%;
   max-width: 200px;
   cursor: pointer;
 }
-
 .img_shop {
   width: 100%;
   aspect-ratio: 1 / 1;
@@ -269,21 +323,6 @@
 .shop_box .shop_slider_box {
   width: calc((100% - 26px * 3) / 4);
   max-width: 250px;
-}
-body.bg-all {
-  background-color: #fff;
-}
-
-body.bg-kit {
-  background-color: #ffe2971c;
-}
-
-body.bg-bed {
-  background-color: #d2aad021;
-}
-
-body.bg-bath {
-  background-color: #bee8f736;
 }
 
 /* more */
@@ -629,5 +668,107 @@ body.bg-bath {
     height: 38px;
     right: 1%;
     bottom: 1.5%;
+  }
+}
+
+/* 미디어 쿼리 */
+/* 1. 태블릿 */
+@media (max-width: 1400px) {
+  .shop_objects {
+    margin-bottom: 7%;
+  }
+}
+@media (max-width: 1200px) {
+  .shop_item .cloud_1920 {
+    bottom: 100%;
+    left: 50%;
+    width: 200px;
+  }
+}
+
+@media (max-width: 1024px) {
+  #shop {
+    background: url(../img/shop/shop_bg_1024.svg) no-repeat center left / cover;
+  }
+  .shop_item .cloud_1920 {
+    display: none;
+  }
+  .shop_item .cloud_1024 {
+    display: block;
+    position: absolute;
+    bottom: 60%;
+    left: 100%;
+    width: 150px;
+
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+  }
+  .shop_item:hover .cloud_1024 {
+    opacity: 1;
+  }
+  .kitchen {
+    width: 300px;
+    left: 8%;
+    bottom: 60%;
+  }
+  .bedroom {
+    width: 300px;
+    left: 23%;
+    bottom: 30%;
+  }
+  .bathroom {
+    width: 300px;
+    left: 38%;
+    bottom: -2%;
+  }
+}
+@media (max-width: 768px) {
+  .shop_item .cloud_1024 {
+    display: none;
+  }
+  .shop_item .cloud_480 {
+    display: block;
+    position: absolute;
+    bottom: 70%;
+    left: 90%;
+    width: 120px;
+
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+  }
+  .shop_item:hover .cloud_480 {
+    opacity: 1;
+  }
+  .shop_item.bathroom .cloud_480 {
+    bottom: 70%;
+    left: -20%;
+  }
+}
+
+@media (max-width: 480px) {
+  #shop {
+    background: url(../img/shop/shop_bg_480.svg) no-repeat center / cover;
+  }
+  .shop_item .cloud_480 {
+    bottom: 90%;
+    left: 60%;
+    width: 100px;
+  }
+  .kitchen {
+    width: 240px;
+    left: 3%;
+    bottom: 60%;
+  }
+  .bedroom {
+    width: 240px;
+    left: 12%;
+    bottom: 30%;
+  }
+  .bathroom {
+    width: 240px;
+    left: 24%;
+    bottom: 0%;
   }
 }
