@@ -102,8 +102,6 @@
   background: url("../img/moving/moving_checklist.svg") no-repeat center center / contain;
   z-index: 13;
   overflow: hidden;
-
-  cursor: pointer;
 }
 
 /* 이사체크리스트 글자 */
@@ -330,8 +328,8 @@
 /* 오른쪽 상단 X 작은 버튼 */
 .popup_close_top {
   position: absolute;
-  top: 0.4%;
-  right: 0.6%;
+  top: 1%;
+  right: 1%;
   background: none;
   font-size: 24px;
   line-height: 1;
@@ -366,7 +364,7 @@ body.modal-open {
   top: 53%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 1000;
+  z-index: 999;
   display: none;
 
   width: 900px;
