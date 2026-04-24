@@ -436,6 +436,7 @@
           const response = await fetch(
             `../page/moving_iframe${popupNumber}.html`,
           );
+
           if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
           }
@@ -443,6 +444,7 @@
           const html = await response.text();
           contentBox.innerHTML = html;
           initMovingIframe(targetPopup);
+          bindCursorHover();
         } catch (error) {
           contentBox.innerHTML = `<p class="popup_error">콘텐츠를 불러오지 못했습니다.</p>`;
           console.error(error);
@@ -545,14 +547,40 @@
           if (wrap.dataset.dragInit === "done") return;
           wrap.dataset.dragInit = "done";
 
+          const bbCursor = document.querySelector(".bb-cursor");
+
           let isDown = false;
           let startX = 0;
           let startScrollLeft = 0;
+
+          function canTableScroll() {
+            return wrap.scrollWidth - wrap.clientWidth > 1;
+          }
+
+          function removeTableCursor() {
+            if (!bbCursor) return;
+            bbCursor.classList.remove("is-hover");
+            bbCursor.classList.remove("is-down");
+          }
+
+          wrap.addEventListener("mouseenter", () => {
+            if (!bbCursor) return;
+
+            if (canTableScroll()) {
+              bbCursor.classList.add("is-hover");
+            }
+          });
+
+          wrap.addEventListener("mouseleave", () => {
+            removeTableCursor();
+          });
 
           wrap.addEventListener(
             "touchstart",
             (e) => {
               if (e.touches.length !== 1) return;
+              if (!canTableScroll()) return;
+
               isDown = true;
               startX = e.touches[0].pageX;
               startScrollLeft = wrap.scrollLeft;
@@ -564,8 +592,10 @@
             "touchmove",
             (e) => {
               if (!isDown || e.touches.length !== 1) return;
+
               const currentX = e.touches[0].pageX;
               const diffX = currentX - startX;
+
               if (Math.abs(diffX) > 3) {
                 wrap.scrollLeft = startScrollLeft - diffX;
               }
@@ -582,14 +612,21 @@
           });
 
           wrap.addEventListener("mousedown", (e) => {
+            if (!canTableScroll()) return;
+
             isDown = true;
             startX = e.pageX;
             startScrollLeft = wrap.scrollLeft;
             wrap.classList.add("dragging");
+
+            if (bbCursor) {
+              bbCursor.classList.add("is-down");
+            }
           });
 
           window.addEventListener("mousemove", (e) => {
             if (!isDown) return;
+
             const diffX = e.pageX - startX;
             wrap.scrollLeft = startScrollLeft - diffX;
           });
@@ -597,6 +634,23 @@
           window.addEventListener("mouseup", () => {
             isDown = false;
             wrap.classList.remove("dragging");
+
+            if (bbCursor) {
+              bbCursor.classList.remove("is-down");
+
+              if (wrap.matches(":hover") && canTableScroll()) {
+                bbCursor.classList.add("is-hover");
+              } else {
+                bbCursor.classList.remove("is-hover");
+              }
+            }
+          });
+
+          window.addEventListener("resize", () => {
+            if (!canTableScroll()) {
+              removeTableCursor();
+              wrap.classList.remove("dragging");
+            }
           });
         });
 
@@ -606,6 +660,7 @@
 
           function updateRightShadow() {
             const maxScroll = wrap.scrollWidth - wrap.clientWidth;
+
             if (maxScroll <= 1 || wrap.scrollLeft >= maxScroll - 2) {
               tableBox.classList.add("scroll-end");
             } else {
@@ -649,6 +704,7 @@
           saveBtn.dataset.init = "done";
           saveBtn.addEventListener("click", () => {
             saveModal.classList.add("show");
+
             setTimeout(() => {
               saveModal.classList.remove("show");
             }, 1500);
@@ -657,13 +713,16 @@
 
         updateCount();
       }
+
       function hideAllPopupsOnly() {
         popups.forEach((popup) => {
           popup.classList.remove("show");
           const contentBox = popup.querySelector(".popup_content");
+
           if (contentBox) {
             contentBox.innerHTML = "";
           }
+
           popup.removeAttribute("data-wheel-init");
         });
 

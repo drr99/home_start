@@ -11,6 +11,10 @@ fetch("/common/header.html")
         initHeader();
       }
 
+      if (typeof bindCursorHover === "function") {
+        bindCursorHover();
+      }
+
       header.style.visibility = "visible";
     }
   });
@@ -19,6 +23,7 @@ fetch("/common/footer.html")
   .then((res) => res.text())
   .then((data) => {
     const footer = document.getElementById("footer");
+
     if (footer) {
       footer.innerHTML = data;
     }
@@ -81,7 +86,7 @@ function initHeader() {
 }
 // 헤더 모션 넣기
 
-document.addEventListener("DOMContentLoaded", () => {
+function createBBCursor() {
   let bbCursor = document.querySelector(".bb-cursor");
 
   if (!bbCursor) {
@@ -95,23 +100,21 @@ document.addEventListener("DOMContentLoaded", () => {
     document.body.appendChild(bbCursor);
   }
 
-  window.addEventListener("mousemove", (e) => {
-    bbCursor.style.left = e.clientX + "px";
-    bbCursor.style.top = e.clientY + "px";
-    bbCursor.classList.add("show");
-  });
+  return bbCursor;
+}
 
-  document.addEventListener("mouseleave", () => {
-    bbCursor.classList.remove("show");
-  });
+function bindCursorHover() {
+  const bbCursor = document.querySelector(".bb-cursor");
+  if (!bbCursor) return;
 
-  document.addEventListener("mouseenter", () => {
-    bbCursor.classList.add("show");
-  });
-
-  const hoverTargets = document.querySelectorAll('a, button, [role="button"], input[type="button"], input[type="submit"], .hover-frame');
+  const hoverTargets = document.querySelectorAll(
+    'a, button, .top, .photos>.img_checklist, .photo, .headerCursor, [role="button"], label>i, .check_item>label>i, input[type="button"], input[type="submit"], .hover-frame, .swiper-slide, .book_prev, .book_next',
+  );
 
   hoverTargets.forEach((target) => {
+    if (target.dataset.cursorBound === "done") return;
+    target.dataset.cursorBound = "done";
+
     target.addEventListener("mouseenter", () => {
       bbCursor.classList.add("is-hover");
     });
@@ -128,6 +131,26 @@ document.addEventListener("DOMContentLoaded", () => {
       bbCursor.classList.remove("is-down");
     });
   });
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  const bbCursor = createBBCursor();
+
+  window.addEventListener("mousemove", (e) => {
+    bbCursor.style.left = e.clientX + "px";
+    bbCursor.style.top = e.clientY + "px";
+    bbCursor.classList.add("show");
+  });
+
+  document.addEventListener("mouseleave", () => {
+    bbCursor.classList.remove("show");
+  });
+
+  document.addEventListener("mouseenter", () => {
+    bbCursor.classList.add("show");
+  });
+
+  bindCursorHover();
 
   const mainHoverItems = [
     { selector: ".pot img", text: "집꾸미기" },

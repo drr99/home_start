@@ -136,7 +136,8 @@ function filterPosts(category) {
   allCards.forEach((card) => {
     const cardCategory = card.dataset.category;
 
-    card.style.display = category === "all" || cardCategory === category ? "" : "none";
+    card.style.display =
+      category === "all" || cardCategory === category ? "" : "none";
   });
 }
 
@@ -153,7 +154,8 @@ menuLinks.forEach((link) => {
 
     const filter = this.dataset.filter || "all";
 
-    const url = filter === "all" ? "community.html" : `community.html?cat=${filter}`;
+    const url =
+      filter === "all" ? "community.html" : `community.html?cat=${filter}`;
     history.pushState(null, "", url);
 
     filterPosts(filter);
@@ -170,3 +172,21 @@ window.addEventListener("popstate", () => {
 const currentCategory = getCategoryFromUrl();
 filterPosts(currentCategory);
 setActiveMenu(currentCategory);
+
+/* =========================
+   썸네일 생성
+========================= */
+cards.forEach((card) => {
+  const img = card.dataset.img;
+  if (!img) return;
+
+  let thumb = card.querySelector(".thumb");
+
+  if (!thumb) {
+    thumb = document.createElement("div");
+    thumb.className = "thumb";
+    card.appendChild(thumb);
+  }
+
+  thumb.style.backgroundImage = `url(${img})`;
+});

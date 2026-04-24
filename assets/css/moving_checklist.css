@@ -15,7 +15,9 @@
   align-items: center;
   margin-top: 150px;
 }
-
+.check_item i {
+  cursor: none;
+}
 .checklist_title {
   font-size: 50px;
   padding-top: 125px;

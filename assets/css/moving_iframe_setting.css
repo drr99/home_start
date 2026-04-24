@@ -170,7 +170,12 @@ body {
   width: 25px;
   height: 100%;
   pointer-events: none;
-  background: linear-gradient(to left, rgba(223, 230, 247, 1) 0%, rgba(223, 230, 247, 0.5) 35%, rgba(223, 230, 247, 0) 100%);
+  background: linear-gradient(
+    to left,
+    rgba(223, 230, 247, 1) 0%,
+    rgba(223, 230, 247, 0.5) 35%,
+    rgba(223, 230, 247, 0) 100%
+  );
   opacity: 1;
   transition: opacity 0.2s ease;
   z-index: 5;

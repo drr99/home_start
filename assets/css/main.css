@@ -68,7 +68,27 @@
   flex: 2.5;
   margin-top: -7%;
 }
+.bb-cursor {
+  position: fixed;
+  left: 0;
+  top: 0;
+  pointer-events: none;
+  z-index: 999999;
+  opacity: 0;
+  transform: translate(-50%, -50%);
+}
 
+.bb-cursor.show {
+  opacity: 1;
+}
+
+.bb-cursor.hovering .bb-cursor-text {
+  opacity: 1;
+}
+
+.bb-cursor-text {
+  opacity: 0;
+}
 /* 미디어쿼리 */
 @media (max-width: 1200px) {
   .wall {

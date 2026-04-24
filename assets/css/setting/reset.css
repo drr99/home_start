@@ -46,7 +46,9 @@ textarea,
 select,
 button,
 table {
-  font-family: "Pretendard", "GMarketSans", AppleSDGothicNeo-Regular, "Malgun Gothic", "맑은 고딕", dotum, "돋움", sans-serif;
+  font-family:
+    "Pretendard", "GMarketSans", AppleSDGothicNeo-Regular, "Malgun Gothic",
+    "맑은 고딕", dotum, "돋움", sans-serif;
   color: #222;
   font-size: 13px;
   line-height: 1.5;
@@ -184,7 +186,8 @@ img {
   z-index: 99999;
 
   transform: translate(-50%, -50%) scale(1);
-  background: url("../../img/main/bibi_cursor_clench.svg") no-repeat center / contain;
+  background: url("../../img/main/bibi_cursor_clench.svg") no-repeat center /
+    contain;
 
   transition:
     transform 0.2s ease,
@@ -218,10 +221,9 @@ img {
   background-image: url("../../img/main/bibi_cursor_spread.svg");
 }
 
-.bb-cursor.hovering .bb-cursor-text {
-  opacity: 1;
+.check_item label {
+  cursor: none;
 }
-
 /*커서 미디어쿼리 */
 @media (max-width: 1200px) {
   .bb-cursor {
