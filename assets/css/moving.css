@@ -255,8 +255,8 @@
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(255, 255, 255, 0.7);
-  opacity: 0;
+  background: rgba(255, 255, 255, 0.3);
+  opacity: 1;
   z-index: 10;
   pointer-events: none;
 }
@@ -278,21 +278,30 @@
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 11;
-  opacity: 0;
-  /* font-weight: 700; */
+  opacity: 1;
+  /* -webkit-text-stroke: 1px #fff; */
   color: #1a1a1a;
   white-space: nowrap;
   pointer-events: none;
   text-align: center;
+  text-shadow:
+    -3px -3px 0 #fff,
+    0 -3px 0 #fff,
+    3px -3px 0 #fff,
+    -3px 0 0 #fff,
+    3px 0 0 #fff,
+    -3px 3px 0 #fff,
+    0 3px 0 #fff,
+    3px 3px 0 #fff;
 }
 
 /* 여기서는 transform scale 안 씀 */
 .photo:hover .photo_bg_wh::after {
-  opacity: 1;
+  opacity: 0;
 }
 
 .photo:hover .photo_overlay_text {
-  opacity: 1;
+  opacity: 0;
 }
 
 /* 1920포토팝업 //////////////////////////////////////*/
