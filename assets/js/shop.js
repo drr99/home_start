@@ -201,7 +201,7 @@ const sections = [
 ];
 
 function setActiveCategory() {
-  let scrollY = window.scrollY + 100; // 보정값
+  let scrollY = window.scrollY - 100; // 보정값
 
   sections.forEach((section) => {
     if (!section.el) return;

@@ -1,7 +1,7 @@
 html {
   scroll-behavior: smooth;
 }
-.bg-all {
+body {
   background: #fbeddc;
 }
 
@@ -30,27 +30,8 @@ html {
   position: absolute;
   width: 30%;
 }
-.shop_item .cloud_1920 {
-  position: absolute;
-  bottom: 100%;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 250px;
 
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.2s ease;
-}
-.shop_item .cloud_1024 {
-  display: none;
-}
-.shop_item .cloud_480 {
-  display: none;
-}
 /* hover 시 보이기 */
-.shop_item:hover .cloud_1920 {
-  opacity: 1;
-}
 .shop_item img {
   width: 100%;
   display: block;
@@ -71,7 +52,7 @@ html {
 
 /* 검색창 */
 .search_box {
-  width: min(400px, calc(100% - 32px));
+  width: 400px;
   /* input 기준 */
   margin: 120px auto 0;
   position: relative;
@@ -135,7 +116,6 @@ html {
 
 /* shop_goods */
 #shop_goods {
-  background: #fbeddc;
   font-family: "Pretendard";
 }
 .shop_wh {
@@ -386,9 +366,34 @@ html {
 }
 
 /* 미디어 쿼리 */
+@media (max-width: 1400px) {
+  .shop_objects {
+    margin-bottom: 7%;
+  }
+}
 @media (max-width: 1024px) {
   .search_box {
-    width: min(350px, calc(100% - 32px));
+    width: 300px;
+    mt10
+  }
+
+  #shop {
+    background: url(../img/shop/shop_bg2_1024.svg) no-repeat center left / cover;
+  }
+  #shop_goods {
+    background: #a3c17e;
+  }
+  .kitchen {
+    left: 5%;
+    bottom: 15%;
+  }
+  .bedroom {
+    left: 35%;
+    bottom: 15%;
+  }
+  .bathroom {
+    left: 65%;
+    bottom: 15%;
   }
 
   .shop_slider,
@@ -446,7 +451,24 @@ html {
     height: 45px;
   }
 }
+
 @media (max-width: 768px) {
+  .search_box {
+    width: 250px;
+  }
+
+  .kitchen {
+    left: 3%;
+    bottom: 30%;
+  }
+  .bedroom {
+    left: 35%;
+    bottom: 30%;
+  }
+  .bathroom {
+    left: 67%;
+    bottom: 30%;
+  }
   .shop_slider,
   .shop_slider_title,
   .shop_box_title,
@@ -493,6 +515,18 @@ html {
   .top {
     height: 40px;
     width: 40px;
+  }
+  .kitchen {
+    left: 3%;
+    bottom: 25%;
+  }
+  .bedroom {
+    left: 35%;
+    bottom: 25%;
+  }
+  .bathroom {
+    left: 67%;
+    bottom: 25%;
   }
 }
 @media (max-width: 680px) {
@@ -556,6 +590,18 @@ html {
     height: 160px;
     background-size: 520px auto;
     background-position: bottom center;
+  }
+  .kitchen {
+    left: 5%;
+    bottom: 30%;
+  }
+  .bedroom {
+    left: 35%;
+    bottom: 30%;
+  }
+  .bathroom {
+    left: 65%;
+    bottom: 30%;
   }
 }
 
@@ -668,107 +714,5 @@ html {
     height: 38px;
     right: 1%;
     bottom: 1.5%;
-  }
-}
-
-/* 미디어 쿼리 */
-/* 1. 태블릿 */
-@media (max-width: 1400px) {
-  .shop_objects {
-    margin-bottom: 7%;
-  }
-}
-@media (max-width: 1200px) {
-  .shop_item .cloud_1920 {
-    bottom: 100%;
-    left: 50%;
-    width: 200px;
-  }
-}
-
-@media (max-width: 1024px) {
-  #shop {
-    background: url(../img/shop/shop_bg_1024.svg) no-repeat center left / cover;
-  }
-  .shop_item .cloud_1920 {
-    display: none;
-  }
-  .shop_item .cloud_1024 {
-    display: block;
-    position: absolute;
-    bottom: 60%;
-    left: 100%;
-    width: 150px;
-
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.2s ease;
-  }
-  .shop_item:hover .cloud_1024 {
-    opacity: 1;
-  }
-  .kitchen {
-    width: 300px;
-    left: 8%;
-    bottom: 60%;
-  }
-  .bedroom {
-    width: 300px;
-    left: 23%;
-    bottom: 30%;
-  }
-  .bathroom {
-    width: 300px;
-    left: 38%;
-    bottom: -2%;
-  }
-}
-@media (max-width: 768px) {
-  .shop_item .cloud_1024 {
-    display: none;
-  }
-  .shop_item .cloud_480 {
-    display: block;
-    position: absolute;
-    bottom: 70%;
-    left: 90%;
-    width: 120px;
-
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.2s ease;
-  }
-  .shop_item:hover .cloud_480 {
-    opacity: 1;
-  }
-  .shop_item.bathroom .cloud_480 {
-    bottom: 70%;
-    left: -20%;
-  }
-}
-
-@media (max-width: 480px) {
-  #shop {
-    background: url(../img/shop/shop_bg_480.svg) no-repeat center / cover;
-  }
-  .shop_item .cloud_480 {
-    bottom: 90%;
-    left: 60%;
-    width: 100px;
-  }
-  .kitchen {
-    width: 240px;
-    left: 3%;
-    bottom: 60%;
-  }
-  .bedroom {
-    width: 240px;
-    left: 12%;
-    bottom: 30%;
-  }
-  .bathroom {
-    width: 240px;
-    left: 24%;
-    bottom: 0%;
   }
 }
