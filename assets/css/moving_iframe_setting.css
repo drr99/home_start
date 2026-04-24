@@ -69,7 +69,7 @@ body {
   flex: 1 1 0;
   min-width: 0;
   width: 100%;
-  height: auto;
+  height: 300px;
   object-fit: cover;
   border-radius: 20px;
   display: block;
@@ -103,14 +103,14 @@ body {
 .content_box_desc2 {
   font-size: 20px;
   color: #797979;
-  padding-left: 27px;
   line-height: 1.1;
   padding-bottom: 4px;
 }
 .content_box_desc3 {
   font-size: 20px;
   color: #424242;
-  padding-bottom: 20px;
+  padding-bottom: 5px;
+  display: block;
 }
 
 /* -----표----- */
@@ -170,12 +170,7 @@ body {
   width: 25px;
   height: 100%;
   pointer-events: none;
-  background: linear-gradient(
-    to left,
-    rgba(223, 230, 247, 1) 0%,
-    rgba(223, 230, 247, 0.5) 35%,
-    rgba(223, 230, 247, 0) 100%
-  );
+  background: linear-gradient(to left, rgba(223, 230, 247, 1) 0%, rgba(223, 230, 247, 0.5) 35%, rgba(223, 230, 247, 0) 100%);
   opacity: 1;
   transition: opacity 0.2s ease;
   z-index: 5;
@@ -322,32 +317,32 @@ body {
 /* -----체크리스트----- */
 .checklist_desc2 {
   font-size: 23px;
-  line-height: 1.3;
+  line-height: 1.1;
 }
 .keep_all {
   word-break: keep-all;
 }
-.check {
+.checklist_desc2 .check {
   font-style: normal;
   cursor: pointer;
   position: relative;
 }
-.check::after {
+.checklist_desc2 .check::after {
   content: "\2714";
   font-size: 22px;
   color: #ff5552;
 
   position: absolute;
-  top: -6px;
+  top: -4px;
   left: 2px;
 
   opacity: 0;
   transition: all 0.2s;
 }
-.chk:checked + .check::after {
+.checklist_desc2 .chk:checked + .check::after {
   opacity: 1;
 }
-.chk {
+.checklist_desc2.chk {
   position: absolute;
   left: -999em;
 }
@@ -425,13 +420,14 @@ body {
   .content_box_title2 {
     font-size: 23px;
   }
-  .content_box_desc {
+  .content_box_desc,
+  .content_box_desc3 {
     font-size: 18px;
   }
   .content_box_desc2 {
     font-size: 18px;
-    padding-left: 27px;
   }
+
   .table_title > h2 {
     font-size: 21px;
     padding: 60px 0 8px 0;
@@ -503,7 +499,8 @@ body {
     margin-bottom: 2px;
     line-height: 1.2;
   }
-  .content_box_desc {
+  .content_box_desc,
+  .content_box_desc3 {
     font-size: 17px;
   }
   .content_box_desc2 {

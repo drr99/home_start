@@ -68,6 +68,8 @@
   flex: 2.5;
   margin-top: -7%;
 }
+
+/* 미디어쿼리 */
 @media (max-width: 1200px) {
   .wall {
     gap: 5%;

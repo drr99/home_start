@@ -235,7 +235,7 @@ p .nonenone {
   height: 100px;
   background-color: #fbe2a7;
   border-radius: 14px;
-  border: solid 1px #000;
+  border: solid 2px #000;
   margin-top: 12px;
 }
 
@@ -301,7 +301,7 @@ p .nonenone {
   }
   .cal_x a img,
   .result_cal_x img {
-    margin-right: 15%;
+    margin-right: 1%;
   }
 }
 
@@ -367,5 +367,9 @@ p .nonenone {
     width: 40px;
     height: 40px;
     margin-right: 4px;
+  }
+  .cal_x_box,
+  .result_blue {
+    flex: 40;
   }
 }
