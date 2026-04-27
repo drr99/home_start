@@ -543,13 +543,19 @@
   border-bottom: 1px solid #f1dada;
 }
 .pop_posting .commu_contents {
-  display: block;
   padding: 10px 0 5px;
   background: #fff9f9;
   border-bottom: 1px solid #f1dada;
   text-decoration: none;
   color: inherit;
   height: 100px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.pop_posting .commu_text {
+  flex: 1;
+  min-width: 0;
 }
 .pop_posting .commu_contents:last-child {
   margin-bottom: 60px;
@@ -573,6 +579,14 @@
   overflow: hidden;
 }
 
+.pop_posting .thumb {
+  width: 75px;
+  height: 75px;
+  flex-shrink: 0;
+  border-radius: 8px;
+  background-size: cover;
+  background-position: center;
+}
 /* 미디어쿼리 */
 @media (max-width: 1200px) {
   .posting,
@@ -1042,11 +1056,11 @@
   /* 메뉴 */
   .commu_menu {
     width: 100%;
-    max-width: 290px; /* 화면에 맞게 */
     margin: 24px auto 0;
   }
   .commu_menu_l {
     gap: 6px;
+    width: 300px;
   }
 
   .commu_menu_l li a {
@@ -1184,9 +1198,12 @@
   }
 
   .comment_desc {
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     line-height: 1.5;
     margin-bottom: 6px;
+
+    word-break: keep-all;
+    overflow-wrap: break-word;
   }
 
   .comment_meta {
@@ -1240,7 +1257,7 @@
 
   /* 인기게시글 */
   .pop_posting .commu_contents {
-    height: 100px; /* 원하는 값 */
+    height: 120px; /* 원하는 값 */
     overflow: hidden; /* 넘치는 글 잘림 */
   }
   .pop_posting .title {

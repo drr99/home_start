@@ -1,8 +1,8 @@
 const STORAGE_KEY = "community_posts_v1";
 
-/* =========================
-   로컬스토리지
-========================= */
+/* =====================================================
+   1. 로컬스토리지
+===================================================== */
 function getStore() {
   const saved = localStorage.getItem(STORAGE_KEY);
   return saved ? JSON.parse(saved) : {};
@@ -26,57 +26,68 @@ function ensurePost(store, postId) {
       comment: 0,
       comments: [],
     };
-  } else {
-    // 예전 데이터 보정
-    if (typeof store[postId].like !== "number") {
-      store[postId].like = defaultLikes[postId] || 0;
-    }
-
-    if (typeof store[postId].comment !== "number") {
-      store[postId].comment = 0;
-    }
-
-    if (!Array.isArray(store[postId].comments)) {
-      store[postId].comments = [];
-    }
-  }
-}
-
-function getPostId() {
-  const posting = document.querySelector(".posting");
-
-  // HTML의 data-post-id 우선
-  if (posting && posting.dataset.postId) {
-    return posting.dataset.postId;
   }
 
-  // 없으면 URL 파라미터 사용
-  const params = new URLSearchParams(window.location.search);
-  return params.get("post") || "post1";
+  if (typeof store[postId].like !== "number") {
+    store[postId].like = defaultLikes[postId] || 0;
+  }
+
+  if (typeof store[postId].comment !== "number") {
+    store[postId].comment = 0;
+  }
+
+  if (!Array.isArray(store[postId].comments)) {
+    store[postId].comments = [];
+  }
 }
 
 function formatCount(num) {
   return num >= 100 ? "100+" : num;
 }
 
-/* =========================
-   기본 세팅
-========================= */
+/* =====================================================
+   2. 게시글 ID 가져오기
+===================================================== */
+function getPostId() {
+  const posting = document.querySelector(".posting");
+
+  if (posting && posting.dataset.postId) {
+    return posting.dataset.postId;
+  }
+
+  const params = new URLSearchParams(window.location.search);
+  return params.get("post") || "post1";
+}
+
+/* =====================================================
+   3. 기본 세팅
+===================================================== */
 const postId = getPostId();
 const store = getStore();
+
 ensurePost(store, postId);
 
 const postLikeEl = document.querySelector(".posting .like_count");
+const postCommentEl = document.querySelector(".posting .comment_count");
 
-/* =========================
-   좋아요 기능
-========================= */
+/* =====================================================
+   4. 좋아요 / 댓글 숫자 화면 반영
+===================================================== */
 function updatePostCounts() {
   if (postLikeEl) {
     postLikeEl.textContent = formatCount(store[postId].like);
   }
+
+  if (postCommentEl) {
+    postCommentEl.textContent = formatCount(store[postId].comment);
+  }
 }
 
+/* =====================================================
+   5. 좋아요 기능
+   - 클릭: +1
+   - 더블클릭: -1
+===================================================== */
 function bindPostLikeEvent() {
   if (!postLikeEl) return;
 
@@ -106,24 +117,27 @@ function bindPostLikeEvent() {
   });
 }
 
-updatePostCounts();
-bindPostLikeEvent();
+/* =====================================================
+   6. 댓글 개수 자동 카운트
+===================================================== */
+function updateCommentCountFromHTML() {
+  const commentCount = document.querySelectorAll(".comment_box").length;
+  const replyCount = document.querySelectorAll(".reply_box").length;
+  const total = commentCount + replyCount;
 
-/* =========================
-   메뉴 active 처리
-========================= */
-const menuLinks = document.querySelectorAll(".commu_menu_l a");
+  const commentTitle = document.querySelector(".comment_title span");
 
-menuLinks.forEach((link) => {
-  link.addEventListener("click", function () {
-    menuLinks.forEach((el) => el.classList.remove("active"));
-    this.classList.add("active");
-  });
-});
+  if (commentTitle) commentTitle.textContent = total;
 
-/* =========================
-   메뉴 클릭 시 목록페이지 카테고리 이동
-========================= */
+  store[postId].comment = total;
+  saveStore(store);
+
+  updatePostCounts();
+}
+
+/* =====================================================
+   7. 메뉴 클릭 시 목록페이지 카테고리 이동
+===================================================== */
 const menuLinks = document.querySelectorAll(".commu_menu_l a");
 
 menuLinks.forEach((link) => {
@@ -132,32 +146,79 @@ menuLinks.forEach((link) => {
 
     const filter = this.dataset.filter || "all";
 
-    if (filter === "all") {
-      location.href = "community.html";
-    } else {
-      location.href = `community.html?cat=${filter}`;
-    }
+    location.href = filter === "all" ? "community.html" : `community.html?cat=${filter}`;
   });
 });
 
-/* =========================
-   HTML 댓글 자동 카운트
-========================= */
-function updateCommentCountFromHTML() {
-  const commentCount = document.querySelectorAll(".comment_box").length;
-  const replyCount = document.querySelectorAll(".reply_box").length;
-  const total = commentCount + replyCount;
+/* =====================================================
+   8. 게시글 카테고리 클릭 시 목록 이동
+===================================================== */
+const postCategory = document.querySelector(".post_category");
 
-  const commentTitle = document.querySelector(".comment_title span");
-  const postComment = document.querySelector(".posting .comment_count");
+if (postCategory) {
+  postCategory.addEventListener("click", function (e) {
+    e.preventDefault();
 
-  if (commentTitle) commentTitle.textContent = total;
-  if (postComment) postComment.textContent = total;
+    const url = this.getAttribute("href");
 
-  // 목록페이지에서도 보이게 저장
-  store[postId].comment = total;
-  saveStore(store);
+    location.href = url;
+  });
 }
 
+/* =====================================================
+   9. 인기게시글 썸네일 생성
+===================================================== */
+document.querySelectorAll(".pop_posting .commu_contents").forEach((card) => {
+  const img = card.dataset.img;
+  if (!img) return;
+
+  let thumb = card.querySelector(".thumb");
+
+  if (!thumb) {
+    thumb = document.createElement("div");
+    thumb.className = "thumb";
+    card.appendChild(thumb);
+  }
+
+  thumb.style.backgroundImage = `url(${img})`;
+});
+
+/* =====================================================
+   10. 실행
+===================================================== */
 updateCommentCountFromHTML();
+updatePostCounts();
+bindPostLikeEvent();
 saveStore(store);
+
+/* =====================================================
+   9. 인기게시글 썸네일 생성 + 텍스트 자동 묶기
+===================================================== */
+document.querySelectorAll(".pop_posting .commu_contents").forEach((card) => {
+  const img = card.dataset.img;
+
+  if (!card.querySelector(".commu_text")) {
+    const textWrap = document.createElement("div");
+    textWrap.className = "commu_text";
+
+    const textItems = card.querySelectorAll(".box_title, .box_desc, .box_icon");
+
+    textItems.forEach((item) => {
+      textWrap.appendChild(item);
+    });
+
+    card.prepend(textWrap);
+  }
+
+  if (!img) return;
+
+  let thumb = card.querySelector(".thumb");
+
+  if (!thumb) {
+    thumb = document.createElement("div");
+    thumb.className = "thumb";
+    card.appendChild(thumb);
+  }
+
+  thumb.style.backgroundImage = `url(${img})`;
+});
