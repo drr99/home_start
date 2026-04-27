@@ -134,12 +134,6 @@ function bindCursorHover() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  if (window.innerWidth <= 768) {
-    document.querySelector(".bb-cursor")?.remove();
-    return;
-  }
-
-  const bbCursor = createBBCursor();
   const bbCursor = createBBCursor();
 
   window.addEventListener("mousemove", (e) => {

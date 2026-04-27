@@ -225,7 +225,6 @@ img {
 .check_item label {
   cursor: none;
 }
-
 /*커서 미디어쿼리 */
 @media (max-width: 1200px) {
   .bb-cursor {
@@ -247,16 +246,6 @@ img {
   .bb-cursor-text {
     font-size: 10px;
   }
-  .bb-cursor,
-  .bb-cursor-text,
-  .bb-cursor.is-hover,
-  .bb-cursor.is-down,
-  .bb-cursor.hovering {
-    display: none !important;
-    opacity: 0 !important;
-    visibility: hidden !important;
-    pointer-events: none !important;
-  }
 }
 @media (max-width: 480px) {
   .bb-cursor {
@@ -269,19 +258,5 @@ img {
   }
   .bb-cursor.hovering {
     transform: translate(-50%, -50%) scale(1.4);
-  }
-}
-@media (hover: none) {
-  .bb-cursor,
-  .bb-cursor-text {
-    display: none !important;
-  }
-
-  body,
-  a,
-  button,
-  img,
-  * {
-    cursor: auto !important;
   }
 }
