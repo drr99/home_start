@@ -1,6 +1,13 @@
 body {
   overflow-x: hidden;
+  cursor: none;
 }
+
+.search_bb,
+.search_bb_arm {
+  pointer-events: none;
+}
+
 .community {
   font-family: "Pretendard";
   width: 100%;
@@ -65,7 +72,6 @@ body {
   width: 36px;
   height: 22px;
   background: url(../img/community/plane_icon.svg) no-repeat center;
-  cursor: pointer;
 
   position: absolute;
   right: -5px;
@@ -256,9 +262,6 @@ body {
   top: 50%;
   transform: translateY(-60%);
 }
-.like_count {
-  cursor: pointer;
-}
 .like_count.active {
   color: #ff7f7f;
 }
@@ -278,9 +281,6 @@ body {
   left: 0;
   top: 50%;
   transform: translateY(-55%);
-}
-.comment_count {
-  cursor: pointer;
 }
 .post_category2 {
   padding-right: 10px;
@@ -335,7 +335,6 @@ body {
 
   font-size: 14px;
   font-family: "Pretendard", sans-serif;
-  cursor: pointer;
   transition: all 0.2s ease;
 
   display: flex;
@@ -413,7 +412,6 @@ body {
   font-size: 16px;
   border: none;
   border: 1px solid #ff7f7f;
-  cursor: pointer;
 }
 
 .popup_close:hover {
