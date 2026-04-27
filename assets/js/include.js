@@ -104,6 +104,15 @@ function createBBCursor() {
 }
 
 function bindCursorHover() {
+  const isMobile = window.matchMedia(
+    "(hover: none), (pointer: coarse), (max-width: 1024px)",
+  ).matches;
+
+  if (isMobile) {
+    const bbCursor = document.querySelector(".bb-cursor");
+    if (bbCursor) bbCursor.remove();
+    return;
+  }
   const bbCursor = document.querySelector(".bb-cursor");
   if (!bbCursor) return;
 
@@ -134,6 +143,16 @@ function bindCursorHover() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+  const isMobile = window.matchMedia(
+    "(hover: none), (pointer: coarse), (max-width: 1024px)",
+  ).matches;
+
+  if (isMobile) {
+    const bbCursor = document.querySelector(".bb-cursor");
+    if (bbCursor) bbCursor.remove();
+    return;
+  }
+
   const bbCursor = createBBCursor();
 
   window.addEventListener("mousemove", (e) => {
