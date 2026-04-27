@@ -120,6 +120,7 @@ menuLinks.forEach((link) => {
     this.classList.add("active");
   });
 });
+
 /* =========================
    메뉴 클릭 시 목록페이지 카테고리 이동
 ========================= */
@@ -131,9 +132,11 @@ menuLinks.forEach((link) => {
 
     const filter = this.dataset.filter || "all";
 
-    const url = filter === "all" ? "community.html" : `community.html?cat=${filter}`;
-
-    location.href = url;
+    if (filter === "all") {
+      location.href = "community.html";
+    } else {
+      location.href = `community.html?cat=${filter}`;
+    }
   });
 });
 

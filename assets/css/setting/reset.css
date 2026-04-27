@@ -31,6 +31,7 @@ figure,
 figcaption {
   margin: 0;
   padding: 0;
+  cursor: none;
 }
 
 /* a 링크 초기화 */

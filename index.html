@@ -56,41 +56,76 @@
     <div id="main">
       <div class="house_hunting_inner">
         <div class="wall">
-          <div class="pot">
+          <div class="pot main-click-item">
             <a href="page/shop.html">
-              <img src="assets/img/main/1920/pot0.svg" alt="집꾸미기" />
+              <img
+                class="main-object"
+                src="assets/img/main/1920/pot0.svg"
+                alt="집꾸미기"
+              />
             </a>
-          </div>
-          <div class="window">
-            <a href="page/community.html">
-              <img src="assets/img/main/1920/window0.svg" alt="커뮤니티" />
-            </a>
+            <img
+              class="speech"
+              src="assets/img/main/speech bubble_shop.svg"
+              alt="집꾸미기 말풍선"
+            />
           </div>
 
-          <div class="box">
+          <div class="window main-click-item">
+            <a href="page/community.html">
+              <img
+                class="main-object" 
+                src="assets/img/main/1920/window0.svg"
+                alt="커뮤니티"
+              />
+            </a>
+            <img
+              class="speech"
+              src="assets/img/main/speech bubble_commu.svg"
+              alt="커뮤니티 말풍선"
+            />
+          </div>
+
+          <div class="box main-click-item">
             <a href="page/moving.html">
-              <img src="assets/img/main/1920/box0.svg" alt="이사/청소"
-            /></a>
+              <img
+                class="main-object"
+                src="assets/img/main/1920/box0.svg"
+                alt="이사/청소"
+              />
+            </a>
+            <img
+              class="speech speech_box"
+              src="assets/img/main/speech bubble_moving.svg"
+              alt="이사/청소 말풍선"
+            />
           </div>
         </div>
         <div class="floor">
           <div class="chair">
             <img src="assets/img/main/chair.svg" alt="의자 이미지" />
           </div>
-          <div class="bb_laptop">
+          <div class="bb_laptop main-click-item">
             <img class="bb" src="assets/img/main/bb.svg" alt="비비 이미지" />
             <img
               class="desk"
               src="assets/img/main/desk.svg"
               alt="책상 이미지"
             />
+
             <a href="page/house_hunting.html">
               <img
-                class="laptop"
+                class="laptop main-object"
                 src="assets/img/main/1920/laptop0.svg"
                 alt="집구하기"
               />
             </a>
+
+            <img
+              class="speech speech_laptop"
+              src="assets/img/main/speech bubble_house.svg"
+              alt="집구하기 말풍선"
+            />
           </div>
           <div class="sofa">
             <img src="assets/img/main/sofa.svg" alt="소파 이미지" />
@@ -127,7 +162,7 @@
       // laptop 모션
 
       const windowWrap = document.querySelector(".window");
-      const windowImg = document.querySelector(".window img");
+      const windowImg = document.querySelector(".window .main-object");
       let windowInterval;
 
       windowWrap.addEventListener("mouseenter", () => {
@@ -151,7 +186,7 @@
       // window 모션
 
       const potWrap = document.querySelector(".pot");
-      const pot = document.querySelector(".pot img");
+      const pot = document.querySelector(".pot .main-object");
       let potInterval;
 
       potWrap.addEventListener("mouseenter", () => {
@@ -174,7 +209,7 @@
       });
       // pot 모션
 
-      const box = document.querySelector(".box img");
+      const box = document.querySelector(".box .main-object");
       let boxInterval;
 
       box.addEventListener("mouseenter", () => {
@@ -196,7 +231,32 @@
         clearInterval(boxInterval);
         box.src = "assets/img/main/1920/box0.svg";
       });
+
       // box 모션
+      // 모바일 말풍선 클릭
+      const isMobile = window.matchMedia(
+        "(hover: none), (pointer: coarse), (max-width: 890px)",
+      ).matches;
+
+      if (isMobile) {
+        const mobileItems = document.querySelectorAll(".main-click-item");
+
+        mobileItems.forEach((item) => {
+          const link = item.querySelector("a");
+
+          link.addEventListener("click", (e) => {
+            if (!item.classList.contains("show-speech")) {
+              e.preventDefault();
+
+              mobileItems.forEach((el) => {
+                el.classList.remove("show-speech");
+              });
+
+              item.classList.add("show-speech");
+            }
+          });
+        });
+      }
     </script>
     <script src="assets/js/include.js"></script>
     <script src="assets/js/big_cursor.js"></script>

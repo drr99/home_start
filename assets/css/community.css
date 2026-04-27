@@ -319,9 +319,9 @@ body {
 
 /* 페이지 버튼 */
 .page_btn {
+  position: relative;
   display: flex;
   justify-content: center;
-  align-items: center;
   gap: 12px;
   margin: 40px 0 60px;
 }
@@ -354,12 +354,20 @@ body {
   color: #ff7f7f;
   border-color: #ffb5b5;
 }
-
+.page_btn .page_num {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
 .page_btn .page_num.active {
   background: #ffecec;
   color: #ff7f7f;
   border-color: #ffb5b5;
   font-weight: 700;
+}
+/* 화살표는 오른쪽으로 */
+.page_btn .page_arrow {
+  margin-left: 100px;
 }
 
 /* 팝업창 */

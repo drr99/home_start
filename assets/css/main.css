@@ -89,6 +89,29 @@
 .bb-cursor-text {
   opacity: 0;
 }
+/* 모바일 말풍선 */
+.main-click-item {
+  position: relative;
+}
+.speech {
+  position: absolute;
+  width: 90px;
+  top: -50px;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  pointer-events: none;
+}
+.speech_box {
+  transform: translate(-80%, 10%);
+}
+.speech_laptop {
+  transform: translate(70%, 120%);
+}
+.show-speech .speech {
+  opacity: 1;
+}
+
 /* 미디어쿼리 */
 @media (max-width: 1200px) {
   .wall {
@@ -169,5 +192,22 @@
   .sofa {
     flex: 1;
     margin-top: 0%;
+  }
+}
+@media (hover: none) {
+  .speech {
+    display: block;
+    position: absolute;
+    width: 80px;
+    top: -45px;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    pointer-events: none;
+    z-index: 20;
+  }
+
+  .show-speech .speech {
+    opacity: 1;
   }
 }
