@@ -134,6 +134,7 @@ function bindCursorHover() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+  if (window.matchMedia("(hover: none)").matches) return;
   const bbCursor = createBBCursor();
 
   window.addEventListener("mousemove", (e) => {
