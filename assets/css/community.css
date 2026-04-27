@@ -755,7 +755,7 @@ body {
   .commu_box_pop,
   .commu_box_main {
     width: calc(100% - 24px);
-    max-width: 320px;
+    max-width: 290px;
     margin: 24px auto 0;
   }
   .commu_box_pop .title,
@@ -795,16 +795,4 @@ body {
   .comment_count::before {
     transform: translateY(-50%);
   }
-}
-html,
-body,
-body *,
-.search_box,
-.search_box *,
-#search_input,
-#search_input:hover,
-#search_input:focus,
-.plane_icon,
-.plane_icon:hover {
-  cursor: none !important;
 }

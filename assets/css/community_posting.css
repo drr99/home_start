@@ -541,8 +541,7 @@
   border-bottom: 1px solid #f1dada;
 }
 .pop_posting .commu_contents {
-  padding: 10px 0 5px;
-  background: #fff9f9;
+  padding: 5px 0 5px;
   border-bottom: 1px solid #f1dada;
   text-decoration: none;
   color: inherit;
@@ -966,12 +965,12 @@
   /* 글쓰기 버튼 :탑버튼 처럼 */
   .commu_menu_r {
     position: fixed;
-    right: 5px;
+    right: 15px;
     bottom: 20px;
     z-index: 999;
-
-    margin-left: 0;
+    transition: all 0.2s ease;
   }
+
   .commu_menu_r li {
     background: none;
     overflow: visible;
@@ -1054,11 +1053,11 @@
   /* 메뉴 */
   .commu_menu {
     width: 100%;
+    max-width: 290px; /* 화면에 맞게 */
     margin: 24px auto 0;
   }
   .commu_menu_l {
     gap: 6px;
-    width: 300px;
   }
 
   .commu_menu_l li a {
@@ -1073,8 +1072,10 @@
   .posting,
   .comment,
   .pop_posting {
-    width: 100%;
-    max-width: 290px;
+    /* width: 100%; */
+    width: calc(100% - 24px);
+
+    max-width: 320px;
   }
   .posting {
     margin: 18px auto 0;
@@ -1255,22 +1256,37 @@
 
   /* 인기게시글 */
   .pop_posting .commu_contents {
-    height: 120px; /* 원하는 값 */
-    overflow: hidden; /* 넘치는 글 잘림 */
+    height: 133.3px;
+    overflow: hidden;
+    width: 290px;
   }
   .pop_posting .title {
-    font-size: 0.92rem;
+    font-size: 0.9rem;
     margin-bottom: 4px;
     color: #ff7f7f;
     display: flex;
     justify-content: center;
     align-items: center;
   }
+  .pop_posting .box_title {
+    font-size: 0.8rem;
+  }
+
   .pop_posting .box_desc {
     font-size: 0.8rem;
     line-height: 1.4;
   }
   .commu_contents {
     padding: 10px 14px;
+  }
+  .thumb {
+    width: 64px;
+    height: 64px;
+  }
+  .box_desc {
+    font-size: 0.75rem;
+  }
+  .box_icon span {
+    font-size: 0.7rem;
   }
 }
