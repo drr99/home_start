@@ -1164,7 +1164,7 @@
   /* 메뉴 */
   .commu_menu {
     width: 100%;
-    max-width: 290px; /* 화면에 맞게 */
+    max-width: 320px; /* 화면에 맞게 */
     margin: 24px auto 0;
   }
   .commu_menu_l {
@@ -1183,8 +1183,7 @@
   .posting,
   .comment,
   .commu_box_pop {
-    width: calc(100% - 24px);
-    max-width: 290px;
+    width: 85%;
     margin: 24px auto 0;
   }
   .posting {
@@ -1346,29 +1345,14 @@
   }
 
   /* 인기게시글 */
-  .commu_box_pop {
-    width: calc(100% - 24px);
-    max-width: 290px;
-    margin: 24px auto 0;
-  }
-  .commu_box_pop .title {
-    font-size: 0.85rem;
-    margin-bottom: 4px;
-  }
   .commu_box_pop .commu_contents {
     height: auto;
     min-height: 100px;
-    padding: 10px 14px;
+    padding: 10px 0;
   }
   .thumb {
     width: 64px;
     height: 64px;
-  }
-  .box_title {
-    font-size: 0.8rem;
-  }
-  .box_desc {
-    font-size: 0.75rem;
   }
   .box_icon {
     gap: 10px;

@@ -70,7 +70,8 @@ cards.forEach((card, index) => {
   const commentEl = card.querySelector(".comment_count");
 
   if (likeEl) likeEl.textContent = formatCount(store[postId].like || 0);
-  if (commentEl) commentEl.textContent = formatCount(store[postId].comment || 0);
+  if (commentEl)
+    commentEl.textContent = formatCount(store[postId].comment || 0);
 });
 
 saveStore(store);
@@ -90,7 +91,8 @@ function filterPosts(category) {
   allCards.forEach((card) => {
     const cardCategory = card.dataset.category;
 
-    card.style.display = category === "all" || cardCategory === category ? "" : "none";
+    card.style.display =
+      category === "all" || cardCategory === category ? "" : "none";
   });
 }
 
@@ -126,7 +128,8 @@ menuLinks.forEach((link) => {
     e.preventDefault();
 
     const filter = this.dataset.filter || "all";
-    const url = filter === "all" ? "community.html" : `community.html?cat=${filter}`;
+    const url =
+      filter === "all" ? "community.html" : `community.html?cat=${filter}`;
 
     history.pushState(null, "", url);
 
@@ -233,9 +236,9 @@ window.addEventListener("scroll", () => {
     const overlap = windowHeight - footerTop;
 
     // 버튼을 위로 밀어줌
-    writeBtn.style.bottom = 20 + overlap + "px";
+    writeBtn.style.bottom = 30 + overlap + "px";
   } else {
     // 기본 위치
-    writeBtn.style.bottom = "20px";
+    writeBtn.style.bottom = "30px";
   }
 });
