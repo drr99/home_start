@@ -147,7 +147,33 @@
       let popupMode = "cancel";
 
       /* =========================
-   팝업 열기 / 닫기
+   셀렉터 카테고리
+========================= */
+      const selected = document.querySelector(".selected");
+      const selectList = document.querySelector(".select_list");
+      const options = document.querySelectorAll(".select_list li");
+
+      selected?.addEventListener("click", (e) => {
+        e.stopPropagation();
+
+        selectList.style.display = selectList.style.display === "block" ? "none" : "block";
+      });
+
+      options.forEach((item) => {
+        item.addEventListener("click", (e) => {
+          e.stopPropagation();
+
+          selected.textContent = item.textContent;
+          selectList.style.display = "none";
+        });
+      });
+
+      document.addEventListener("click", () => {
+        selectList.style.display = "none";
+      });
+
+      /* =========================
+  팝업 열기 / 닫기
 ========================= */
       function openPopup() {
         popup?.classList.add("show");
