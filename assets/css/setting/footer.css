@@ -19,7 +19,7 @@
 }
 
 #footer ul li {
-  font-family: "OngleipStudyWell";
+  font-family: "OngleipStudyWell", sans-serif !important;
 }
 
 .footer_inner .section2 ul {

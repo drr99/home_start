@@ -180,7 +180,7 @@ body {
 .menu_link,
 .about_link {
   color: #4b1e12;
-  font-family: "OngleipEoyeonce";
+  font-family: "OngleipEoyeonce", sans-serif !important;
   font-size: 40px;
   position: relative;
   display: block;
@@ -190,7 +190,7 @@ body {
 }
 .duldul {
   color: #4b1e12;
-  font-family: "OngleipEoyeonce";
+  font-family: "OngleipEoyeonce", sans-serif !important;
   font-size: 30px;
   margin-top: -20px;
 }
