@@ -255,9 +255,7 @@
 
       // box 모션
       // 모바일 말풍선 클릭
-      const isMobile = window.matchMedia(
-        "(hover: none), (pointer: coarse), (max-width: 890px)",
-      ).matches;
+      const isMobile = "ontouchstart" in window || navigator.maxTouchPoints > 0;
 
       if (isMobile) {
         const mobileItems = document.querySelectorAll(".main-click-item");
