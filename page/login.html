@@ -8,6 +8,12 @@
     <link rel="stylesheet" href="../assets/css/setting/reset.css" />
     <link rel="stylesheet" href="../assets/css/setting/header.css" />
     <link rel="stylesheet" href="../assets/css/login.css" />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../assets/img/menu_bar/home_icon.png"
+    />
+    <title>home_start</title>
   </head>
   <body>
     <div id="header"></div>
@@ -25,18 +31,32 @@
         >
           <div class="search_box">
             <h1>ID</h1>
-            <input type="text" id="id" placeholder="아이디" oninput="clearError('id_error')" />
+            <input
+              type="text"
+              id="id"
+              placeholder="아이디"
+              oninput="clearError('id_error')"
+            />
             <p class="error_msg" id="id_error"></p>
 
             <h1>P/W</h1>
-            <input type="password" id="pw" placeholder="비밀번호" oninput="clearError('pw_error')" />
+            <input
+              type="password"
+              id="pw"
+              placeholder="비밀번호"
+              oninput="clearError('pw_error')"
+            />
             <p class="error_msg" id="pw_error"></p>
           </div>
 
           <div class="login_btns">
             <button type="submit" class="login_btn">로그인</button>
-            <button type="button" class="naver_btn sns_btn">네이버로 시작하기</button>
-            <button type="button" class="kakao_btn sns_btn">카카오로 시작하기</button>
+            <button type="button" class="naver_btn sns_btn">
+              네이버로 시작하기
+            </button>
+            <button type="button" class="kakao_btn sns_btn">
+              카카오로 시작하기
+            </button>
             <button type="button" class="join_btn">회원가입</button>
           </div>
         </form>
