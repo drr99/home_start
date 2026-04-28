@@ -98,7 +98,7 @@
   src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105@1.1/Uiyeun.woff")
     format("woff");
   font-weight: normal;
-  font-display: block;
+  font-display: swap;
 }
 @font-face {
   font-family: "OngleipStudyWell";
@@ -108,14 +108,17 @@
   font-display: swap;
 }
 @font-face {
-@font-face {
   font-family: "Ownglyph_2022_UWY_Si_Woo";
   font-weight: normal;
   font-style: normal;
-  font-display: block;
+  font-display: swap;
   src:
     url("https://cdn.jsdelivr.net/gh/fonts-archive/Ownglyph_2022_UWY_Si_Woo/Ownglyph_2022_UWY_Si_Woo-Rg.woff2")
       format("woff2"),
     url("https://cdn.jsdelivr.net/gh/fonts-archive/Ownglyph_2022_UWY_Si_Woo/Ownglyph_2022_UWY_Si_Woo-Rg.woff")
-      format("woff");
+      format("woff"),
+    url("https://cdn.jsdelivr.net/gh/fonts-archive/Ownglyph_2022_UWY_Si_Woo/Ownglyph_2022_UWY_Si_Woo-Rg.otf")
+      format("opentype"),
+    url("https://cdn.jsdelivr.net/gh/fonts-archive/Ownglyph_2022_UWY_Si_Woo/Ownglyph_2022_UWY_Si_Woo-Rg.ttf")
+      format("truetype");
 }
