@@ -270,20 +270,11 @@
   width: calc((100% - 26px * 3) / 4);
   max-width: 250px;
 }
-body.bg-all {
-  background-color: #fff;
-}
-
-body.bg-kit {
-  background-color: #ffe2971c;
-}
-
-body.bg-bed {
-  background-color: #d2aad021;
-}
-
+body.bg-all,
+body.bg-kit,
+body.bg-bed,
 body.bg-bath {
-  background-color: #bee8f736;
+  background-color: #fff;
 }
 
 /* more */
