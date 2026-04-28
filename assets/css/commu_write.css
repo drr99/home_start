@@ -365,7 +365,7 @@
     bottom: 0;
     left: 0;
     width: 100%;
-    background: #fff;
+    height: 35px;
     padding: 12px;
     justify-content: flex-start;
     gap: 20px;
@@ -375,7 +375,6 @@
   .write_options button {
     width: auto;
     height: auto;
-    background: none;
     font-size: 0.9rem;
   }
   .write_bottom {
