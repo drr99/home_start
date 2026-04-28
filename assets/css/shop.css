@@ -115,6 +115,7 @@ body {
 
 /* shop_goods */
 
+.shop_goods,
 #shop_goods {
   font-family: "Pretendard";
   position: relative;
@@ -144,6 +145,56 @@ body {
   width: 100%;
   height: 2px;
   background: #111;
+}
+
+/* 카테고리 탭 */
+.shop_box_title {
+  max-width: 1060px;
+  margin: 100px auto 40px;
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.shop_box_title ul {
+  display: flex;
+  justify-content: flex-start;
+  gap: 24px;
+}
+
+.shop_box_title ul li a {
+  display: block;
+  position: relative;
+}
+
+.shop_box_title ul li a:hover,
+.shop_box_title ul li a.active {
+  font-weight: 800;
+}
+
+.shop_box_title ul li a.active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 3px;
+  background-color: #111;
+  border-radius: 999px;
+}
+
+/* fetch로 불러오는 상품 영역 */
+.shop_box_iframe {
+  max-width: 1200px;
+  width: calc(100% - 32px);
+  margin: 0 auto;
+}
+
+.shop_box_iframe iframe {
+  display: block;
+  width: 100%;
+  border: 0;
+  overflow: hidden;
+  transition: height 0.1s ease;
 }
 
 /* 슬라이드*/
@@ -297,6 +348,23 @@ body {
 .shop_box .shop_slider_box {
   width: calc((100% - 26px * 3) / 4);
   max-width: 250px;
+}
+
+/* 카테고리별 배경색 */
+body.bg-all {
+  background-color: #fff;
+}
+
+body.bg-kit {
+  background-color: #fff;
+}
+
+body.bg-bed {
+  background-color: #fff;
+}
+
+body.bg-bath {
+  background-color: #fff;
 }
 
 /* more */
