@@ -225,6 +225,7 @@ img {
 .check_item label {
   cursor: none;
 }
+
 /*커서 미디어쿼리 */
 @media (max-width: 1200px) {
   .bb-cursor {

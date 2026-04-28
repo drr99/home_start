@@ -142,7 +142,7 @@ function setActiveCategory() {
   let scrollY = window.scrollY - 100; // 보정값
 
   sections.forEach((section) => {
-    if (!section.el) return;
+    if (!section.el || !section.title) return;
 
     const top = section.el.offsetTop;
     const bottom = top + section.el.offsetHeight;

@@ -104,20 +104,11 @@ function createBBCursor() {
 }
 
 function bindCursorHover() {
-  const isMobile = window.matchMedia(
-    "(hover: none), (pointer: coarse), (max-width: 1024px)",
-  ).matches;
-
-  if (isMobile) {
-    const bbCursor = document.querySelector(".bb-cursor");
-    if (bbCursor) bbCursor.remove();
-    return;
-  }
   const bbCursor = document.querySelector(".bb-cursor");
   if (!bbCursor) return;
 
   const hoverTargets = document.querySelectorAll(
-    'a, button, .top, .photos>.img_checklist, .photo, .headerCursor, [role="button"], label>i, .check_item>label>i, input[type="button"], input[type="submit"], .hover-frame, .swiper-slide, .book_prev, .book_next',
+    'a, button, .top, .photos>.img_checklist, .photo, .headerCursor, [role="button"], label>i, .check_item>label>i, input[type="button"], input[type="submit"], .hover-frame, .swiper-slide, .book_prev, .book_next, .btn_group',
   );
 
   hoverTargets.forEach((target) => {
@@ -143,16 +134,6 @@ function bindCursorHover() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  const isMobile = window.matchMedia(
-    "(hover: none), (pointer: coarse), (max-width: 1024px)",
-  ).matches;
-
-  if (isMobile) {
-    const bbCursor = document.querySelector(".bb-cursor");
-    if (bbCursor) bbCursor.remove();
-    return;
-  }
-
   const bbCursor = createBBCursor();
 
   window.addEventListener("mousemove", (e) => {

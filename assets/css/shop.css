@@ -120,6 +120,7 @@ body {
   position: relative;
   width: 80%;
   margin: 0 auto;
+  padding-bottom: 200px;
 }
 
 .shop_category {
@@ -223,7 +224,7 @@ body {
   min-width: 63px;
   height: 22px;
   padding: 0 8px;
-  background: #f98ad9;
+  background: #ff8800;
   color: #fff;
   font-size: 12px;
   line-height: 22px;
@@ -259,7 +260,7 @@ body {
 .sale {
   font-size: 1rem;
   font-weight: 800;
-  color: #f98ad9;
+  color: #ff8800;
   margin-right: 4px;
 }
 
