@@ -204,6 +204,7 @@ cards.forEach((card) => {
 
   thumb.style.backgroundImage = `url(${img})`;
 });
++-0;
 
 /* =====================================================
    12. 최초 진입 시 실행
@@ -217,5 +218,24 @@ setActiveMenu(currentCategory);
 window.addEventListener("load", () => {
   if (currentCategory !== "all") {
     moveToList("auto");
+  }
+});
+
+const writeBtn = document.querySelector(".commu_menu_r");
+const footer = document.querySelector("#footer");
+
+window.addEventListener("scroll", () => {
+  const footerTop = footer.getBoundingClientRect().top;
+  const windowHeight = window.innerHeight;
+
+  // 푸터가 화면에 올라오기 시작하면
+  if (footerTop < windowHeight) {
+    const overlap = windowHeight - footerTop;
+
+    // 버튼을 위로 밀어줌
+    writeBtn.style.bottom = 20 + overlap + "px";
+  } else {
+    // 기본 위치
+    writeBtn.style.bottom = "20px";
   }
 });

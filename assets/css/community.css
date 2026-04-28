@@ -192,7 +192,6 @@ body {
   gap: 16px;
   padding: 15px 10px 15px 10px;
   text-decoration: none;
-  background: #fff;
   border-bottom: 1px solid #ff7f7f9a;
   box-sizing: border-box;
 }
@@ -282,11 +281,6 @@ body {
   top: 50%;
   transform: translateY(-55%);
 }
-.post_category2 {
-  padding-right: 10px;
-  color: #ff7f7f;
-  font-weight: 500;
-}
 /* 전체게시글 */
 .commu_box_main {
   max-width: 750px;
@@ -296,11 +290,11 @@ body {
 .post_category {
   display: inline-block;
 
-  width: 55px; /* ← 고정 너비 */
+  width: 55px;
   height: 22px;
-  line-height: 22px; /* ← 세로 가운데 */
+  line-height: 22px;
 
-  text-align: center; /* ← 글자 가운데 */
+  text-align: center;
 
   margin-bottom: 8px;
   border-radius: 4px;
@@ -521,7 +515,6 @@ body {
     background-size: contain;
   }
 
-  .commu_menu,
   .commu_box_pop,
   .commu_box_main {
     max-width: 560px;
@@ -529,19 +522,24 @@ body {
     margin: 18px auto 0;
   }
 
+  /* 메뉴 */
   .commu_menu {
+    max-width: 560px;
+    width: 100%;
     margin: 70px auto 0;
     gap: 8px;
     text-align: center;
   }
   .commu_menu_l li a,
   .commu_menu_r li a {
-    width: 100px;
-    height: 40px;
-    font-size: 0.9rem;
+    width: 88px;
+    height: 38px;
+    font-size: 0.95rem;
     padding-top: 2px;
     text-align: center;
   }
+
+  /* 게시글 */
   .commu_box_pop .title,
   .commu_box_main .title {
     font-size: 1rem;
@@ -628,10 +626,9 @@ body {
   /* 글쓰기 버튼 :탑버튼 처럼 */
   .commu_menu_r {
     position: fixed;
-    right: 5px;
+    right: 20px;
     bottom: 20px;
     z-index: 999;
-    margin-left: 0;
   }
   .commu_menu_r li {
     background: none;
@@ -654,11 +651,18 @@ body {
     display: block;
     width: 15px;
     height: 15px;
-    justify-content: center;
+    flex-shrink: 0;
   }
-  .commu_menu_r li a:hover svg {
-    fill: #ff7f7f;
+
+  .commu_menu_r li a svg path {
+    fill: currentColor;
+    stroke: currentColor;
   }
+
+  .commu_menu_r li a:hover {
+    opacity: 0.9;
+  }
+
   /* 컨텐츠박스 */
   .commu_box_pop,
   .commu_box_main {
@@ -675,18 +679,16 @@ body {
   }
   .commu_contents {
     width: 100%;
-    height: auto; /* 핵심: 140px 고정 제거 */
+    height: auto;
     min-height: 96px;
     padding: 12px 0;
     gap: 12px;
     align-items: center;
   }
-
   .commu_text {
     flex: 1;
     min-width: 0;
   }
-
   .thumb {
     width: 75px;
     height: 75px;
