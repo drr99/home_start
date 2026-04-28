@@ -108,7 +108,7 @@ function bindCursorHover() {
   if (!bbCursor) return;
 
   const hoverTargets = document.querySelectorAll(
-    'a, button, .top, .photos>.img_checklist, .photo, .headerCursor, [role="button"], label>i, .check_item>label>i, input[type="button"], input[type="submit"], .hover-frame, .swiper-slide, .book_prev, .book_next, .btn_group',
+    'a, button, .top, .photos>.img_checklist, .photo, .headerCursor, [role="button"], label>i, .check_item>label>i, input[type="button"], input[type="submit"], .hover-frame, .swiper-slide, .book_prev, .book_next, .instagram, .btn_group',
   );
 
   hoverTargets.forEach((target) => {
