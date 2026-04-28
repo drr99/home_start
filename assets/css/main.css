@@ -215,7 +215,7 @@
    모바일에서는 커스텀 커서 숨김
 ========================= */
 
-@media (hover: none), (pointer: coarse), (max-width: 1024px) {
+@media (hover: none) and (pointer: coarse) {
   .bb-cursor,
   .bb-cursor-text {
     display: none !important;
