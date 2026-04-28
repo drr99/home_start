@@ -1,5 +1,5 @@
 // =========================
-// 1) 추천템 슬라이더
+// 추천템 슬라이더
 // =========================
 const swiper = new Swiper(".shop_slider", {
   slidesPerView: 5,
@@ -97,7 +97,7 @@ bath.addEventListener("mouseleave", () => {
 });
 // 욕실 모션
 
-// 2) 공통 요소
+// 공통 요소
 // =========================
 const categoryLinks = document.querySelectorAll(".shop_box_title a");
 const topBtn = document.querySelector(".top");
@@ -205,3 +205,25 @@ function setActiveCategory() {
 
 window.addEventListener("scroll", setActiveCategory);
 window.addEventListener("load", setActiveCategory);
+
+window.addEventListener("load", () => {
+  const threeBtn = document.querySelector(".three_btn");
+  const footer = document.querySelector("#footer");
+
+  if (!threeBtn || !footer) return;
+
+  function moveBtnsAboveFooter() {
+    const footerTop = footer.getBoundingClientRect().top;
+    const windowHeight = window.innerHeight;
+
+    if (footerTop < windowHeight) {
+      const overlap = windowHeight - footerTop;
+      threeBtn.style.bottom = 20 + overlap + "px";
+    } else {
+      threeBtn.style.bottom = "20px";
+    }
+  }
+
+  window.addEventListener("scroll", moveBtnsAboveFooter);
+  moveBtnsAboveFooter();
+});

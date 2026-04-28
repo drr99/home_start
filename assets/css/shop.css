@@ -53,7 +53,7 @@ body {
 .search_box {
   width: 400px;
   /* input 기준 */
-  margin: 120px auto 0;
+  margin: 160px auto 0;
   position: relative;
   display: block;
   background: #fbeddc;
@@ -79,7 +79,7 @@ body {
   left: -18px;
   top: -4px;
 
-  z-index: 5; /* 팔만 위로 */
+  z-index: 5;
 }
 #search_input {
   width: 100%;
@@ -107,7 +107,7 @@ body {
   cursor: pointer;
 
   position: absolute;
-  right: -5px;
+  right: -20px;
   top: 50%;
   transform: translateY(-50%);
   z-index: 3;
@@ -204,7 +204,7 @@ body {
 
   max-width: 1060px;
   width: calc(100% - 32px);
-  margin: 100px auto 18px;
+  margin: 30px auto 18px;
 }
 .shop_slider {
   max-width: 1060px;
@@ -213,7 +213,7 @@ body {
   position: relative;
   overflow: hidden;
 }
-.shop_slider .shop_slider_box {
+.shop_slider .product_box {
   width: 100%;
   max-width: none;
 }
@@ -221,7 +221,7 @@ body {
   align-items: flex-start;
 }
 .shop_recommend {
-  padding: 60px 0;
+  padding: 0 0 100px 0;
 }
 
 /*슬라이드 화살표 */
@@ -241,7 +241,7 @@ body {
 }
 
 /* 카드 */
-.shop_slider_box {
+.product_box {
   width: 100%;
   max-width: 200px;
   cursor: pointer;
@@ -345,7 +345,7 @@ body {
   gap: 36px 26px;
   justify-content: center;
 }
-.shop_box .shop_slider_box {
+.shop_box .product_box {
   width: calc((100% - 26px * 3) / 4);
   max-width: 250px;
 }
@@ -385,10 +385,10 @@ body.bg-bath {
 }
 
 /* more 호버시  추가상품 보이게 */
-.shop_box .shop_slider_box:nth-child(n + 13) {
+.shop_box .product_box:nth-child(n + 13) {
   display: none;
 }
-.shop_box.open .shop_slider_box:nth-child(n + 13) {
+.shop_box.open .product_box:nth-child(n + 13) {
   display: block;
 }
 
@@ -404,22 +404,22 @@ body.bg-bath {
   transform: rotate(180deg);
 }
 
-/* footer_bg */
-.footer_bg {
-  width: 100%;
-  height: 220px;
-  margin-top: 80px;
-  background: url(../img/shop_goods/footer_bg.svg) no-repeat right bottom -2px;
-  background-size: clamp(220px, 42vw, 700px);
-}
+.three_btn {
+  position: fixed;
+  right: 30px;
+  bottom: 20px;
+  z-index: 999;
 
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
 .heart,
 .basket,
 .top {
   width: 50px;
   height: 50px;
-  position: fixed;
-  right: 3%;
+  position: static;
   opacity: 0;
   pointer-events: none;
   border: 0;
@@ -429,21 +429,17 @@ body.bg-bath {
   transition:
     opacity 0.3s ease,
     transform 0.15s ease;
-  z-index: 999;
 }
 
 .heart {
-  bottom: 17%;
   transition-delay: 0s;
 }
 
 .basket {
-  bottom: 10%;
   transition-delay: 0.1s;
 }
 
 .top {
-  bottom: 3%;
   transition-delay: 0.2s;
 }
 
@@ -530,15 +526,10 @@ body.bg-bath {
     color: #719246;
     margin-right: 4px;
   }
-  .search_box {
-    width: 300px;
-  }
-
   #shop {
     background: url(../img/shop/shop_bg2_1024.svg) no-repeat center left / cover;
   }
   #shop_goods {
-    padding-bottom: 100px;
     margin-top: -100px;
   }
   .shop_objects {
@@ -556,7 +547,7 @@ body.bg-bath {
   }
 
   .shop_slider_title {
-    margin: 40px auto 12px;
+    margin: 0px auto 12px;
     font-size: 1.2rem;
   }
 
@@ -579,7 +570,7 @@ body.bg-bath {
     justify-content: flex-start;
   }
 
-  .shop_box .shop_slider_box {
+  .shop_box .product_box {
     width: calc((100% - 36px) / 3);
     max-width: none;
   }
@@ -588,12 +579,6 @@ body.bg-bath {
     aspect-ratio: 1 / 1;
   }
 
-  .footer_bg {
-    height: 220px;
-    margin-top: 34px;
-    background-size: 840px auto;
-    background-position: bottom -2px center;
-  }
   .shop_category {
     width: 100%;
     margin: 0 0 20px;
@@ -615,7 +600,9 @@ body.bg-bath {
     margin-bottom: 17%;
   }
   .search_box {
-    width: 250px;
+    width: 320px;
+    margin-top: 150px;
+    scale: 0.8;
   }
 
   .shop_slider,
@@ -629,7 +616,7 @@ body.bg-bath {
 
   .shop_slider_title {
     font-size: 1.15rem;
-    margin: 36px auto 10px;
+    margin: 0px auto 10px;
   }
   .shop_box_title {
     margin: 40px auto 20px;
@@ -647,42 +634,30 @@ body.bg-bath {
     justify-content: flex-start;
   }
 
-  .shop_box .shop_slider_box {
+  .shop_box .product_box {
     width: calc((100% - 36px) / 3);
     max-width: none;
   }
   .img_shop {
     aspect-ratio: 1 / 1;
   }
-  .footer_bg {
-    width: 100%;
-    height: 220px;
-    margin-top: 34px;
-    background-size: 700px auto;
-    background-position: bottom -2px;
-  }
+
   .heart,
   .basket,
   .top {
     height: 40px;
     width: 40px;
   }
-  .heart {
-    bottom: 15%;
-  }
-
-  .basket {
-    bottom: 9%;
-  }
-
-  .top {
-    bottom: 3%;
+  .shop_recommend {
+    padding: 0 0 60px 0;
   }
 }
 @media (max-width: 680px) {
   #shop_goods {
-    padding-bottom: 100px;
     margin-top: -150px;
+  }
+  .shop_recommend {
+    margin-top: -60px;
   }
   .shop_objects {
     margin-bottom: 25%;
@@ -717,7 +692,7 @@ body.bg-bath {
     gap: 28px 12px;
     justify-content: center;
   }
-  .shop_box .shop_slider_box {
+  .shop_box .product_box {
     width: calc((100% - 12px) / 2);
     max-width: none;
   }
@@ -742,15 +717,14 @@ body.bg-bath {
   .more_wrap {
     margin: 40px auto 0;
   }
-
-  .footer_bg {
-    height: 160px;
-    background-size: 520px auto;
-    background-position: bottom center;
-  }
 }
 
 @media (max-width: 480px) {
+  .shop_goods,
+  #shop_goods {
+    width: 100%;
+    padding-bottom: 100px;
+  }
   .search_box {
     display: none;
   }
@@ -765,9 +739,9 @@ body.bg-bath {
     display: none;
   }
 
-  .shop_slider .shop_slider_box {
+  .shop_slider .product_box {
     display: none;
-  } /* 2. 카테고리 메뉴 */
+  }
   .shop_box_title {
     width: calc(100% - 45px);
     margin: 80px auto 24px;
@@ -800,23 +774,20 @@ body.bg-bath {
     font-weight: 800;
   }
 
-  /* 3. 상품 리스트 → 2열 */
   .shop_box {
     width: calc(100% - 24px);
     gap: 20px 12px;
   }
 
-  .shop_box .shop_slider_box {
-    width: calc((100% - 12px) / 2); /* 2열 */
+  .shop_box .product_box {
+    width: calc((100% - 12px) / 2);
     max-width: none;
   }
 
-  /* 4. 이미지 비율 유지 */
   .img_shop {
-    aspect-ratio: 3 / 4; /* 또는 4 / 5 */
+    aspect-ratio: 3 / 4;
   }
 
-  /* 5. 텍스트 사이즈 정리 */
   .shop_txt .brand {
     font-size: 0.85rem;
   }
@@ -829,35 +800,26 @@ body.bg-bath {
   .sale {
     font-size: 0.9375rem;
   }
-
-  /* 6. 상단 검색 여백 줄이기 */
+  .sale {
+    color: #ff8800;
+  }
   .search_box {
     margin: 60px auto 0;
   }
 
-  /* 7. MORE 버튼 여백 */
   .more_wrap {
     margin: 0px auto 0;
     margin-bottom: 40px;
   }
 
-  /* 8. 기존 코드 충돌 제거 (중요) */
-  .shop_box .shop_slider_box:nth-child(-n + 4) {
+  .shop_box .product_box:nth-child(-n + 4) {
     display: block; /* 기존 숨김 해제 */
   }
 
   .shop_box {
     padding-bottom: 80px !important;
   }
-
-  .footer_bg {
-    display: none;
-  }
-
-  .top {
-    width: 38px;
-    height: 38px;
-    right: 1%;
-    bottom: 1.5%;
+  .today_box {
+    background-color: #ff8800;
   }
 }

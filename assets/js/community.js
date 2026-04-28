@@ -236,9 +236,9 @@ window.addEventListener("scroll", () => {
     const overlap = windowHeight - footerTop;
 
     // 버튼을 위로 밀어줌
-    writeBtn.style.bottom = 30 + overlap + "px";
+    writeBtn.style.bottom = 20 + overlap + "px";
   } else {
     // 기본 위치
-    writeBtn.style.bottom = "30px";
+    writeBtn.style.bottom = "20px";
   }
 });

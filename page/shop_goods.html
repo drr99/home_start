@@ -45,7 +45,7 @@
       <div class="swiper shop_slider">
         <div class="swiper-wrapper">
           <div class="swiper-slide">
-            <div class="shop_slider_box">
+            <div class="product_box">
               <a href="#" class="shop_link">
                 <div class="img_shop">
                   <img src="../assets/img/shop_goods/goods1.svg" alt="" />
@@ -68,7 +68,7 @@
           </div>
 
           <div class="swiper-slide">
-            <div class="shop_slider_box">
+            <div class="product_box">
               <a href="#" class="shop_link">
                 <div class="img_shop">
                   <img src="../assets/img/shop_goods/goods2.svg" alt="" />
@@ -91,7 +91,7 @@
           </div>
 
           <div class="swiper-slide">
-            <div class="shop_slider_box">
+            <div class="product_box">
               <a href="#" class="shop_link">
                 <div class="img_shop">
                   <img src="../assets/img/shop_goods/goods3.svg" alt="" />
@@ -114,7 +114,7 @@
           </div>
 
           <div class="swiper-slide">
-            <div class="shop_slider_box">
+            <div class="product_box">
               <a href="#" class="shop_link">
                 <div class="img_shop">
                   <img src="../assets/img/shop_goods/goods4.svg" alt="" />
@@ -136,7 +136,7 @@
           </div>
 
           <div class="swiper-slide">
-            <div class="shop_slider_box">
+            <div class="product_box">
               <a href="#" class="shop_link">
                 <div class="img_shop">
                   <img src="../assets/img/shop_goods/goods5.svg" alt="" />
@@ -159,7 +159,7 @@
           </div>
 
           <div class="swiper-slide">
-            <div class="shop_slider_box">
+            <div class="product_box">
               <a href="#" class="shop_link">
                 <div class="img_shop">
                   <img src="../assets/img/shop_goods/goods6.svg" alt="" />
@@ -181,7 +181,7 @@
             </div>
           </div>
           <div class="swiper-slide">
-            <div class="shop_slider_box">
+            <div class="product_box">
               <a href="#" class="shop_link">
                 <div class="img_shop">
                   <img src="../assets/img/shop_goods/goods7.svg" alt="" />
@@ -201,7 +201,7 @@
             </div>
           </div>
           <div class="swiper-slide">
-            <div class="shop_slider_box">
+            <div class="product_box">
               <a href="#" class="shop_link">
                 <div class="img_shop">
                   <img src="../assets/img/shop_goods/goods8.svg" alt="" />
@@ -223,7 +223,7 @@
             </div>
           </div>
           <div class="swiper-slide">
-            <div class="shop_slider_box">
+            <div class="product_box">
               <a href="#" class="shop_link">
                 <div class="img_shop">
                   <img src="../assets/img/shop_goods/goods9.svg" alt="" />
@@ -272,15 +272,24 @@
         <i class="fa-solid fa-caret-down"></i>
       </button>
     </div>
-    <div class="footer_bg"></div>
+    <div class="three_btn">
+      <button class="heart" type="button" aria-label="찜하기">
+        <img src="../assets/img/shop/orange_heart.svg" alt="하트버튼" />
+      </button>
+
+      <button class="basket" type="button" aria-label="장바구니">
+        <img src="../assets/img/shop/orange_basket.svg" alt="장바구니버튼" />
+      </button>
+
+      <button class="top" type="button" aria-label="위로 이동">
+        <img src="../assets/img/shop/top_button.png" alt="탑버튼" />
+      </button>
+    </div>
 
     <div id="footer"></div>
     <!-- footer -->
 
-    <div class="top show">
-      <img src="../assets/img/shop_goods/top_button.png" alt="탑버튼" />
-    </div>
-    <!-- top button -->
+    <script src="../assets/js/header.js"></script>
 
     <!-- Swiper JS -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
@@ -355,7 +364,7 @@
       }
 
       function changeBodyColor(cat) {
-        document.body.classList.remove("bg-all");
+        document.body.classList.remove("bg-all", "bg-kit", "bg-bed", "bg-bath");
         document.body.classList.add(`bg-${cat}`);
       }
 
@@ -455,24 +464,72 @@
       });
 
       // =========================
-      // 10) 탑버튼
+      // 10) 버튼 3개
       // =========================
-      if (topBtn) {
-        window.addEventListener("scroll", () => {
+      const heartBtn = document.querySelector(".heart");
+      const basketBtn = document.querySelector(".basket");
+
+      function toggleThreeBtns() {
+        const btns = [heartBtn, basketBtn, topBtn];
+
+        btns.forEach((btn) => {
+          if (!btn) return;
+
           if (window.scrollY > 350) {
-            topBtn.classList.add("show");
+            btn.classList.add("show");
           } else {
-            topBtn.classList.remove("show");
+            btn.classList.remove("show");
           }
         });
-
-        topBtn.addEventListener("click", () => {
-          window.scrollTo({
-            top: 0,
-            behavior: "smooth",
-          });
-        });
       }
+
+      window.addEventListener("scroll", toggleThreeBtns);
+      toggleThreeBtns();
+
+      topBtn?.addEventListener("click", () => {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
+      });
+
+      heartBtn?.addEventListener("click", () => {
+        heartBtn.classList.add("clicked");
+
+        setTimeout(() => {
+          heartBtn.classList.remove("clicked");
+        }, 150);
+      });
+
+      basketBtn?.addEventListener("click", () => {
+        basketBtn.classList.add("clicked");
+
+        setTimeout(() => {
+          basketBtn.classList.remove("clicked");
+        }, 150);
+      });
+
+      const threeBtn = document.querySelector(".three_btn");
+      const footer = document.querySelector("#footer");
+
+      function moveBtnsAboveFooter() {
+        if (!threeBtn || !footer) return;
+
+        const footerTop = footer.getBoundingClientRect().top;
+        const windowHeight = window.innerHeight;
+
+        if (footerTop < windowHeight) {
+          const overlap = windowHeight - footerTop;
+          threeBtn.style.bottom = 20 + overlap + "px";
+        } else {
+          threeBtn.style.bottom = "20px";
+        }
+      }
+      //푸터 침범 방지 자바//
+
+      window.addEventListener("scroll", moveBtnsAboveFooter);
+      window.addEventListener("resize", moveBtnsAboveFooter);
+      setTimeout(moveBtnsAboveFooter, 300);
     </script>
     <script>
       function checkDesktopRedirect() {
