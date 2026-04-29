@@ -150,12 +150,16 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 150);
   });
 });
+
+// 찜하기, 장바구니, 탑버튼 색상변경
 function changeFloatingBtnImages() {
-  const isTablet = window.innerWidth <= 1024;
+  const isTablet = window.innerWidth <= 1024 && window.innerWidth > 480;
 
   const heartImg = document.querySelector(".heart img");
   const basketImg = document.querySelector(".basket img");
   const topImg = document.querySelector(".top img");
+
+  if (!heartImg || !basketImg || !topImg) return;
 
   if (isTablet) {
     heartImg.src = "../assets/img/shop/green_heart.png";
@@ -165,11 +169,13 @@ function changeFloatingBtnImages() {
     heartImg.src = "../assets/img/shop/orange_heart.svg";
     basketImg.src = "../assets/img/shop/orange_basket.svg";
     topImg.src = "../assets/img/shop/top_button.png";
+    햣;
   }
 }
 
 changeFloatingBtnImages();
 window.addEventListener("resize", changeFloatingBtnImages);
+
 //스크롤이벤트
 const sections = [
   {
