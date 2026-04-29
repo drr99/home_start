@@ -92,6 +92,7 @@
 /* 모바일 말풍선 */
 .main-click-item {
   position: relative;
+  background: red;
 }
 .speech {
   position: absolute;
@@ -99,14 +100,14 @@
   top: -50px;
   left: 50%;
   transform: translateX(-50%);
-  opacity: 0;
+  opacity: 1;
   pointer-events: none;
 }
 .speech_box {
-  transform: translate(-80%, 10%);
+  transform: translate(-100px, 10%);
 }
 .speech_laptop {
-  transform: translate(75%, 125%);
+  transform: translate(90px, 125%);
 }
 .show-speech .speech {
   opacity: 1;
