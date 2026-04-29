@@ -15,6 +15,10 @@ const swiper = new Swiper(".shop_slider", {
   },
   breakpoints: {
     480: {
+      slidesPerView: 2.5,
+      spaceBetween: 8,
+    },
+    680: {
       slidesPerView: 3.5,
       spaceBetween: 8,
     },
@@ -150,12 +154,16 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 150);
   });
 });
+
+// 미디어쿼리 하단버튼 색 변경
 function changeFloatingBtnImages() {
-  const isTablet = window.innerWidth <= 1024;
+  const isTablet = window.innerWidth <= 1024 && window.innerWidth > 480;
 
   const heartImg = document.querySelector(".heart img");
   const basketImg = document.querySelector(".basket img");
   const topImg = document.querySelector(".top img");
+
+  if (!heartImg || !basketImg || !topImg) return;
 
   if (isTablet) {
     heartImg.src = "../assets/img/shop/green_heart.png";
@@ -170,6 +178,7 @@ function changeFloatingBtnImages() {
 
 changeFloatingBtnImages();
 window.addEventListener("resize", changeFloatingBtnImages);
+
 //스크롤이벤트
 const sections = [
   {
