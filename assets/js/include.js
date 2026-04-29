@@ -134,8 +134,7 @@ function bindCursorHover() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  const isTouchDevice =
-    "ontouchstart" in window || navigator.maxTouchPoints > 0;
+  const isTouchDevice = "ontouchstart" in window || navigator.maxTouchPoints > 0;
 
   if (isTouchDevice) {
     document.querySelector(".bb-cursor")?.remove();

@@ -38,7 +38,7 @@
 .lighting_follow,
 .lighting_bg {
   position: absolute;
-  top: -30px;
+  top: 0px;
 
   left: -10%;
   width: 120%;
@@ -361,14 +361,14 @@ body.modal-open {
 /* 팝업 */
 .photo_popup {
   position: fixed;
-  top: 53%;
+  top: 55%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 999;
   display: none;
 
-  width: 900px;
-  height: 90%;
+  width: 850px;
+  height: 85%;
   max-width: 90%;
   background: #fff;
 }
@@ -564,8 +564,6 @@ body.modal-open {
   }
 }
 @media (max-width: 768px) {
-  /* 포토들 위치조정 */
-
   .img_checklist {
     position: absolute;
     top: 280px;
@@ -648,7 +646,7 @@ body.modal-open {
     height: 200px;
   }
   .light_all {
-    transform: translateY(40px) scale(2.5);
+    transform: scale(2.5);
     transform-origin: top center;
   }
 

@@ -62,29 +62,19 @@
 }
 
 @font-face {
-  font-family: "OngleipEoyeonce";
-  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105@1.1/Uiyeun.woff") format("woff");
-  font-weight: normal;
+  font-family: "eunzzang";
+  src: url("../../font/eunzzang.ttf") format("truetype");
   font-display: swap;
 }
-@font-face {
-  font-family: "OngleipStudyWell";
-  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/2411-3@1.0/Ownglyph_StudyHard-Rg.woff2") format("woff2");
-  font-weight: normal;
-  font-display: swap;
-}
+
 @font-face {
   font-family: "Ownglyph_2022_UWY_Si_Woo";
   font-weight: normal;
   font-style: normal;
   font-display: swap;
   src:
-    url("https://cdn.jsdelivr.net/gh/fonts-archive/Ownglyph_2022_UWY_Si_Woo/Ownglyph_2022_UWY_Si_Woo-Rg.woff2")
-      format("woff2"),
-    url("https://cdn.jsdelivr.net/gh/fonts-archive/Ownglyph_2022_UWY_Si_Woo/Ownglyph_2022_UWY_Si_Woo-Rg.woff")
-      format("woff"),
-    url("https://cdn.jsdelivr.net/gh/fonts-archive/Ownglyph_2022_UWY_Si_Woo/Ownglyph_2022_UWY_Si_Woo-Rg.otf")
-      format("opentype"),
-    url("https://cdn.jsdelivr.net/gh/fonts-archive/Ownglyph_2022_UWY_Si_Woo/Ownglyph_2022_UWY_Si_Woo-Rg.ttf")
-      format("truetype");
+    url("https://cdn.jsdelivr.net/gh/fonts-archive/Ownglyph_2022_UWY_Si_Woo/Ownglyph_2022_UWY_Si_Woo-Rg.woff2") format("woff2"),
+    url("https://cdn.jsdelivr.net/gh/fonts-archive/Ownglyph_2022_UWY_Si_Woo/Ownglyph_2022_UWY_Si_Woo-Rg.woff") format("woff"),
+    url("https://cdn.jsdelivr.net/gh/fonts-archive/Ownglyph_2022_UWY_Si_Woo/Ownglyph_2022_UWY_Si_Woo-Rg.otf") format("opentype"),
+    url("https://cdn.jsdelivr.net/gh/fonts-archive/Ownglyph_2022_UWY_Si_Woo/Ownglyph_2022_UWY_Si_Woo-Rg.ttf") format("truetype");
 }

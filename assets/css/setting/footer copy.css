@@ -1,0 +1,72 @@
+#footer {
+  width: 100%;
+  background: #742209;
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+.footer_inner {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 30px;
+}
+
+.footer_inner .section3 {
+}
+
+#footer ul li {
+  font-family: "eunzzang", sans-serif !important;
+}
+
+.footer_inner .section2 {
+  width: 65%;
+  display: flex;
+  color: #edded9;
+  font-size: 22px;
+  justify-content: space-between;
+}
+.footer_inner .section2 ul {
+}
+
+.footer_inner .section2 .section2-4 a {
+  display: block;
+  color: #edded9;
+}
+
+.footer_desc span {
+  display: block;
+}
+
+.section2 .footer_title {
+  padding-bottom: 5px;
+  font-weight: 700;
+  font-size: 22px;
+}
+
+.footer_inner .section3 img {
+  height: auto;
+}
+
+/* 미디어 쿼리 */
+@media (max-width: 1200px) {
+  .logo_footer {
+    width: 90px;
+  }
+  .footer_inner .section2 {
+    font-size: 19px;
+    width: 70%;
+  }
+  @media (max-width: 1024px) {
+    .logo_footer {
+      display: none;
+    }
+    .footer_inner .section2 {
+      font-size: 17px;
+      width: 70%;
+    }
+  }
+}
