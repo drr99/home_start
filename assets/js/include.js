@@ -26,6 +26,10 @@ fetch("/common/footer.html")
 
     if (footer) {
       footer.innerHTML = data;
+
+      if (typeof bindCursorHover === "function") {
+        bindCursorHover();
+      }
     }
   });
 // 헤더 푸터 고정 가져오기
@@ -108,7 +112,7 @@ function bindCursorHover() {
   if (!bbCursor) return;
 
   const hoverTargets = document.querySelectorAll(
-    'a, button, .top, .photos>.img_checklist, .photo, .headerCursor, [role="button"], label>i, .check_item>label>i, input[type="button"], input[type="submit"], .hover-frame, .swiper-slide, .book_prev, .book_next, .instagram, .btn_group',
+    'a, button, .top, .photos>.img_checklist, .photo, .headerCursor, [role="button"], label>i, .check_item>label>i, input[type="button"], input[type="submit"], .hover-frame, .swiper-slide, .book_prev, .book_next, .instagram, .btn_group, .section1>a>img',
   );
 
   hoverTargets.forEach((target) => {
@@ -134,8 +138,7 @@ function bindCursorHover() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  const isTouchDevice =
-    "ontouchstart" in window || navigator.maxTouchPoints > 0;
+  const isTouchDevice = "ontouchstart" in window || navigator.maxTouchPoints > 0;
 
   if (isTouchDevice) {
     document.querySelector(".bb-cursor")?.remove();
