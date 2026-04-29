@@ -129,7 +129,7 @@ body {
   max-width: 1060px;
   width: calc(100% - 32px);
   margin: 0 auto 20px;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   font-weight: 600;
   position: relative;
 }
@@ -481,6 +481,11 @@ body.bg-bath {
 .shop_slider .swiper-button-next,
 .shop_slider .swiper-button-prev {
   color: #ff8800;
+}
+#shop_kit,
+#shop_bed,
+#shop_bath {
+  scroll-margin-top: 20px;
 }
 /* 미디어 쿼리 */
 @media (max-width: 1400px) {
