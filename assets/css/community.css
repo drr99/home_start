@@ -18,10 +18,9 @@ body {
 /* 검색창 */
 .search_box {
   width: min(400px, calc(100% - 32px));
-  /* input 기준 */
-  margin: 120px auto 0; /* 가운데 정렬 */
-  position: relative; /* 기준 */
-  display: block; /* flex 제거 */
+  margin: 120px auto 0;
+  position: relative;
+  display: block;
 }
 .search_bb {
   width: 118px;
@@ -30,11 +29,10 @@ body {
   background-size: contain;
 
   position: absolute;
-  left: -70px; /* input 왼쪽에 붙이기 */
-  top: -60px; /* 위로 올리기 */
+  left: -70px;
+  top: -60px;
   z-index: 1;
 }
-
 .search_bb_arm {
   width: 33px;
   height: 32px;
@@ -45,9 +43,8 @@ body {
   left: -18px;
   top: -4px;
 
-  z-index: 5; /* 팔만 위로 */
+  z-index: 5;
 }
-
 #search_input {
   width: 100%;
   height: 40px;
@@ -78,7 +75,6 @@ body {
   top: 50%;
   transform: translateY(-50%);
   z-index: 3;
-  /* background: red; */
 }
 
 /* commu_menu*/
@@ -171,7 +167,6 @@ body {
   width: calc(100% - 32px);
   margin: 40px auto 0;
 }
-
 .commu_box_pop .title {
   font-size: 1.12rem;
   margin-bottom: 3px;
@@ -609,8 +604,7 @@ body {
   /* 메뉴 */
   .commu_menu {
     width: 100%;
-    max-width: 480px; /* 화면에 맞게 */
-    /* margin: 0px auto 0; */
+    max-width: 480px;
     justify-content: center;
     padding: 0;
   }
@@ -747,7 +741,7 @@ body {
   /* 메뉴 */
   .commu_menu {
     width: 100%;
-    max-width: 290px; /* 화면에 맞게 */
+    max-width: 290px;
     margin: 24px auto 0;
   }
   .commu_menu_l {
