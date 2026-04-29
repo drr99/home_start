@@ -506,7 +506,12 @@
   display: inline-flex;
   align-items: center;
 }
-
+/* 구분점 */
+.reply_meta > *:not(:last-child)::after {
+  content: "·";
+  margin-left: 10px;
+  color: #c5c5c5;
+}
 .reply_meta button:hover {
   color: #ff7f7f;
 }
@@ -518,8 +523,9 @@
   margin: 40px auto 0;
 }
 .commu_box_pop .title {
+  margin-top: 70px;
+  padding-bottom: 5px;
   font-size: 1.12rem;
-  margin-bottom: 3px;
   font-weight: bold;
   color: #ff7f7f;
   text-align: center;
@@ -837,7 +843,6 @@
   /* 인기게시글 */
   .commu_box_pop .title {
     font-size: 1.1rem;
-    margin-top: 50px;
   }
   .box_title {
     font-size: 0.98rem;
@@ -1111,7 +1116,7 @@
   }
   .commu_box_pop .title {
     font-size: 0.95rem;
-    margin: 30px auto 5px;
+    margin: 70px auto 5px;
   }
   .commu_box_pop .commu_contents {
     width: 100%;
