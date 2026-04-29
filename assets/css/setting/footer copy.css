@@ -54,17 +54,48 @@
   height: 40px;
   line-height: 0;
 }
+/* 아이콘 기본 */
+.instagram,
+.youtube {
+  display: inline-block;
+  width: 28px;
+  height: 28px;
+
+  transition: transform 0.2s;
+}
+
+/* 배경 이미지 */
 .instagram {
   background: url(../../img/main/instagram.svg) no-repeat center / contain;
 }
-.instagram:hover {
-  background: url(../../img/main/instagram_hover.svg) no-repeat center / contain;
-}
+
 .youtube {
   background: url(../../img/main/youtube.svg) no-repeat center / contain;
 }
+
+/* 흔들림 애니메이션 */
+@keyframes shake {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  25% {
+    transform: rotate(-6deg) scale(1.05);
+  }
+  50% {
+    transform: rotate(6deg) scale(1.08);
+  }
+  75% {
+    transform: rotate(-4deg) scale(1.05);
+  }
+  100% {
+    transform: rotate(0deg) scale(1);
+  }
+}
+
+/* hover 시 흔들림 */
+.instagram:hover,
 .youtube:hover {
-  background: url(../../img/main/youtube_hover.svg) no-repeat center / contain;
+  animation: shake 0.4s ease-in-out;
 }
 /* 미디어 쿼리 */
 @media (max-width: 1200px) {
