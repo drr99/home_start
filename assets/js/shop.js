@@ -227,3 +227,117 @@ window.addEventListener("load", () => {
   window.addEventListener("scroll", moveBtnsAboveFooter);
   moveBtnsAboveFooter();
 });
+
+// =========================
+// 모바일 상품 카테고리 필터 + MORE
+// =========================
+document.addEventListener("DOMContentLoaded", () => {
+  const filterTabs = document.querySelectorAll("#shop_sub_main .filter_tab");
+  const mobileProducts = document.querySelectorAll(
+    "#shop_sub_main .product_box",
+  );
+  const mobileShopBoxes = document.querySelectorAll("#shop_sub_main .shop_box");
+
+  const moreWrap = document.querySelector("#mobile_more_wrap");
+  const moreBtn = document.querySelector("#mobile_more_btn");
+  const moreText = moreBtn ? moreBtn.querySelector(".more_txt") : null;
+  const moreIcon = moreBtn ? moreBtn.querySelector("i") : null;
+
+  let currentFilter = "all";
+  let isMoreOpen = false;
+
+  function updateMobileProducts() {
+    let visibleCount = 0;
+
+    // 빈 shop_box 여백 방지용 클래스 초기화
+    mobileShopBoxes.forEach((box) => {
+      box.classList.remove("active_box");
+    });
+
+    // 상품 필터링
+    mobileProducts.forEach((product) => {
+      const category = product.dataset.category;
+      const isTarget = currentFilter === category;
+
+      if (!isTarget) {
+        product.style.display = "none";
+        return;
+      }
+
+      visibleCount++;
+
+      // 전체 탭에서는 MORE 누르기 전까지 12개만 보이기
+      if (currentFilter === "all" && !isMoreOpen && visibleCount > 12) {
+        product.style.display = "none";
+        return;
+      }
+
+      product.style.display = "block";
+
+      const parentBox = product.closest(".shop_box");
+      if (parentBox) {
+        parentBox.classList.add("active_box");
+      }
+    });
+
+    // 모든 MORE 버튼 숨기기
+    document.querySelectorAll("#shop_sub_main .more_wrap").forEach((wrap) => {
+      wrap.classList.remove("is_show");
+      wrap.style.display = "none";
+    });
+
+    // 전체 탭에서만 MORE 버튼 보이기
+    if (moreWrap && currentFilter === "all") {
+      moreWrap.classList.add("is_show");
+      moreWrap.style.display = "block";
+    }
+
+    // MORE / CLOSE 글자와 아이콘 변경
+    if (moreBtn && moreText && moreIcon) {
+      if (isMoreOpen) {
+        moreText.textContent = "CLOSE";
+        moreIcon.classList.remove("fa-caret-down");
+        moreIcon.classList.add("fa-caret-up");
+        moreBtn.classList.add("open");
+      } else {
+        moreText.textContent = "MORE";
+        moreIcon.classList.remove("fa-caret-up");
+        moreIcon.classList.add("fa-caret-down");
+        moreBtn.classList.remove("open");
+      }
+    }
+  }
+
+  // 카테고리 탭 클릭
+  filterTabs.forEach((tab) => {
+    tab.addEventListener("click", (e) => {
+      e.preventDefault();
+
+      currentFilter = tab.dataset.filter;
+      isMoreOpen = false;
+
+      filterTabs.forEach((item) => {
+        item.classList.remove("active");
+      });
+
+      tab.classList.add("active");
+
+      updateMobileProducts();
+
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    });
+  });
+
+  // MORE 버튼 클릭
+  if (moreBtn) {
+    moreBtn.addEventListener("click", () => {
+      isMoreOpen = !isMoreOpen;
+      updateMobileProducts();
+    });
+  }
+
+  updateMobileProducts();
+});

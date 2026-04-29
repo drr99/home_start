@@ -103,10 +103,10 @@
   pointer-events: none;
 }
 .speech_box {
-  transform: translate(-80%, 10%);
+  transform: translate(-80px, 10%);
 }
 .speech_laptop {
-  transform: translate(75%, 125%);
+  transform: translate(70px, 125%);
 }
 .show-speech .speech {
   opacity: 1;
