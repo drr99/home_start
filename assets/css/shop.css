@@ -121,7 +121,7 @@ body {
   position: relative;
   width: 80%;
   margin: 0 auto;
-  padding-bottom: 100px;
+  margin-bottom: 100px;
 }
 
 .shop_category {
@@ -204,7 +204,7 @@ body {
 
   max-width: 1060px;
   width: calc(100% - 32px);
-  margin: 30px auto 18px;
+  margin: 100px auto 18px;
 }
 .shop_slider {
   max-width: 1060px;
@@ -219,9 +219,6 @@ body {
 }
 .shop_slider .swiper-wrapper {
   align-items: flex-start;
-}
-.shop_recommend {
-  padding: 0 0 100px 0;
 }
 
 /*슬라이드 화살표 */
@@ -348,6 +345,9 @@ body {
 .shop_box .product_box {
   width: calc((100% - 26px * 3) / 4);
   max-width: 250px;
+}
+.shop_recommend {
+  margin-top: 100px;
 }
 
 /* 카테고리별 배경색 */
@@ -530,20 +530,10 @@ body.bg-bath {
     background: url(../img/shop/shop_bg2_1024.svg) no-repeat center left / cover;
   }
   #shop_goods {
-    margin-top: -100px;
+    /* margin-top: -100px; */
   }
   .shop_objects {
     margin-bottom: 10%;
-  }
-
-  .shop_slider,
-  .shop_slider_title,
-  .shop_box_title,
-  .shop_box_iframe {
-    width: calc(100% - 64px);
-    max-width: 900px;
-    margin-left: auto;
-    margin-right: auto;
   }
 
   .shop_slider_title {
@@ -589,6 +579,24 @@ body.bg-bath {
     width: 45px;
     height: 45px;
   }
+  .shop_recommend {
+    background: #fff;
+    border-radius: 10px;
+    margin-top: 80px;
+    padding: 30px 15px;
+  }
+  .shop_recommend > .shop_category .shop_category_inner {
+    padding-left: 20px;
+  }
+  .shop_recommend > .shop_category .shop_category_inner::after {
+    content: "";
+    position: absolute;
+    left: 20px;
+    bottom: -6px;
+    width: 86%;
+    height: 2px;
+    background: #111;
+  }
 }
 
 @media (max-width: 768px) {
@@ -603,15 +611,6 @@ body.bg-bath {
     width: 320px;
     margin-top: 150px;
     scale: 0.8;
-  }
-
-  .shop_slider,
-  .shop_slider_title,
-  .shop_box_title,
-  .shop_box_iframe {
-    width: calc(100% - 56px);
-    margin-left: auto;
-    margin-right: auto;
   }
 
   .shop_slider_title {
@@ -648,16 +647,11 @@ body.bg-bath {
     height: 40px;
     width: 40px;
   }
-  .shop_recommend {
-    padding: 0 0 60px 0;
-  }
 }
 @media (max-width: 680px) {
+  .shop_goods,
   #shop_goods {
-    margin-top: -150px;
-  }
-  .shop_recommend {
-    margin-top: -60px;
+    margin-bottom: 70px;
   }
   .shop_objects {
     margin-bottom: 25%;
@@ -717,13 +711,15 @@ body.bg-bath {
   .more_wrap {
     margin: 40px auto 0;
   }
+  .shop_recommend {
+    padding: 30px 10px;
+  }
 }
 
 @media (max-width: 480px) {
   .shop_goods,
   #shop_goods {
     width: 100%;
-    padding-bottom: 100px;
   }
   .search_box {
     display: none;
