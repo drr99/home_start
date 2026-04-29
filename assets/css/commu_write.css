@@ -323,27 +323,29 @@
     font-size: 0.9rem;
   }
   .write_options button {
-    width: 90px;
+    width: 110px;
     height: 40px;
-    font-size: 0.8rem;
+    font-size: 1rem;
+    gap: 6px;
   }
+
   .write_options svg {
     width: 15px;
     height: 15px;
   }
   .write_title_box input {
-    font-size: 1rem;
+    font-size: 1.1rem;
   }
   .write_content_box textarea {
-    font-size: 0.95rem;
+    font-size: 1rem;
   }
   .write_bottom button {
     width: 85px;
     height: 40px;
-    font-size: 0.8rem;
+    font-size: 1rem;
   }
 }
-@media (max-width: 480px) {
+@media (max-width: 500px) {
   .write_wrap {
     width: 100%;
     max-width: 460px;
@@ -355,14 +357,17 @@
     align-items: stretch;
     gap: 12px;
   }
-  .category_select {
-    width: 120px;
-    height: 40px;
-    font-size: 0.9rem;
-    border-radius: 0;
-    border: none;
-  }
 
+  .selected {
+    height: 17px;
+    padding: 10px 14px;
+  }
+  .selected p {
+    line-height: 1.2;
+  }
+  .category_select {
+    height: 28px;
+  }
   .select_arrow {
     right: 15px;
     bottom: 10px;
@@ -396,7 +401,17 @@
   }
   .write_content_box textarea {
     min-height: 60vh;
-    font-size: 1rem;
     line-height: 1.7;
+  }
+  .write_options button {
+    width: 40px;
+    height: 40px;
+    gap: 10px;
+  }
+  .write_options p {
+    display: none;
+  }
+  .select_list {
+    top: 140%;
   }
 }

@@ -219,6 +219,7 @@ body {
   line-height: 1.5;
   color: #333;
   margin-bottom: 5px;
+  height: 43px;
 
   /* 말줄임 */
   display: -webkit-box;

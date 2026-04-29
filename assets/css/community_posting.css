@@ -569,6 +569,7 @@
 
   font-size: 0.72rem;
   font-weight: 600;
+  margin-top: 10px;
 }
 .commu_text {
   flex: 1;
@@ -598,6 +599,7 @@
   line-height: 1.5;
   color: #333;
   margin-bottom: 5px;
+  height: 43px;
 
   /* 말줄임 */
   display: -webkit-box;
@@ -1115,7 +1117,7 @@
     padding-left: 0;
   }
   .commu_box_pop .title {
-    font-size: 0.95rem;
+    font-size: 1.05rem;
     margin: 70px auto 5px;
   }
   .commu_box_pop .commu_contents {
@@ -1211,12 +1213,10 @@
   }
 
   .profile_txt .id {
-    font-size: 0.75rem;
     margin-bottom: 2px;
   }
 
   .profile_txt .time {
-    font-size: 0.62rem;
   }
 
   .posting_contents {
@@ -1224,13 +1224,11 @@
   }
 
   .posting .title {
-    font-size: 0.92rem;
     margin-bottom: 10px;
     line-height: 1.35;
   }
 
   .posting_contents .desc {
-    font-size: 0.8rem;
     line-height: 1.55;
     margin-bottom: 12px;
   }
@@ -1252,7 +1250,6 @@
   }
 
   .comment_title {
-    font-size: 0.8rem;
     margin-bottom: 8px;
   }
 
@@ -1293,12 +1290,10 @@
   }
 
   .comment_id {
-    font-size: 0.8rem;
     margin-bottom: 2px;
   }
 
   .comment_desc {
-    font-size: 0.75rem;
     line-height: 1.5;
     margin-bottom: 6px;
 
@@ -1341,18 +1336,15 @@
     height: 20px;
   }
   .reply_id {
-    font-size: 0.8rem;
     margin-bottom: 2px;
   }
   .reply_desc {
-    font-size: 0.8rem;
     line-height: 1.45;
     margin-bottom: 4px;
   }
   .reply_meta,
   .reply_meta span {
     gap: 6px;
-    font-size: 0.8rem;
   }
 
   /* 인기게시글 */

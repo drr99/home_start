@@ -20,10 +20,10 @@ const swiper = new Swiper(".shop_slider", {
     },
     780: {
       slidesPerView: 4.5,
-      spaceBetween: 8,
+      spaceBetween: 10,
     },
     1024: {
-      slidesPerView: 5.2,
+      slidesPerView: 5.5,
       spaceBetween: 8,
     },
   },
