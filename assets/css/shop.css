@@ -131,7 +131,7 @@ body {
   width: calc(100% - 32px);
   margin: 0 auto 20px;
   font-size: 1.2rem;
-  font-weight: 800;
+  font-weight: 600;
   position: relative;
 }
 .shop_category_inner {
@@ -201,7 +201,7 @@ body {
 
 /* 슬라이드*/
 .shop_slider_title {
-  font-size: 1.35rem;
+  font-size: 1.2rem;
   font-weight: 600;
 
   max-width: 1060px;
