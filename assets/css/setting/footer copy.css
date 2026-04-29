@@ -15,15 +15,12 @@
   padding: 20px 30px;
 }
 
-.footer_inner .section3 {
-}
-
 #footer ul li {
   font-family: "eunzzang", sans-serif !important;
 }
 
 .footer_inner .section2 {
-  width: 65%;
+  width: 50%;
   display: flex;
   color: #edded9;
   font-size: 22px;
@@ -47,10 +44,28 @@
   font-size: 22px;
 }
 
-.footer_inner .section3 img {
-  height: auto;
+.footer_inner .section3 {
+  display: flex;
+  gap: 15px;
 }
-
+.footer_inner .section3 a {
+  display: inline-flex;
+  width: 40px;
+  height: 40px;
+  line-height: 0;
+}
+.instagram {
+  background: url(../../img/main/instagram.svg) no-repeat center / contain;
+}
+.instagram:hover {
+  background: url(../../img/main/instagram_hover.svg) no-repeat center / contain;
+}
+.youtube {
+  background: url(../../img/main/youtube.svg) no-repeat center / contain;
+}
+.youtube:hover {
+  background: url(../../img/main/youtube_hover.svg) no-repeat center / contain;
+}
 /* 미디어 쿼리 */
 @media (max-width: 1200px) {
   .logo_footer {
