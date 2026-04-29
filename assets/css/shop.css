@@ -58,7 +58,6 @@ body {
   margin: 160px auto 0;
   position: relative;
   display: block;
-  background: #fbeddc;
 }
 .search_bb {
   width: 118px;
@@ -130,7 +129,7 @@ body {
   max-width: 1060px;
   width: calc(100% - 32px);
   margin: 0 auto 20px;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   font-weight: 600;
   position: relative;
 }
@@ -206,7 +205,7 @@ body {
 
   max-width: 1060px;
   width: calc(100% - 32px);
-  margin: 100px auto 18px;
+  margin: 100px auto 23px;
 }
 .shop_slider {
   max-width: 1060px;
@@ -408,7 +407,7 @@ body.bg-bath {
 
 .three_btn {
   position: fixed;
-  right: 30px;
+  right: 20px;
   bottom: 20px;
   z-index: 999;
 
@@ -483,6 +482,11 @@ body.bg-bath {
 .shop_slider .swiper-button-prev {
   color: #ff8800;
 }
+#shop_kit,
+#shop_bed,
+#shop_bath {
+  scroll-margin-top: 20px;
+}
 /* 미디어 쿼리 */
 @media (max-width: 1400px) {
   #shop {
@@ -504,7 +508,7 @@ body.bg-bath {
   .shop_bed,
   .shop_bath {
     background-color: #fff;
-    padding: 30px;
+    padding: 3% 30px;
     border-radius: 10px;
   }
   body {
@@ -542,7 +546,7 @@ body.bg-bath {
   }
 
   .shop_slider_title {
-    margin: 0px auto 12px;
+    margin: 0px auto 20px;
     font-size: 1.2rem;
   }
 
@@ -588,7 +592,10 @@ body.bg-bath {
     background: #fff;
     border-radius: 10px;
     margin-top: 80px;
-    padding: 30px 15px;
+    padding: 20px 15px;
+  }
+  .shop_category_inner {
+    font-size: 1rem;
   }
   .shop_recommend > .shop_category .shop_category_inner {
     padding-left: 20px;
@@ -624,7 +631,7 @@ body.bg-bath {
 
   .shop_slider_title {
     font-size: 1.15rem;
-    margin: 0px auto 10px;
+    margin: 0px auto 20px;
   }
   .shop_box_title {
     margin: 40px auto 20px;
@@ -656,6 +663,20 @@ body.bg-bath {
     height: 40px;
     width: 40px;
   }
+  .search_bb,
+  .search_bb_arm {
+    display: none;
+  }
+  .search_input {
+    background: none;
+  }
+  .input_box {
+    margin: 0 auto;
+    margin-top: -30px;
+  }
+  .shop_recommend .today_box {
+    display: none;
+  }
 }
 @media (max-width: 680px) {
   .shop_goods,
@@ -675,7 +696,7 @@ body.bg-bath {
   }
 
   .shop_slider_title {
-    margin: 32px auto 10px;
+    margin: 0px auto 20px;
     font-size: 1.1rem;
   }
 
