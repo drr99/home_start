@@ -296,22 +296,20 @@ body {
 
 @media (max-width: 480px) {
   .menu_icon img {
-    padding: 10px;
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     /* background: yellow; */
-    padding: 10px;
     object-fit: contain;
   }
   /* hover 아이콘 */
   .menu_icon::after {
     content: "";
     position: absolute;
-    margin: 10px;
-    padding: 0px;
+    margin: 0px;
+    padding: 3px;
     top: 0;
     left: 0;
     width: 100%;
@@ -327,6 +325,9 @@ body {
   }
   .header_inner.hide {
     transform: translateY(-150%);
+  }
+  .side_menu {
+    width: min(80%, 230px);
   }
   .menu_link,
   .about_link {
