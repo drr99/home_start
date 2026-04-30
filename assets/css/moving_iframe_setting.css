@@ -341,11 +341,11 @@ body {
 }
 .checklist_desc2 .check::after {
   content: "\2714";
-  font-size: 22px;
+  font-size: 20px;
   color: #ff5552;
 
   position: absolute;
-  top: -4px;
+  top: -2px;
   left: 2px;
 
   opacity: 0;

@@ -242,9 +242,7 @@ window.addEventListener("load", () => {
 // =========================
 document.addEventListener("DOMContentLoaded", () => {
   const filterTabs = document.querySelectorAll("#shop_sub_main .filter_tab");
-  const mobileProducts = document.querySelectorAll(
-    "#shop_sub_main .product_box",
-  );
+  const mobileProducts = document.querySelectorAll("#shop_sub_main .product_box");
   const mobileShopBoxes = document.querySelectorAll("#shop_sub_main .shop_box");
 
   const moreWrap = document.querySelector("#mobile_more_wrap");
@@ -349,4 +347,11 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   updateMobileProducts();
+});
+
+// 상품 눌렀을 때 페이지 상단으로 올라가는 것 방지하기
+document.querySelectorAll(".shop_link").forEach((link) => {
+  link.addEventListener("click", function (e) {
+    e.preventDefault();
+  });
 });
