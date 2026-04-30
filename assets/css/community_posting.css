@@ -853,7 +853,6 @@
   .box_desc {
     font-size: 0.9rem;
     font-weight: 500;
-    margin-bottom: 10px;
   }
   .box_icon span {
     font-size: 0.8rem;
@@ -1372,5 +1371,9 @@
   #search_input {
     height: 30px;
     font-size: 0.8rem;
+  }
+  .box_desc {
+    height: auto;
+    max-height: 43px;
   }
 }
