@@ -50,6 +50,12 @@ function formatCount(num) {
    게시글 ID
 ========================= */
 function getPostId() {
+  const posting = document.querySelector(".posting");
+
+  if (posting && posting.dataset.postId) {
+    return posting.dataset.postId;
+  }
+
   const params = new URLSearchParams(window.location.search);
   return params.get("post") || "post1";
 }
@@ -190,7 +196,7 @@ updatePostCounts();
 updateBottomPopularCounts();
 bindPostLikeEvent();
 
-fixPopularLayout(); // ⭐ 이게 핵심
+fixPopularLayout();
 createThumbs();
 
 saveStore(store);

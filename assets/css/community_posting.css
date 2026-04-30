@@ -528,12 +528,12 @@
   font-weight: bold;
   color: #ff7f7f;
   text-align: center;
+  border-bottom: 1px solid #ff7f7f9a;
 }
 
 /* 게시글박스 */
 .pop_box {
   width: 100%;
-  border-top: 1px solid #ff7f7f9a;
   box-sizing: border-box;
 }
 .commu_box_pop .commu_contents {
@@ -1370,5 +1370,9 @@
   #search_input {
     height: 30px;
     font-size: 0.8rem;
+  }
+  .box_desc {
+    height: auto;
+    max-height: 43px;
   }
 }
