@@ -47,22 +47,13 @@ function formatCount(num) {
 }
 
 /* =========================
-   게시글 ID 가져오기
+   게시글 ID
 ========================= */
 function getPostId() {
-  const posting = document.querySelector(".posting");
-
-  if (posting && posting.dataset.postId) {
-    return posting.dataset.postId;
-  }
-
   const params = new URLSearchParams(window.location.search);
   return params.get("post") || "post1";
 }
 
-/* =========================
-   기본 변수
-========================= */
 const store = getStore();
 const postId = getPostId();
 
@@ -72,7 +63,7 @@ const postLikeEl = document.querySelector(".posting .like_count");
 const postCommentEl = document.querySelector(".posting .comment_count");
 
 /* =========================
-   게시글 본문 숫자 반영
+   본문 숫자
 ========================= */
 function updatePostCounts() {
   if (postLikeEl) {
@@ -85,12 +76,10 @@ function updatePostCounts() {
 }
 
 /* =========================
-   하단 인기게시글 숫자 반영
+   하단 인기글 숫자
 ========================= */
 function updateBottomPopularCounts() {
-  const cards = document.querySelectorAll(".pop_posting .commu_contents");
-
-  cards.forEach((card) => {
+  document.querySelectorAll(".pop_posting .commu_contents").forEach((card) => {
     const id = card.dataset.postId;
     if (!id) return;
 
@@ -99,19 +88,13 @@ function updateBottomPopularCounts() {
     const likeEl = card.querySelector(".like_count");
     const commentEl = card.querySelector(".comment_count");
 
-    if (likeEl) {
-      likeEl.textContent = formatCount(store[id].like);
-    }
-
-    if (commentEl) {
-      commentEl.textContent = formatCount(store[id].comment);
-    }
+    if (likeEl) likeEl.textContent = formatCount(store[id].like);
+    if (commentEl) commentEl.textContent = formatCount(store[id].comment);
   });
 }
 
 /* =========================
-   좋아요 기능
-   클릭 +1 / 더블클릭 -1
+   좋아요
 ========================= */
 function bindPostLikeEvent() {
   if (!postLikeEl) return;
@@ -123,11 +106,9 @@ function bindPostLikeEvent() {
 
     clickTimer = setTimeout(() => {
       store[postId].like += 1;
-
       updatePostCounts();
       updateBottomPopularCounts();
       saveStore(store);
-
       clickTimer = null;
     }, 200);
   });
@@ -147,18 +128,14 @@ function bindPostLikeEvent() {
 }
 
 /* =========================
-   댓글 개수 자동 카운트
+   댓글 카운트
 ========================= */
 function updateCommentCountFromHTML() {
-  const commentCount = document.querySelectorAll(".comment_box").length;
-  const replyCount = document.querySelectorAll(".reply_box").length;
-  const total = commentCount + replyCount;
+  const total = document.querySelectorAll(".comment_box").length + document.querySelectorAll(".reply_box").length;
 
   const commentTitle = document.querySelector(".comment_title span");
 
-  if (commentTitle) {
-    commentTitle.textContent = total;
-  }
+  if (commentTitle) commentTitle.textContent = total;
 
   store[postId].comment = total;
 
@@ -168,45 +145,28 @@ function updateCommentCountFromHTML() {
 }
 
 /* =========================
-   메뉴 클릭 시 목록 이동
+  레이아웃 깨짐 해결
 ========================= */
-function bindMenuLinks() {
-  const menuLinks = document.querySelectorAll(".commu_menu_l a");
+function fixPopularLayout() {
+  document.querySelectorAll(".pop_posting .commu_contents").forEach((card) => {
+    if (!card.querySelector(".commu_text")) {
+      const wrap = document.createElement("div");
+      wrap.className = "commu_text";
 
-  menuLinks.forEach((link) => {
-    link.addEventListener("click", function (e) {
-      e.preventDefault();
+      const items = card.querySelectorAll(".post_category, .box_title, .box_desc, .box_icon");
 
-      const filter = this.dataset.filter || "all";
+      items.forEach((el) => wrap.appendChild(el));
 
-      location.href = filter === "all" ? "community.html" : `community.html?cat=${filter}`;
-    });
+      card.prepend(wrap);
+    }
   });
 }
 
 /* =========================
-   게시글 카테고리 클릭 시 목록 이동
+   썸네일
 ========================= */
-function bindPostCategory() {
-  const postCategory = document.querySelector(".posting .post_category");
-
-  if (!postCategory) return;
-
-  postCategory.addEventListener("click", function (e) {
-    e.preventDefault();
-
-    const url = this.getAttribute("href");
-    location.href = url;
-  });
-}
-
-/* =========================
-   하단 인기게시글 썸네일 생성
-========================= */
-function createBottomPopularThumbs() {
-  const cards = document.querySelectorAll(".pop_posting .commu_contents");
-
-  cards.forEach((card) => {
+function createThumbs() {
+  document.querySelectorAll(".pop_posting .commu_contents").forEach((card) => {
     const img = card.dataset.img;
     if (!img) return;
 
@@ -223,36 +183,14 @@ function createBottomPopularThumbs() {
 }
 
 /* =========================
-   글쓰기 버튼 푸터 위로 고정
-========================= */
-function bindWriteButtonPosition() {
-  const writeBtn = document.querySelector(".commu_menu_r");
-  const footer = document.querySelector("#footer");
-
-  if (!writeBtn || !footer) return;
-
-  window.addEventListener("scroll", () => {
-    const footerTop = footer.getBoundingClientRect().top;
-    const windowHeight = window.innerHeight;
-
-    if (footerTop < windowHeight) {
-      const overlap = windowHeight - footerTop;
-      writeBtn.style.bottom = 20 + overlap + "px";
-    } else {
-      writeBtn.style.bottom = "20px";
-    }
-  });
-}
-
-/* =========================
    실행
 ========================= */
 updateCommentCountFromHTML();
 updatePostCounts();
 updateBottomPopularCounts();
 bindPostLikeEvent();
-bindMenuLinks();
-bindPostCategory();
-createBottomPopularThumbs();
-bindWriteButtonPosition();
+
+fixPopularLayout(); // ⭐ 이게 핵심
+createThumbs();
+
 saveStore(store);
