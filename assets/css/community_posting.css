@@ -135,7 +135,6 @@
 .posting,
 .comment {
   font-family: "Pretendard";
-  background: #fdfdfd;
   width: calc(100% - 32px);
   max-width: 750px;
   margin: 30px auto 0;
