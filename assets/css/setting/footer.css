@@ -74,13 +74,13 @@
     transform: rotate(0deg) scale(1);
   }
   25% {
-    transform: rotate(-6deg) scale(1.05);
+    transform: rotate(-6deg) scale(1.25);
   }
   50% {
-    transform: rotate(6deg) scale(1.08);
+    transform: rotate(6deg) scale(1.28);
   }
   75% {
-    transform: rotate(-4deg) scale(1.05);
+    transform: rotate(-4deg) scale(1.25);
   }
   100% {
     transform: rotate(0deg) scale(1);
@@ -165,8 +165,8 @@
     }
     .instagram,
     .youtube {
-      width: 30px;
-      height: 30px;
+      width: 35px;
+      height: 35px;
     }
   }
   @media (max-width: 480px) {
@@ -239,12 +239,6 @@
       gap: 12px;
 
       margin-top: 25px;
-    }
-
-    .instagram,
-    .youtube {
-      width: 35px;
-      height: 35px;
     }
   }
 }
