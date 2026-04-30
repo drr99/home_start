@@ -1,8 +1,8 @@
 const STORAGE_KEY = "community_posts_v1";
 
-/* =====================================================
-   1. 로컬스토리지
-===================================================== */
+/* =========================
+   로컬스토리지
+========================= */
 function getStore() {
   const saved = localStorage.getItem(STORAGE_KEY);
   return saved ? JSON.parse(saved) : {};
@@ -18,6 +18,7 @@ function ensurePost(store, postId) {
     post2: 88,
     post3: 201,
     post4: 57,
+    post5: 0,
   };
 
   if (!store[postId]) {
@@ -45,9 +46,9 @@ function formatCount(num) {
   return num >= 100 ? "100+" : num;
 }
 
-/* =====================================================
-   2. 게시글 ID 가져오기
-===================================================== */
+/* =========================
+   게시글 ID 가져오기
+========================= */
 function getPostId() {
   const posting = document.querySelector(".posting");
 
@@ -59,20 +60,20 @@ function getPostId() {
   return params.get("post") || "post1";
 }
 
-/* =====================================================
-   3. 기본 세팅
-===================================================== */
-const postId = getPostId();
+/* =========================
+   기본 변수
+========================= */
 const store = getStore();
+const postId = getPostId();
 
 ensurePost(store, postId);
 
 const postLikeEl = document.querySelector(".posting .like_count");
 const postCommentEl = document.querySelector(".posting .comment_count");
 
-/* =====================================================
-   4. 좋아요 / 댓글 숫자 화면 반영
-===================================================== */
+/* =========================
+   게시글 본문 숫자 반영
+========================= */
 function updatePostCounts() {
   if (postLikeEl) {
     postLikeEl.textContent = formatCount(store[postId].like);
@@ -83,11 +84,35 @@ function updatePostCounts() {
   }
 }
 
-/* =====================================================
-   5. 좋아요 기능
-   - 클릭: +1
-   - 더블클릭: -1
-===================================================== */
+/* =========================
+   하단 인기게시글 숫자 반영
+========================= */
+function updateBottomPopularCounts() {
+  const cards = document.querySelectorAll(".pop_posting .commu_contents");
+
+  cards.forEach((card) => {
+    const id = card.dataset.postId;
+    if (!id) return;
+
+    ensurePost(store, id);
+
+    const likeEl = card.querySelector(".like_count");
+    const commentEl = card.querySelector(".comment_count");
+
+    if (likeEl) {
+      likeEl.textContent = formatCount(store[id].like);
+    }
+
+    if (commentEl) {
+      commentEl.textContent = formatCount(store[id].comment);
+    }
+  });
+}
+
+/* =========================
+   좋아요 기능
+   클릭 +1 / 더블클릭 -1
+========================= */
 function bindPostLikeEvent() {
   if (!postLikeEl) return;
 
@@ -98,8 +123,11 @@ function bindPostLikeEvent() {
 
     clickTimer = setTimeout(() => {
       store[postId].like += 1;
+
       updatePostCounts();
+      updateBottomPopularCounts();
       saveStore(store);
+
       clickTimer = null;
     }, 200);
   });
@@ -113,13 +141,14 @@ function bindPostLikeEvent() {
     }
 
     updatePostCounts();
+    updateBottomPopularCounts();
     saveStore(store);
   });
 }
 
-/* =====================================================
-   6. 댓글 개수 자동 카운트
-===================================================== */
+/* =========================
+   댓글 개수 자동 카운트
+========================= */
 function updateCommentCountFromHTML() {
   const commentCount = document.querySelectorAll(".comment_box").length;
   const replyCount = document.querySelectorAll(".reply_box").length;
@@ -127,118 +156,103 @@ function updateCommentCountFromHTML() {
 
   const commentTitle = document.querySelector(".comment_title span");
 
-  if (commentTitle) commentTitle.textContent = total;
+  if (commentTitle) {
+    commentTitle.textContent = total;
+  }
 
   store[postId].comment = total;
-  saveStore(store);
 
   updatePostCounts();
+  updateBottomPopularCounts();
+  saveStore(store);
 }
 
-/* =====================================================
-   7. 메뉴 클릭 시 목록페이지 카테고리 이동
-===================================================== */
-const menuLinks = document.querySelectorAll(".commu_menu_l a");
+/* =========================
+   메뉴 클릭 시 목록 이동
+========================= */
+function bindMenuLinks() {
+  const menuLinks = document.querySelectorAll(".commu_menu_l a");
 
-menuLinks.forEach((link) => {
-  link.addEventListener("click", function (e) {
-    e.preventDefault();
+  menuLinks.forEach((link) => {
+    link.addEventListener("click", function (e) {
+      e.preventDefault();
 
-    const filter = this.dataset.filter || "all";
+      const filter = this.dataset.filter || "all";
 
-    location.href = filter === "all" ? "community.html" : `community.html?cat=${filter}`;
+      location.href = filter === "all" ? "community.html" : `community.html?cat=${filter}`;
+    });
   });
-});
+}
 
-/* =====================================================
-   8. 게시글 카테고리 클릭 시 목록 이동
-===================================================== */
-const postCategory = document.querySelector(".post_category");
+/* =========================
+   게시글 카테고리 클릭 시 목록 이동
+========================= */
+function bindPostCategory() {
+  const postCategory = document.querySelector(".posting .post_category");
 
-if (postCategory) {
+  if (!postCategory) return;
+
   postCategory.addEventListener("click", function (e) {
     e.preventDefault();
 
     const url = this.getAttribute("href");
-
     location.href = url;
   });
 }
 
-/* =====================================================
-   9. 인기게시글 썸네일 생성
-===================================================== */
-document.querySelectorAll(".pop_posting .commu_contents").forEach((card) => {
-  const img = card.dataset.img;
-  if (!img) return;
+/* =========================
+   하단 인기게시글 썸네일 생성
+========================= */
+function createBottomPopularThumbs() {
+  const cards = document.querySelectorAll(".pop_posting .commu_contents");
 
-  let thumb = card.querySelector(".thumb");
+  cards.forEach((card) => {
+    const img = card.dataset.img;
+    if (!img) return;
 
-  if (!thumb) {
-    thumb = document.createElement("div");
-    thumb.className = "thumb";
-    card.appendChild(thumb);
-  }
+    let thumb = card.querySelector(".thumb");
 
-  thumb.style.backgroundImage = `url(${img})`;
-});
+    if (!thumb) {
+      thumb = document.createElement("div");
+      thumb.className = "thumb";
+      card.appendChild(thumb);
+    }
 
-/* =====================================================
-   10. 실행
-===================================================== */
+    thumb.style.backgroundImage = `url(${img})`;
+  });
+}
+
+/* =========================
+   글쓰기 버튼 푸터 위로 고정
+========================= */
+function bindWriteButtonPosition() {
+  const writeBtn = document.querySelector(".commu_menu_r");
+  const footer = document.querySelector("#footer");
+
+  if (!writeBtn || !footer) return;
+
+  window.addEventListener("scroll", () => {
+    const footerTop = footer.getBoundingClientRect().top;
+    const windowHeight = window.innerHeight;
+
+    if (footerTop < windowHeight) {
+      const overlap = windowHeight - footerTop;
+      writeBtn.style.bottom = 20 + overlap + "px";
+    } else {
+      writeBtn.style.bottom = "20px";
+    }
+  });
+}
+
+/* =========================
+   실행
+========================= */
 updateCommentCountFromHTML();
 updatePostCounts();
+updateBottomPopularCounts();
 bindPostLikeEvent();
+bindMenuLinks();
+bindPostCategory();
+createBottomPopularThumbs();
+bindWriteButtonPosition();
 saveStore(store);
-
-/* =====================================================
-   9. 인기게시글 썸네일 생성 + 텍스트 자동 묶기
-===================================================== */
-document.querySelectorAll(".pop_posting .commu_contents").forEach((card) => {
-  const img = card.dataset.img;
-
-  if (!card.querySelector(".commu_text")) {
-    const textWrap = document.createElement("div");
-    textWrap.className = "commu_text";
-
-    const textItems = card.querySelectorAll(".box_title, .box_desc, .box_icon");
-
-    textItems.forEach((item) => {
-      textWrap.appendChild(item);
-    });
-
-    card.prepend(textWrap);
-  }
-
-  if (!img) return;
-
-  let thumb = card.querySelector(".thumb");
-
-  if (!thumb) {
-    thumb = document.createElement("div");
-    thumb.className = "thumb";
-    card.appendChild(thumb);
-  }
-
-  thumb.style.backgroundImage = `url(${img})`;
-});
-
-// 글쓰기버튼 푸터위로
-const writeBtn = document.querySelector(".commu_menu_r");
-const footer = document.querySelector("#footer");
-
-window.addEventListener("scroll", () => {
-  const footerTop = footer.getBoundingClientRect().top;
-  const windowHeight = window.innerHeight;
-
-  // 푸터가 화면에 올라오기 시작하면
-  if (footerTop < windowHeight) {
-    const overlap = windowHeight - footerTop;
-
-    // 버튼을 위로 밀어줌
-    writeBtn.style.bottom = 20 + overlap + "px";
-  } else {
-    // 기본 위치
-    writeBtn.style.bottom = "20px";
-  }
-});
