@@ -331,8 +331,8 @@
   position: absolute;
   top: 0;
   right: 0;
-  margin-top: 3%;
-  margin-right: 3%;
+  margin-top: 3.6%;
+  margin-right: 3.6%;
   background: none;
   font-size: 24px;
   line-height: 1;
@@ -579,8 +579,8 @@ body.modal-open {
     position: absolute;
     top: 0;
     right: 0;
-    margin-top: 4%;
-    margin-right: 4%;
+    margin-top: 5%;
+    margin-right: 5%;
   }
   .modal_bg_wh {
     padding: 4%;
