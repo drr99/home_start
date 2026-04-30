@@ -220,9 +220,7 @@ body {
   line-height: 1.5;
   color: #333;
   margin-bottom: 5px;
-  height: auto;
-  max-height: 3em;
-
+  height: 43px;
   /* 말줄임 */
   display: -webkit-box;
   -webkit-line-clamp: 2;
@@ -808,5 +806,9 @@ body {
   }
   .page_btn .page_arrow {
     margin-left: 90px;
+  }
+  .box_desc {
+    height: auto;
+    max-height: 43px;
   }
 }
