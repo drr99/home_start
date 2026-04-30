@@ -404,32 +404,31 @@ body.bg-bath {
 .more.open:hover i {
   transform: rotate(180deg);
 }
-
 .three_btn {
   position: fixed;
   right: 20px;
   bottom: 20px;
-  z-index: 999;
-
+  z-index: 99999;
   display: flex;
   flex-direction: column;
   gap: 12px;
+  pointer-events: none;
 }
 .heart,
 .basket,
 .top {
+  position: relative;
+  z-index: 1;
   width: 50px;
   height: 50px;
-  position: static;
   opacity: 0;
   pointer-events: none;
   border: 0;
   background: transparent;
   padding: 0;
   cursor: pointer;
-  transition:
-    opacity 0.3s ease,
-    transform 0.15s ease;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .heart {
@@ -467,6 +466,7 @@ body.bg-bath {
   width: 100%;
   height: 100%;
   display: block;
+  pointer-events: none;
 }
 
 .heart:active,
