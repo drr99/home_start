@@ -179,7 +179,7 @@
 
 /* 게시글 */
 .posting_contents {
-  padding-bottom: 30px;
+  padding-bottom: 20px;
   border-bottom: 1px solid #f1dada;
 }
 .posting_contents .desc {
