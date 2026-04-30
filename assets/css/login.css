@@ -50,6 +50,25 @@
   transform: translateY(-1px);
   box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1);
 }
+.login_btn,
+.join_btn {
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s,
+    background 0.2s;
+}
+
+.login_btn:hover,
+.join_btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1);
+  background: #ffd0d0;
+}
+.login_btn:active,
+.join_btn:active {
+  transform: translateY(1px);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+}
 .login_btns > button {
   width: 100%;
   height: 50px;
@@ -132,5 +151,12 @@
   }
   .login_title {
     padding-bottom: 15px;
+  }
+  .popup {
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -40%);
+    font-size: 23px;
+    padding: 15px 20px;
   }
 }
