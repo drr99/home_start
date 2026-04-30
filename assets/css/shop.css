@@ -15,6 +15,7 @@ body {
   height: 100vh;
   overflow: hidden;
   background: url(../img/shop/shop_bg_1920.svg) no-repeat center / cover;
+  /* padding-bottom: 200px; */
 }
 #shop_sub_main {
   display: none;
@@ -499,6 +500,7 @@ body.bg-bath {
     height: 80vh;
     overflow: hidden;
     background: url(../img/shop/shop_bg_1920.svg) no-repeat bottom / cover;
+    padding-bottom: 14%;
   }
   .shop_objects {
     margin-bottom: 0%;
@@ -532,6 +534,7 @@ body.bg-bath {
   #shop {
     background: url(../img/shop/shop_bg2_1024.svg) no-repeat center left / cover;
     height: 60vh;
+    padding-bottom: 0;
   }
   .shop_objects {
     margin-top: 200px;

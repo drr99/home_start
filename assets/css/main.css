@@ -99,7 +99,7 @@
   top: -50px;
   left: 50%;
   transform: translateX(-50%);
-  opacity: 0;
+  opacity: 1;
   pointer-events: none;
 }
 .speech_box {
@@ -109,7 +109,7 @@
   transform: translate(70px, 125%);
 }
 .speech_commu {
-  transform: translate(70px, 45%);
+  transform: translate(10px, 45%);
 }
 .show-speech .speech {
   opacity: 1;
@@ -195,6 +195,9 @@
   .sofa {
     flex: 1;
     margin-top: 0%;
+  }
+  .speech_commu {
+    transform: translate(-10px, 30%);
   }
 }
 @media (hover: none) {
