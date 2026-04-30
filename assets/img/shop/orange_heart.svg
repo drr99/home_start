@@ -1,21 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 1450 1450">
-  <!-- Generator: Adobe Illustrator 29.6.1, SVG Export Plug-In . SVG Version: 2.1.1 Build 9)  -->
-  <defs>
-    <style>
-      .st0 {
-        fill: #fff;
-      }
-
-      .st1 {
-        fill: none;
-        stroke: #f80;
-        stroke-linecap: round;
-        stroke-linejoin: round;
-        stroke-width: 65.22px;
-      }
-    </style>
-  </defs>
-  <circle class="st0" cx="725" cy="725" r="725"/>
-  <path class="st1" d="M948.62,402.96c11.59,0,23.73,1.1,36.26,3.37,218.25,39.55,259.44,391.94-264.84,752.71C195.84,798.27,253.24,449.24,471.41,409.7c12.76-2.27,24.9-3.37,36.49-3.37,155.91,0,212.06,193.66,212.06,193.66,0,0,70.32-197.03,228.58-197.03"/>
+<svg width="1450" height="1450" viewBox="0 0 1450 1450" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_1850_5343)">
+<path d="M725 1450C1125.41 1450 1450 1125.41 1450 725C1450 324.594 1125.41 0 725 0C324.594 0 0 324.594 0 725C0 1125.41 324.594 1450 725 1450Z" fill="#FFF7F3"/>
+<path d="M948.62 402.96C960.21 402.96 972.35 404.06 984.88 406.33C1203.13 445.88 1244.32 798.27 720.04 1159.04C195.84 798.27 253.241 449.24 471.411 409.7C484.171 407.43 496.31 406.33 507.9 406.33C663.811 406.33 719.961 599.99 719.961 599.99C719.961 599.99 790.28 402.96 948.54 402.96" stroke="#FF8800" stroke-width="65.22" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<defs>
+<clipPath id="clip0_1850_5343">
+<rect width="1450" height="1450" fill="white"/>
+</clipPath>
+</defs>
 </svg>

@@ -166,8 +166,8 @@ function changeFloatingBtnImages() {
   if (!heartImg || !basketImg || !topImg) return;
 
   if (isTablet) {
-    heartImg.src = "../assets/img/shop/green_heart.png";
-    basketImg.src = "../assets/img/shop/green_basket.png";
+    heartImg.src = "../assets/img/shop/green_heart.svg";
+    basketImg.src = "../assets/img/shop/green_basket.svg";
     topImg.src = "../assets/img/shop/green_top_button.png";
   } else {
     heartImg.src = "../assets/img/shop/orange_heart.svg";
