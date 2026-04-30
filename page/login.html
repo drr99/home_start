@@ -26,11 +26,11 @@
         >
           <div class="search_box">
             <h1>ID</h1>
-            <input type="text" id="id" placeholder="아이디" oninput="clearError('id_error')" />
+            <input type="text" id="id" placeholder="아이디" autocomplete="off" oninput="clearError('id_error')" />
             <p class="error_msg" id="id_error"></p>
 
             <h1>P/W</h1>
-            <input type="password" id="pw" placeholder="비밀번호" oninput="clearError('pw_error')" />
+            <input type="password" id="pw" placeholder="비밀번호" autocomplete="new-password" oninput="clearError('pw_error')" />
             <p class="error_msg" id="pw_error"></p>
           </div>
 
@@ -42,7 +42,7 @@
           </div>
         </form>
       </div>
-      <div id="login_success" class="popup">[홈스타트] 가입을 환영합니다.</div>
+      <div id="login_success" class="popup">[홈스타트] 환영합니다.</div>
     </main>
     <div id="footer"></div>
     <!-- footer -->
@@ -73,9 +73,12 @@
 
         popup.style.display = "block";
 
+        document.getElementById("id").value = "";
+        document.getElementById("pw").value = "";
+
         setTimeout(() => {
-          popup.style.display = "none";
-        }, 1700);
+          window.location.href = "/index.html";
+        }, 1500);
       }
 
       function clearError(errorId) {
