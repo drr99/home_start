@@ -108,6 +108,9 @@
 .speech_laptop {
   transform: translate(70px, 125%);
 }
+.speech_commu {
+  transform: translate(70px, 45%);
+}
 .show-speech .speech {
   opacity: 1;
 }
