@@ -47,9 +47,7 @@ textarea,
 select,
 button,
 table {
-  font-family:
-    "Pretendard", "GMarketSans", AppleSDGothicNeo-Regular, "Malgun Gothic",
-    "맑은 고딕", dotum, "돋움", sans-serif;
+  font-family: "Pretendard", "GMarketSans", AppleSDGothicNeo-Regular, "Malgun Gothic", "맑은 고딕", dotum, "돋움", sans-serif;
   color: #222;
   font-size: 13px;
   line-height: 1.5;
@@ -181,14 +179,13 @@ img {
   position: fixed;
   left: 0;
   top: 0;
-  width: 60px;
-  height: 60px;
+  width: 35px;
+  height: 35px;
   pointer-events: none;
   z-index: 99999;
 
   transform: translate(-50%, -50%) scale(1);
-  background: url("../../img/main/bibi_cursor_clench.svg") no-repeat center /
-    contain;
+  background: url("../../img/main/bibi_cursor_clench.svg") no-repeat center / contain;
 
   transition:
     transform 0.2s ease,
@@ -202,7 +199,7 @@ img {
   transform: translate(-50%, -50%);
 
   display: block;
-  font-size: 12px;
+  font-size: 6px;
   color: #ffd2a8;
   font-family: "OngleipEoyeonce";
 
@@ -218,7 +215,7 @@ img {
   transform: translate(-50%, -50%) scale(0.9);
 }
 .bb-cursor.hovering {
-  transform: translate(-50%, -50%) scale(2.2);
+  transform: translate(-50%, -50%) scale(4.2);
   background-image: url("../../img/main/bibi_cursor_spread.svg");
 }
 
@@ -229,35 +226,35 @@ img {
 /*커서 미디어쿼리 */
 @media (max-width: 1200px) {
   .bb-cursor {
-    width: 60px;
+    width: 33px;
   }
   .bb-cursor-text {
     left: 51.5%;
-    top: 61%;
-    font-size: 12px;
+    top: 65%;
+    font-size: 6.5px;
   }
   .bb-cursor.hovering {
-    transform: translate(-50%, -50%) scale(1.6);
+    transform: translate(-50%, -50%) scale(3.4);
   }
 }
-@media (max-width: 850px) {
+@media (max-width: 768px) {
   .bb-cursor {
-    width: 50px;
+    width: 30px;
   }
   .bb-cursor-text {
-    font-size: 10px;
+    left: 51.5%;
+    top: 63%;
+    font-size: 6px;
+  }
+  .bb-cursor.hovering {
+    transform: translate(-50%, -50%) scale(2.5);
   }
 }
 @media (max-width: 480px) {
-  .bb-cursor {
-    width: 50px;
-  }
   .bb-cursor-text {
-    left: 51.5%;
-    top: 61%;
-    font-size: 10px;
+    font-size: 5.8px;
   }
   .bb-cursor.hovering {
-    transform: translate(-50%, -50%) scale(1.4);
+    transform: translate(-50%, -50%) scale(2.4);
   }
 }
