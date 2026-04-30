@@ -207,4 +207,7 @@ body {
   .close_btn a {
     padding: 0px 10px;
   }
+  .check::after {
+    font-size: 17px;
+  }
 }

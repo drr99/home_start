@@ -186,6 +186,7 @@
   }
   .check::after {
     top: -8px;
+    font-size: 17px;
   }
   .save_modal {
     padding: 7px 12px;
