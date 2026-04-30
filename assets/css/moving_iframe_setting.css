@@ -341,12 +341,12 @@ body {
 }
 .checklist_desc2 .check::after {
   content: "\2714";
-  font-size: 20px;
+  font-size: 18px;
   color: #ff5552;
 
   position: absolute;
-  top: -2px;
-  left: 2px;
+  top: 2px;
+  left: 3px;
 
   opacity: 0;
   transition: all 0.2s;
@@ -470,9 +470,8 @@ body {
   .checklist_desc2 {
     font-size: 20px;
   }
-  .check::after {
-    font-size: 20px;
-    top: -5px;
+  .checklist_desc2 .check::after {
+    top: 0px;
   }
   .img_box_wrap {
     display: flex;
@@ -541,5 +540,9 @@ body {
   .img_box_wrap img {
     height: 150px;
     border-radius: 10px;
+  }
+  .checklist_desc2 .check::after {
+    top: 0px;
+    font-size: 17px;
   }
 }
