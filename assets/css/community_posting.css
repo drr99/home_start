@@ -528,7 +528,6 @@
   font-weight: bold;
   color: #ff7f7f;
   text-align: center;
-  border-bottom: 1px solid #ff7f7f9a;
 }
 
 /* 게시글박스 */
@@ -597,7 +596,7 @@
   font-weight: 500;
   line-height: 1.5;
   color: #333;
-  margin-bottom: 7px;
+  margin-bottom: 5px;
   height: 43px;
 
   /* 말줄임 */
@@ -852,6 +851,7 @@
   .box_desc {
     font-size: 0.9rem;
     font-weight: 500;
+    margin-bottom: 10px;
   }
   .box_icon span {
     font-size: 0.8rem;
@@ -1370,9 +1370,5 @@
   #search_input {
     height: 30px;
     font-size: 0.8rem;
-  }
-  .box_desc {
-    height: auto;
-    max-height: 43px;
   }
 }
