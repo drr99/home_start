@@ -219,7 +219,7 @@ body {
   font-weight: 500;
   line-height: 1.5;
   color: #333;
-  margin-bottom: 5px;
+  margin-bottom: 8px;
   height: 43px;
   /* 말줄임 */
   display: -webkit-box;
@@ -476,7 +476,6 @@ body {
   .box_desc {
     font-size: 0.9rem;
     font-weight: 500;
-    margin-bottom: 10px;
   }
   .box_icon span {
     font-size: 0.8rem;
