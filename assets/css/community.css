@@ -1,3 +1,4 @@
+/* 커뮤니티 목록 및 박스 */
 body {
   overflow-x: hidden;
   cursor: none;
@@ -225,6 +226,7 @@ body {
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 /* 아이콘 영역 */
