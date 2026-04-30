@@ -99,7 +99,8 @@
   left: 400px;
   width: 206px;
   height: 288px;
-  background: url("../img/moving/moving_checklist.svg") no-repeat center center / contain;
+  background: url("../img/moving/moving_checklist.svg") no-repeat center
+    center / contain;
   z-index: 13;
   overflow: hidden;
 }
@@ -328,13 +329,18 @@
 /* 오른쪽 상단 X 작은 버튼 */
 .popup_close_top {
   position: absolute;
-  top: 1%;
-  right: 1%;
+  top: 0;
+  right: 0;
+  margin-top: 3%;
+  margin-right: 3%;
   background: none;
   font-size: 24px;
   line-height: 1;
   z-index: 10000;
-  scale: 0.8;
+  border: 0;
+  padding: 0;
+  margin-left: 0;
+  margin-bottom: 0;
 }
 
 /* 스크롤 */
@@ -361,14 +367,14 @@ body.modal-open {
 /* 팝업 */
 .photo_popup {
   position: fixed;
-  top: 55%;
+  top: 57%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 999;
   display: none;
 
   width: 850px;
-  height: 85%;
+  height: 82%;
   max-width: 90%;
   background: #fff;
 }
@@ -382,12 +388,17 @@ body.modal-open {
   height: 100%;
   background: #fff;
   display: flex;
+  justify-content: center;
+  align-items: center;
   overflow: hidden;
+  padding: 3%;
+  box-sizing: border-box;
+  position: relative;
 }
 
 .modal_bg_gr {
-  width: 92%;
-  height: 92%;
+  width: 100%;
+  height: 100%;
   background-color: #f0f0f0;
   margin: auto;
   display: flex;
@@ -564,6 +575,17 @@ body.modal-open {
   }
 }
 @media (max-width: 768px) {
+  .popup_close_top {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-top: 4%;
+    margin-right: 4%;
+  }
+  .modal_bg_wh {
+    padding: 4%;
+  }
+
   .img_checklist {
     position: absolute;
     top: 280px;
@@ -639,6 +661,9 @@ body.modal-open {
   }
 }
 @media (max-width: 480px) {
+  .popup_close_top {
+    scale: 0.8;
+  }
   .moving {
     min-height: 1550px; /* photo들이 아래로 이어질 만큼 크게 */
   }
