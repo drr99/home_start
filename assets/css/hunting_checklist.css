@@ -46,12 +46,12 @@ body {
 }
 .check::after {
   content: "\2714";
-  font-size: 25px;
+  font-size: 20px;
   color: #fe3b43;
 
   position: absolute;
   top: -6px;
-  left: 0;
+  left: 3px;
 
   opacity: 0;
   transition: all 0.2s;
@@ -143,13 +143,15 @@ body {
 /* ----------900---------- */
 @media (max-width: 930px) {
   .img_checklist {
-    background: url(../img/hunting_checklist/checklist_mini.svg) no-repeat center 10px;
+    background: url(../img/hunting_checklist/checklist_mini.svg) no-repeat
+      center 10px;
     background-size: 700px auto;
   }
 }
 @media (max-width: 510px) {
   .img_checklist {
-    background: url(../img/hunting_checklist/checklist_phon.svg) no-repeat center 10px;
+    background: url(../img/hunting_checklist/checklist_phon.svg) no-repeat
+      center 10px;
     background-size: auto 1600px;
   }
   .checklist_title {
@@ -185,7 +187,7 @@ body {
     padding-right: 70px;
   }
   .check::after {
-    top: -9px;
+    top: -8px;
   }
   .save_modal {
     padding: 7px 12px;
