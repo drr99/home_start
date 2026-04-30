@@ -195,11 +195,11 @@ img {
 .bb-cursor-text {
   position: absolute;
   left: 51.5%;
-  top: 64%;
+  top: 67.1%;
   transform: translate(-50%, -50%);
 
   display: block;
-  font-size: 6px;
+  font-size: 6.4px;
   color: #ffd2a8;
   font-family: "OngleipEoyeonce";
 
@@ -215,7 +215,7 @@ img {
   transform: translate(-50%, -50%) scale(0.9);
 }
 .bb-cursor.hovering {
-  transform: translate(-50%, -50%) scale(4.2);
+  transform: translate(-50%, -50%) scale(4.1);
   background-image: url("../../img/main/bibi_cursor_spread.svg");
 }
 
