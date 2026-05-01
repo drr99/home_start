@@ -402,13 +402,9 @@ body.bg-bath {
 .more i {
   display: inline-block;
   margin-left: 6px;
-  transition: transform 0.3s ease;
 }
 
-/* CLOSE 상태 + hover일 때만 ▲ */
-.more.open:hover i {
-  transform: rotate(180deg);
-}
+/* CLOSE 상태*/
 .three_btn {
   position: fixed;
   right: 20px;
