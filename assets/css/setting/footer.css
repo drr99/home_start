@@ -2,7 +2,7 @@
   width: 100%;
   background: #742209;
   position: relative;
-  height: 250px;
+  height: 200px;
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -23,7 +23,7 @@
   width: 1000px;
   display: flex;
   color: #edded9;
-  font-size: 22px;
+  font-size: 20px;
   justify-content: space-around;
 }
 
@@ -34,6 +34,7 @@
 
 .footer_desc span {
   display: block;
+  line-height: 1.25;
 }
 
 .section2 .footer_title {
@@ -100,13 +101,9 @@
     width: 85%;
     display: flex;
     color: #edded9;
-    font-size: 22px;
     justify-content: space-around;
   }
   @media (max-width: 1024px) {
-    #footer {
-      height: 220px;
-    }
     .footer_inner {
       padding: 20px;
     }
@@ -117,11 +114,7 @@
       width: 90%;
     }
     .section2 .footer_title {
-      font-size: 24px;
       font-weight: 700;
-    }
-    .section2 .footer_desc {
-      font-size: 20px;
     }
     .footer_inner .section3 {
       gap: 7px;
@@ -134,7 +127,7 @@
   }
   @media (max-width: 768px) {
     #footer {
-      height: 240px;
+      height: 230px;
     }
     .footer_inner {
       padding: 10px 15px;
@@ -146,13 +139,13 @@
     }
     .footer_inner .section2 {
       width: 100%;
-      gap: 20px;
+      gap: 10px;
     }
     .section2 .footer_title {
-      font-size: 20px;
+      font-size: 18px;
     }
     .section2 .footer_desc {
-      font-size: 16px;
+      font-size: 17px;
       overflow-wrap: anywhere;
       word-break: break-word;
     }
@@ -167,9 +160,9 @@
       height: 35px;
     }
   }
-  @media (max-width: 480px) {
+  @media (max-width: 540px) {
     #footer {
-      height: 500px;
+      height: 450px;
       align-items: flex-start;
       padding-top: 10px;
       box-sizing: border-box;
@@ -190,8 +183,7 @@
     .footer_inner .section2 {
       width: 100%;
       flex-direction: column;
-      gap: 22px;
-      font-size: 18px;
+      gap: 13px;
     }
 
     .footer_inner .section2 ul {
@@ -203,26 +195,27 @@
       align-items: flex-start;
       padding: 0 30px;
     }
-
+    .section2 {
+      margin-left: 15%;
+    }
     .section2 .footer_title {
       flex: 1;
 
       flex-shrink: 0;
       padding-bottom: 0;
       padding-right: 30px;
-      font-size: 18px;
       font-weight: 700;
     }
 
     .footer_desc {
       flex: 2;
-      line-height: 1.4;
       font-weight: 500;
     }
     .section2-1 .footer_title {
       font-size: 0;
 
-      background: url(../../img/main/logo_footer.svg) no-repeat left center / contain;
+      background: url(../../img/main/logo_footer.svg) no-repeat left center /
+        contain;
       flex: 1;
 
       height: 30px;

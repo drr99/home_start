@@ -427,7 +427,7 @@ body.bg-bath {
   width: 50px;
   height: 50px;
   opacity: 0;
-  pointer-events: none;
+  pointer-events: auto;
   border: 0;
   background: transparent;
   padding: 0;
@@ -473,19 +473,58 @@ body.bg-bath {
   display: block;
   pointer-events: none;
 }
+.heart,
+.basket,
+.top {
+  position: relative;
+  z-index: 1;
+  width: 50px;
+  height: 50px;
+  opacity: 0;
+  pointer-events: auto;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
 
-.heart:active,
-.basket:active,
-.top:active {
-  transform: scale(0.9);
+  transition:
+    opacity 0.3s ease,
+    transform 0.15s ease;
+  transform: scale(1);
 }
-.heart.clicked,
-.basket.clicked {
-  transform: scale(0.9);
+.heart,
+.basket,
+.top {
+  transition:
+    opacity 0.3s ease,
+    transform 0.15s ease;
+  transform: scale(1);
 }
+
+.heart img,
+.basket img,
+.top img {
+  transition: transform 0.15s ease;
+}
+
+.heart.clicked {
+  transform: scale(0.72);
+}
+
+.basket.clicked,
+.top.clicked {
+  transform: scale(0.72);
+}
+
+.heart.clicked img {
+  transform: scale(0.75);
+}
+
 .shop_slider .swiper-button-next,
 .shop_slider .swiper-button-prev {
-  color: #ff880000;
+  color: #ffffff00;
 }
 #shop_kit,
 #shop_bed,
@@ -500,7 +539,7 @@ body.bg-bath {
     height: 80vh;
     overflow: hidden;
     background: url(../img/shop/shop_bg_1920.svg) no-repeat bottom / cover;
-    padding-bottom: 14%;
+    padding-bottom: 16%;
   }
   .shop_objects {
     margin-bottom: 0%;
